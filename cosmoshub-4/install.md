@@ -2,10 +2,6 @@
 
 This document describes **all required steps** to install, configure, and operate a **Cosmos Hub** node and, if applicable, **create a validator** using **Gaia (gaiad) v25.2.0**.
 
-> ⚠️ **Security Notice**
-> - **DO NOT** publish mnemonics, private keys, `priv_validator_key.json`, `node_key.json`, or credentials.
-> - Use placeholders and store secrets **offline** (hardware wallet, encrypted storage, or password manager).
-
 ---
 
 ## 0) Variables (recommended)
