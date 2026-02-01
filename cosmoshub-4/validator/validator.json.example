@@ -1,0 +1,16 @@
+{
+  "pubkey": {
+    "@type": "/cosmos.crypto.ed25519.PubKey",
+    "key": "<VALIDATOR_CONSENSUS_PUBKEY_BASE64>"
+  },
+  "amount": "1000000uatom",
+  "moniker": "Cumulo",
+  "identity": "77158D6796D16CD0",
+  "website": "https://cumulo.pro",
+  "security": "info@cumulo.pro",
+  "details": "Cumulo is a professional validator focused on security, reliability, and long-term contribution to the Cosmos Hub.",
+  "commission-rate": "0.05",
+  "commission-max-rate": "0.20",
+  "commission-max-change-rate": "0.01",
+  "min-self-delegation": "1"
+}
