@@ -1,6 +1,6 @@
 # Full Node Installation & Validator Setup
 
-This document describes **all required steps** to install, configure, and operate a **Cosmos Hub** node and, if applicable, **create a validator** using **Gaia (gaiad) v25.2.0**.
+This document describes **all required steps** to install, configure, and operate a **Cosmos Hub** node and, if applicable, **create a validator** using **Gaia (gaiad) **.
 
 ---
 
@@ -9,7 +9,7 @@ This document describes **all required steps** to install, configure, and operat
 Adjust these variables before starting:
 
 ```bash
-GAIA_VERSION="v25.2.0"
+GAIA_VERSION="v25.3.0"
 CHAIN_ID="cosmoshub-4"
 NODE_MONIKER="Cumulo"
 GAIA_HOME="$HOME/.gaia"
@@ -79,7 +79,7 @@ Verify version:
 
 ```bash
 gaiad version
-# expected: v25.2.0
+# expected: v25.3.0
 ```
 
 ---
