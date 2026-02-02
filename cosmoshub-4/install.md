@@ -1,4 +1,4 @@
-Full Node Installation & Validator Setup
+# Full Node Installation & Validator Setup
 
 This document describes **all required steps** to install, configure, and operate a **Cosmos Hub** node and, if applicable, **create a validator** using **Gaia (gaiad) v25.2.0**.
 
