@@ -15,7 +15,7 @@ Adjust these variables before starting:
 ```bash
 GAIA_VERSION="v27.0.0-rc0"
 CHAIN_ID="provider"
-NODE_MONIKER="CumuloRPC"
+NODE_MONIKER="your_moniker"
 GAIA_HOME="$HOME/.gaia"
 ```
 
