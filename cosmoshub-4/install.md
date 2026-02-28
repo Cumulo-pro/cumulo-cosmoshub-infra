@@ -9,7 +9,7 @@ This document describes **all required steps** to install, configure, and operat
 Adjust these variables before starting:
 
 ```bash
-GAIA_VERSION="v25.3.1"
+GAIA_VERSION="v26.0.0"
 CHAIN_ID="cosmoshub-4"
 NODE_MONIKER="Cumulo"
 GAIA_HOME="$HOME/.gaia"
