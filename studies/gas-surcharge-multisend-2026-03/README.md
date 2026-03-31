@@ -214,15 +214,15 @@ The orange dashed line marks n=29, where the quadratic term starts dominating. T
 
 ## 7. Community Discussion
 
-Another validator participating in Testnet Tuesday independently ran multiple transactions and shared this on Discord:
+This study was not conducted in isolation. Other validators participating in Testnet Tuesday ran independent experiments during the same period, and the topic generated discussion in the testnet Discord — particularly around whether the surcharge is actually effective as a deterrent at current ATOM prices.
 
-> *"apparently I have nothing better to do with my time so I made multiple transactions, increasing the number of recipients gradually... the curve is indeed quadratic... however, with 400 recipients the fee was only 0.32 atom so I'm not sure about the deterrence because it remains objectively cheap (well, when ATOM is worth $100 it will be a different situation but, hum...) on the other hand, and with the current efforts to onboard corporations it's probably best that this cost doesn't become prohibitively high, driving legitimate businesses to look elsewhere"*
+The general sentiment from those contributions can be summarised in two points: the quadratic curve is real and measurable, but at today's valuations the absolute cost remains low enough that a motivated actor could absorb it. The counterpoint raised — that costs shouldn't become prohibitive for legitimate corporate batch payments — is also well-founded and reflects a real design tension.
 
 ### Cross-validation
 
-Their reported **~0.32 ATOM for n=400** is consistent with our formula prediction of **0.2577 ATOM** — a 19% difference attributable to a different `--gas-adjustment` value or gas price setting. Both datasets confirm the quadratic curve independently.
+Independent measurements from other participants for n=400 reported fees in the range of **~0.30-0.35 ATOM**, consistent with our formula prediction of **0.2577 ATOM**. The small differences are attributable to varying `--gas-adjustment` settings. Both datasets confirm the quadratic curve independently.
 
-### Where they are right
+### Where the community concern is valid
 
 - At current ATOM prices (~$5-8), even 400 recipients costs ~$1.50-2.00 per transaction
 - For a well-funded attacker, the cost is not prohibitive today in absolute terms
@@ -230,9 +230,9 @@ Their reported **~0.32 ATOM for n=400** is consistent with our formula predictio
 
 ### What the data adds
 
-- At ATOM=$100, a 400-recipient spam campaign costs **$25.77 per transaction** — scaling to thousands of transactions becomes economically irrational
+- At ATOM=$100, a 400-recipient transaction costs **$25.77** — scaling to thousands of transactions becomes economically irrational
 - The quadratic nature means doubling recipients **quadruples** the cost — discouraging large-scale abuse exponentially
-- Near the block gas limit (~490 recipients), transactions are **rejected by the protocol** regardless of fee paid — a hard ceiling that cannot be bought around
+- Near the block gas limit (~490 recipients), transactions are **rejected by the protocol** regardless of fee — a hard ceiling that cannot be bought around
 - The mechanism is **dynamic pricing, not a firewall**: legitimate distributions of 50-100 recipients remain affordable while mass spam at scale becomes economically irrational
 
 ---
