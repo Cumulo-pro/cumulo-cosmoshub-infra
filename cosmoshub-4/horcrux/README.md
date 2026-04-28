@@ -15,7 +15,7 @@ The deployment uses **2 sentry nodes** and **3 signer nodes**, distributed acros
 
 ```
                         ┌─────────────┐
-                        │  P2P Network │
+                        │ P2P Network │
                         └──────┬──────┘
                                │ port 26656
               ┌────────────────┼────────────────┐
