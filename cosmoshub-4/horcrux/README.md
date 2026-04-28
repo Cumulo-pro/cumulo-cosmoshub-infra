@@ -46,20 +46,20 @@ This means the validator continues signing blocks normally even if one signer no
 
 ### Sentry Nodes
 
-| Node | Provider | Validator port |
-|------|----------|----------------|
-| Sentry 1 | OVH | 1234 |
-| Sentry 2 | BigVelia | 1235 |
+| Node | Validator port |
+|------|----------------|
+| Sentry 1 | 1234 |
+| Sentry 2 | 1235 |
 
 > **Important:** `priv_validator_key.json` was removed from all sentry nodes after the migration. Sentries act solely as a network interface — they hold no signing material.
 
 ### Signer Nodes
 
-| Node | Provider |
-|------|----------|
-| Signer 1 | OVH |
-| Signer 2 | Arsys |
-| Signer 3 | DigitalOcean |
+| Node |
+|------|
+| Signer 1 |
+| Signer 2 |
+| Signer 3 |
 
 Signers are intentionally distributed across different providers and regions to reduce correlated failure risk.
 
