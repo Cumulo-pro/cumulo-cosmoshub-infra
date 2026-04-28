@@ -33,6 +33,9 @@ The deployment uses **2 sentry nodes** and **3 signer nodes**, distributed acros
 └────────┘ └────────┘ └─────────┘
 ```
 
+<img width="1112" height="338" alt="image" src="https://github.com/user-attachments/assets/564af291-1725-4bc8-93f8-2d59b95bbd28" />
+
+
 ### Threshold
 
 | Parameter | Value |
