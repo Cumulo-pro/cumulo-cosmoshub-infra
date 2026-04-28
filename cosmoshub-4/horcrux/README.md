@@ -46,10 +46,10 @@ This means the validator continues signing blocks normally even if one signer no
 
 ### Sentry Nodes
 
-| Node | Provider | Validator port |
+| Node | Validator port |
 |------|----------|----------------|
-| Sentry 1 | OVH | 1234 |
-| Sentry 2 | BigVelia | 1235 |
+| Sentry 1 | 1234 |
+| Sentry 2 | 1235 |
 
 > **Important:** `priv_validator_key.json` was removed from all sentry nodes after the migration. Sentries act solely as a network interface — they hold no signing material.
 
