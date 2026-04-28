@@ -26,7 +26,7 @@ Date: April 2026 · Testnet Tuesday participation event
 
 Gaia v26 introduced the `x/tokenfactory` module to the Cosmos Hub, enabling any account to create native tokens in a permissionless manner - no governance proposal required. This study documents the full operational lifecycle of a token created through a CosmWasm contract, including the admin control chain, metadata registration, and token supply management.
 
-The token used in this study is **CUM** (Cumulo Validator Community Token), a limited-supply token created to explore the module's capabilities in a real testnet environment. The token is intended as a community and engagement tool for the Cumulo validator's delegators.
+The token used in this study is **CUM** (Cumulo Validator Community Token), a limited-supply token created to explore the module's capabilities in a real testnet environment. 
 
 ---
 
