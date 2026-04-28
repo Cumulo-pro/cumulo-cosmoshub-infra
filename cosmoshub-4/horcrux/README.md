@@ -1,5 +1,8 @@
 # Horcrux - Cosmos Testnet Implementation
 
+<img width="1112" height="338" alt="image" src="https://github.com/user-attachments/assets/e340c86c-9b95-406e-b909-ba1efabf5d92" />
+
+
 ## Overview
 
 This document describes the implementation of [Horcrux](https://github.com/strangelove-ventures/horcrux) on the Cosmos Testnet as a distributed signing (MPC) solution to protect the validator private key. The setup follows a threshold signature scheme (TSS) with a **2-of-3 configuration**: signing requires agreement from at least 2 of the 3 signer nodes, eliminating single points of failure while maintaining high availability.
