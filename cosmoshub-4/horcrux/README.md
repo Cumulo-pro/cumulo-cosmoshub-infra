@@ -1,4 +1,4 @@
-# Horcrux – Cosmos Testnet Implementation
+# Horcrux - Cosmos Testnet Implementation
 
 ## Overview
 
@@ -51,7 +51,7 @@ This means the validator continues signing blocks normally even if one signer no
 | Sentry 1 | 1234 |
 | Sentry 2 | 1235 |
 
-> **Important:** `priv_validator_key.json` was removed from all sentry nodes after the migration. Sentries act solely as a network interface — they hold no signing material.
+> **Important:** `priv_validator_key.json` was removed from all sentry nodes after the migration. Sentries act solely as a network interface - they hold no signing material.
 
 ### Signer Nodes
 
