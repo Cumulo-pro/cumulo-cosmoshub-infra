@@ -290,7 +290,7 @@ Admin after the transfer:
 }
 ```
 
-### 6.4 Registering token metadata — modify-metadata
+### 6.4 Registering token metadata - modify-metadata
 
 With the wallet now as direct admin, we registered the token's metadata so it appears correctly in explorers and wallets:
 
