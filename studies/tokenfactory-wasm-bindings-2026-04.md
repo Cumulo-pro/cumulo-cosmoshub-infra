@@ -1,10 +1,10 @@
 # Empirical Study: `x/tokenfactory` CosmWasm Bindings and Admin Lifecycle in Gaia v26
 
-Validator: `cosmos1cdekug2t0rzjjw96yaytw4ryt4u0mzwyaskz3m`
-Chain: `provider` (Cosmos Hub ICS Testnet)
-Reference: [cosmos/testnets — testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)
+Validator: `cosmos1cdekug2t0rzjjw96yaytw4ryt4u0mzwyaskz3m`  
+Chain: `provider` (Cosmos Hub ICS Testnet)  
+Reference: [cosmos/testnets — testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)  
 6 real on-chain transactions · Operations tested: instantiate, create_denom, mint, change_admin, modify-metadata, burn
-Date: April 2026 · Testnet Tuesday participation event
+Date: April 2026 · Testnet Tuesday participation event  
 
 ---
 
@@ -24,7 +24,7 @@ Date: April 2026 · Testnet Tuesday participation event
 
 ## 1. Background
 
-Gaia v26 introduced the `x/tokenfactory` module to the Cosmos Hub, enabling any account to create native tokens in a permissionless manner — no governance proposal required. This study documents the full operational lifecycle of a token created through a CosmWasm contract, including the admin control chain, metadata registration, and token supply management.
+Gaia v26 introduced the `x/tokenfactory` module to the Cosmos Hub, enabling any account to create native tokens in a permissionless manner - no governance proposal required. This study documents the full operational lifecycle of a token created through a CosmWasm contract, including the admin control chain, metadata registration, and token supply management.
 
 The token used in this study is **CUM** (Cumulo Validator Community Token), a limited-supply token created to explore the module's capabilities in a real testnet environment. The token is intended as a community and engagement tool for the Cumulo validator's delegators.
 
