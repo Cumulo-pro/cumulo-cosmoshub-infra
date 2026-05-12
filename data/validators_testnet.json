@@ -17,5 +17,35 @@
     "Validator Info": "Explorer and validator analytics platform providing visibility into Cosmos Hub testnet activity, voting history and network participation.",
     "Governance": "Historical governance tracking and voting activity analysis for testnet proposals and validator participation."
   }
+},
+  {
+"name":"ITRocket",
+"webservices":"https://itrocket.net/services/testnet/cosmos/",
+"x":"itrocket_team",
+"validatorlogo":"itrocket.png",
+"explorer":"https://itrocket.net/services/testnet/cosmos/",
+"peers":"5359d38055601c523dbbec5c6fd7168d36354c16@cosmos-testnet-peer.itrocket.net:21656",
+"seed":"84871382a3ffa5e781034b6519126f2d5ea29f15@cosmos-testnet-seed.itrocket.net:21656",
+"api":"https://cosmos-testnet-api.itrocket.net",
+"rpc":"https://cosmos-testnet-rpc.itrocket.net",
+"grpc":"cosmos-testnet-grpc.itrocket.net:443",
+"addrbook":"https://server-2.itrocket.net/testnet/cosmos/addrbook.json",
+"snapshot":"https://server-2.itrocket.net/testnet/cosmos/",
+"tools":"Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
+"tools_url":{
+"Validator Analytics":"https://itrocket.net/services/testnet/cosmos/",
+"Consensus Analytics":"https://itrocket.net/services/testnet/cosmos/",
+"Peer Scanner":"https://itrocket.net/services/testnet/cosmos/",
+"Public RPC":"https://itrocket.net/services/testnet/cosmos/public-rpc/"
+},
+"tools_desc":{
+"Validator Analytics":"Validator monitoring and uptime analytics for Cosmos Hub testnet infrastructure.",
+"Consensus Analytics":"Consensus-level monitoring and testnet participation visibility tools.",
+"Peer Scanner":"Live peer discovery and peer quality scanner for Cosmos Hub testnet nodes.",
+"Public RPC":"Curated public Cosmos Hub testnet RPC endpoint directory with availability checks."
+},
+"content":{
+"Installation Guide":"https://itrocket.net/services/testnet/cosmos/"
+}
 }
 ]
