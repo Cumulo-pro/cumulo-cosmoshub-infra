@@ -51,5 +51,35 @@
 "content":{
     "Installation Guide":"https://explorer.nodestake.org/cosmos"
     }
+},
+  {
+"name":"ITRocket",
+"webservices":"https://www.itrocket.net/services/mainnet/cosmoshub/",
+"x":"itrocket_team",
+"validatorlogo":"itrocket.png",
+"explorer":"https://www.itrocket.net/services/mainnet/cosmoshub/",
+"peers":"cbc6e2c364fec853fc74f01d4926c6046d9b2067@cosmoshub-mainnet-peer.itrocket.net:34656",
+"seed":"00bf1f9d3c65137dc99c40cd03864384ce0ef7c3@cosmoshub-mainnet-seed.itrocket.net:34656",
+"api":"https://cosmoshub-mainnet-api.itrocket.net",
+"rpc":"https://cosmoshub-mainnet-rpc.itrocket.net",
+"grpc":"cosmoshub-mainnet-grpc.itrocket.net:443",
+"addrbook":"https://server-1.itrocket.net/mainnet/cosmoshub/addrbook.json",
+"snapshot":"https://server-1.itrocket.net/mainnet/cosmoshub/",
+"tools":"Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
+"tools_url":{
+"Validator Analytics":"https://itrocket.net/services/mainnet/cosmoshub/analytics/validators-performance/?view=uptime&mode=full&range=allTime%20-",
+"Consensus Analytics":"https://itrocket.net/services/mainnet/cosmoshub/analytics/consensus/",
+"Peer Scanner":"https://www.itrocket.net/services/mainnet/cosmoshub/",
+"Public RPC":"https://www.itrocket.net/services/mainnet/cosmoshub/public-rpc/"
+},
+"tools_desc":{
+"Validator Analytics":"Performance analytics dashboard providing uptime, validator activity, and historical Cosmos Hub validator metrics.",
+"Consensus Analytics":"Consensus-level monitoring and analytics for Cosmos Hub block production and network participation.",
+"Peer Scanner":"Live peer discovery and peer quality monitoring infrastructure for Cosmos Hub nodes.",
+"Public RPC":"Curated public Cosmos Hub RPC endpoint directory with uptime and archival status visibility."
+},
+"content":{
+"Installation Guide":"https://www.itrocket.net/services/mainnet/cosmoshub/"
+}
 }
 ]
