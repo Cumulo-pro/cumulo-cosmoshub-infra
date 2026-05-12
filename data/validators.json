@@ -81,5 +81,21 @@
 "content":{
 "Installation Guide":"https://www.itrocket.net/services/mainnet/cosmoshub/"
 }
+},
+  {
+"name":"Cosmos Rescue",
+"webservices":"https://cosmosrescue.com/",
+"x":"cosmosrescue",
+"validatorlogo":"cosmosrescue.jpg",
+"rpc":"https://cosmoshub-rpc.cosmosrescue.dev",
+"api":"https://cosmoshub-api.cosmosrescue.dev",
+"tools_url":{
+"Relayer Stats":"https://cosmosrescue.com/",
+"Atom Circuit":"https://atomcircuit.net/"
+},
+"tools_desc":{
+"Relayer Stats":"Public relayer infrastructure and monitoring services supporting interchain connectivity across Cosmos ecosystem networks.",
+"Atom Circuit":"Permissionless swap platform where protocol fees are used to buy and permanently stake ATOM with a validator selected by the user."
+}
 }
 ]
