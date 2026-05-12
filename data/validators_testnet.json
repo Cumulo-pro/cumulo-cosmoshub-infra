@@ -3,7 +3,7 @@
   "name": "Citizen Web3",
   "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
   "x": "citizen_web3",
-  "validatorlogo": "citizenweb3.jpg",
+  "validatorlogo": "citizen_web3.jpg",
   "explorer": "https://validatorinfo.com",
   "seed": "736e65e94044b3c7fb158777223dce48047441fd@195.201.197.246:30656",
   "api": "https://api.provider.citizenweb3.com/",
