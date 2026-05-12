@@ -1,0 +1,21 @@
+[
+{
+  "name": "Citizen Web3",
+  "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
+  "x": "citizen_web3",
+  "validatorlogo": "citizenweb3.jpg",
+  "explorer": "https://validatorinfo.com",
+  "seed": "736e65e94044b3c7fb158777223dce48047441fd@195.201.197.246:30656",
+  "api": "https://api.provider.citizenweb3.com/",
+  "rpc": "https://rpc.provider.citizenweb3.com/",
+  "grpc": "grpc.provider.citizenweb3.com",
+  "tools_url": {
+    "Validator Info": "https://validatorinfo.com",
+    "Governance": "Voting History"
+  },
+  "tools_desc": {
+    "Validator Info": "Explorer and validator analytics platform providing visibility into Cosmos Hub testnet activity, voting history and network participation.",
+    "Governance": "Historical governance tracking and voting activity analysis for testnet proposals and validator participation."
+  }
+}
+]
