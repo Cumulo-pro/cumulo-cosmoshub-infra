@@ -1,0 +1,30 @@
+[
+  {
+  "name": "Citizen Web3",
+  "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
+  "x": "citizen_web3",
+  "validatorlogo": "citizenweb3.jpg",
+  "explorer": "https://validatorinfo.com/networks/cosmoshub/tx",
+  "seed": "d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@mainnet.seednode.citizenweb3.com:26656",
+  "api": "https://api.cosmoshub-4.citizenweb3.com/",
+  "rpc": "https://rpc.cosmoshub-4.citizenweb3.com/",
+  "grpc": "grpc.cosmoshub-4.citizenweb3.com",
+  "websocket": "wss://rpc.cosmoshub-4.citizenweb3.com/websocket",
+  "archive_rpc": "https://rpc.cosmoshub-4-archive.citizenweb3.com/",
+  "archive_api": "https://api.cosmoshub-4-archive.citizenweb3.com/",
+  "archive_grpc": "grpc.cosmoshub-4-archive.citizenweb3.com",
+  "snapshot": "https://staking.citizenweb3.com/chains/cosmoshub",
+  "tools_url": {
+    "Indexer": "https://indexer.cosmoshub-4.citizenweb3.com/docs",
+    "Relayers": "https://staking.citizenweb3.com/chains/cosmoshub"
+  },
+  "tools_desc": {
+    "Indexer": "Production-grade Cosmos Hub indexer providing structured access to blocks, transactions, and chain events via OpenAPI 3.1.",
+    "Relayers": "Active IBC relayer infrastructure connecting Cosmos Hub with Osmosis, Neutron, Stride, Gravity-Bridge, Bostrom, and Namada."
+  },
+  "content": {
+    "Infrastructure": "https://github.com/citizenweb3/staking#citizen-web3-validator-architecture",
+    "IBC Relayers": "Cosmoshub<->Osmosis;Cosmoshub<->Neutron;Cosmoshub<->Stride;Cosmoshub<->Gravity-Bridge;Cosmoshub<->Bostrom;Cosmoshub<->Namada"
+  }
+}
+]
