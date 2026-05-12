@@ -26,5 +26,30 @@
     "Infrastructure": "https://github.com/citizenweb3/staking#citizen-web3-validator-architecture",
     "IBC Relayers": "Cosmoshub<->Osmosis;Cosmoshub<->Neutron;Cosmoshub<->Stride;Cosmoshub<->Gravity-Bridge;Cosmoshub<->Bostrom;Cosmoshub<->Namada"
   }
+},
+  {
+"name":"NodeStake",
+"webservices":"https://nodestake.org/xrp",
+"x":"NodeStake_top",
+"validatorlogo":"nodestake.jpg",
+"explorer":"https://explorer.nodestake.org/cosmos",
+"seed":"327fb4151de9f78f29ff10714085e347a4e3c836@rpc.cosmos.nodestake.org:666",
+"api":"https://api.cosmos.nodestake.org",
+"rpc":"https://rpc.cosmos.nodestake.org",
+"grpc":"grpc.cosmos.nodestake.org:443",
+"peers":"27ad834c62dbefc5beb74be7575515927bd07c58@37.120.245.50:26656,7b15dce221b13ca353187b4f7219a94db6b71ad3@185.119.118.109:2000,6ecca845883e9273062ee515d2657080e6539d9e@65.109.32.148:26726,f527c58fb1c30eca8c4226edd7495c9bc2ec69b5@46.4.80.48:14956",
+"addrbook":"https://ss.cosmos.nodestake.org/addrbook.json",
+"snapshot":"https://ss.cosmos.nodestake.org/2026-05-12_cosmos_31080507.tar.lz4",
+"tools_url":{
+  "State Sync":"https://ss.cosmos.nodestake.org/addrbook.json",
+  "Snapshots Browser":"https://ss.cosmos.nodestake.org/"
+},
+"tools_desc":{
+  "State Sync":"State sync and snapshot-based bootstrap for Cosmos Hub mainnet.",
+  "Snapshots Browser":"Snapshot distribution and availability system for fast restoration."
+},
+"content":{
+    "Installation Guide":"https://explorer.nodestake.org/cosmos"
+    }
 }
 ]
