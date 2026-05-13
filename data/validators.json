@@ -111,12 +111,14 @@
     "tools": "Cosmos Node Monitoring,Cosmos Hub Activity Tracker",
     "tools_url": {
       "Cosmos Node Monitoring": "https://cumulo.pro/services/cosmos/monitoring",
-      "Cosmos Hub Activity Tracker": "https://cumulo.pro/services/cosmos/activity",
-      "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
+      "Cosmos Hub Activity Tracker": "https://cumulo.pro/services/cosmos/activity"
     },
     "tools_desc": {
       "Cosmos Node Monitoring": "Grafana-based monitoring dashboard for Cosmos mainnet nodes providing real-time metrics, system observability and performance tracking via Node Exporter integration.",
       "Cosmos Hub Activity Tracker": "Operational activity dashboard for Cosmos Hub mainnet covering validator behavior, RPC usage and network participation analytics."
+    },
+     "content": {
+       "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
     }
   }
 ]
