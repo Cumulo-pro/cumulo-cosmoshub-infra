@@ -99,6 +99,32 @@
     }
   },
   {
+  "name": "Polkachu",
+  "webservices": "https://www.polkachu.com/networks/cosmos",
+  "x": "polka_chu",
+  "validatorlogo": "polkachu.jpg",
+  "explorer": "",
+  "seed": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@seeds.polkachu.com:14956",
+  "api": "https://cosmos-api.polkachu.com/",
+  "rpc": "https://cosmos-rpc.polkachu.com/",
+  "grpc": "cosmos-grpc.polkachu.com:14990",
+  "peers": "a7f14a48cd97c0eae7833849ccdf4e9418622c56@65.108.128.201:14956",
+  "addrbook": "https://snapshots.polkachu.com/addrbook/cosmos/addrbook.json",
+  "snapshot": "https://www.polkachu.com/tendermint_snapshots/cosmos",
+  "archive_snapshot": "",
+  "tools_url": {
+    "State-sync": "https://www.polkachu.com/state_sync/cosmos",
+    "Live Peers": "https://www.polkachu.com/live_peers/cosmos",
+    "IBC Relaying": "https://www.polkachu.com/relayers#cosmos",
+    "Installation Guide": "https://www.polkachu.com/installation/cosmos"
+  },
+  "tools_desc": {
+    "State-sync": "State sync instructions and parameters for fast Cosmos Hub node bootstrap using Polkachu infrastructure.",
+    "Live Peers": "Real-time list of active Cosmos Hub peers observed by Polkachu state-sync infrastructure for improved connectivity.",
+    "IBC Relaying": "Information and infrastructure related to Polkachu IBC relayer operations across Cosmos ecosystem chains."
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
