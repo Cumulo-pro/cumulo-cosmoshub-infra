@@ -1,51 +1,74 @@
 [
-{
-  "name": "Citizen Web3",
-  "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
-  "x": "citizen_web3",
-  "validatorlogo": "citizen_web3.jpg",
-  "explorer": "https://validatorinfo.com",
-  "seed": "736e65e94044b3c7fb158777223dce48047441fd@195.201.197.246:30656",
-  "api": "https://api.provider.citizenweb3.com/",
-  "rpc": "https://rpc.provider.citizenweb3.com/",
-  "grpc": "grpc.provider.citizenweb3.com",
-  "tools_url": {
-    "Validator Info": "https://validatorinfo.com",
-    "Governance": "Voting History"
-  },
-  "tools_desc": {
-    "Validator Info": "Explorer and validator analytics platform providing visibility into Cosmos Hub testnet activity, voting history and network participation.",
-    "Governance": "Historical governance tracking and voting activity analysis for testnet proposals and validator participation."
-  }
-},
   {
-"name":"ITRocket",
-"webservices":"https://itrocket.net/services/testnet/cosmos/",
-"x":"itrocket_team",
-"validatorlogo":"itrocket.png",
-"explorer":"https://itrocket.net/services/testnet/cosmos/",
-"peers":"5359d38055601c523dbbec5c6fd7168d36354c16@cosmos-testnet-peer.itrocket.net:21656",
-"seed":"84871382a3ffa5e781034b6519126f2d5ea29f15@cosmos-testnet-seed.itrocket.net:21656",
-"api":"https://cosmos-testnet-api.itrocket.net",
-"rpc":"https://cosmos-testnet-rpc.itrocket.net",
-"grpc":"cosmos-testnet-grpc.itrocket.net:443",
-"addrbook":"https://server-2.itrocket.net/testnet/cosmos/addrbook.json",
-"snapshot":"https://server-2.itrocket.net/testnet/cosmos/",
-"tools":"Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
-"tools_url":{
-"Validator Analytics":"https://itrocket.net/services/testnet/cosmos/",
-"Consensus Analytics":"https://itrocket.net/services/testnet/cosmos/",
-"Peer Scanner":"https://itrocket.net/services/testnet/cosmos/",
-"Public RPC":"https://itrocket.net/services/testnet/cosmos/public-rpc/"
-},
-"tools_desc":{
-"Validator Analytics":"Validator monitoring and uptime analytics for Cosmos Hub testnet infrastructure.",
-"Consensus Analytics":"Consensus-level monitoring and testnet participation visibility tools.",
-"Peer Scanner":"Live peer discovery and peer quality scanner for Cosmos Hub testnet nodes.",
-"Public RPC":"Curated public Cosmos Hub testnet RPC endpoint directory with availability checks."
-},
-"content":{
-"Installation Guide":"https://itrocket.net/services/testnet/cosmos/"
-}
-}
+    "name": "Citizen Web3",
+    "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
+    "x": "citizen_web3",
+    "validatorlogo": "citizen_web3.jpg",
+    "explorer": "https://validatorinfo.com",
+    "seed": "736e65e94044b3c7fb158777223dce48047441fd@195.201.197.246:30656",
+    "api": "https://api.provider.citizenweb3.com/",
+    "rpc": "https://rpc.provider.citizenweb3.com/",
+    "grpc": "grpc.provider.citizenweb3.com",
+    "tools_url": {
+      "Validator Info": "https://validatorinfo.com",
+      "Governance": "Voting History"
+    },
+    "tools_desc": {
+      "Validator Info": "Explorer and validator analytics platform providing visibility into Cosmos Hub testnet activity, voting history and network participation.",
+      "Governance": "Historical governance tracking and voting activity analysis for testnet proposals and validator participation."
+    }
+  },
+  {
+    "name": "ITRocket",
+    "webservices": "https://itrocket.net/services/testnet/cosmos/",
+    "x": "itrocket_team",
+    "validatorlogo": "itrocket.png",
+    "explorer": "https://itrocket.net/services/testnet/cosmos/",
+    "peers": "5359d38055601c523dbbec5c6fd7168d36354c16@cosmos-testnet-peer.itrocket.net:21656",
+    "seed": "84871382a3ffa5e781034b6519126f2d5ea29f15@cosmos-testnet-seed.itrocket.net:21656",
+    "api": "https://cosmos-testnet-api.itrocket.net",
+    "rpc": "https://cosmos-testnet-rpc.itrocket.net",
+    "grpc": "cosmos-testnet-grpc.itrocket.net:443",
+    "addrbook": "https://server-2.itrocket.net/testnet/cosmos/addrbook.json",
+    "snapshot": "https://server-2.itrocket.net/testnet/cosmos/",
+    "tools": "Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
+    "tools_url": {
+      "Validator Analytics": "https://itrocket.net/services/testnet/cosmos/",
+      "Consensus Analytics": "https://itrocket.net/services/testnet/cosmos/",
+      "Peer Scanner": "https://itrocket.net/services/testnet/cosmos/",
+      "Public RPC": "https://itrocket.net/services/testnet/cosmos/public-rpc/"
+    },
+    "tools_desc": {
+      "Validator Analytics": "Validator monitoring and uptime analytics for Cosmos Hub testnet infrastructure.",
+      "Consensus Analytics": "Consensus-level monitoring and testnet participation visibility tools.",
+      "Peer Scanner": "Live peer discovery and peer quality scanner for Cosmos Hub testnet nodes.",
+      "Public RPC": "Curated public Cosmos Hub testnet RPC endpoint directory with availability checks."
+    },
+    "content": {
+      "Installation Guide": "https://itrocket.net/services/testnet/cosmos/"
+    }
+  },
+  {
+    "name": "Cumulo",
+    "webservices": "https://cumulo.pro/services/cosmos_testnet/",
+    "x": "Cumulo_pro",
+    "validatorlogo": "cumulo.jpg",
+    "explorer": "https://cumulo.pro/services/cosmos_testnet/stats",
+    "rpc": "https://cosmos.rpc.testnet.cumulo.me",
+    "websocket": "wss://cosmos.rpc.testnet.cumulo.me/websocket",
+    "api": "https://cosmos.api.testnet.cumulo.me",
+    "grpc": "https://cosmos.grpc.testnet.cumulo.me",
+    "addrbook": "https://files.cumulo.me/testnet/cosmoshub/addrbook.json",
+    "tools_url": {
+      "Cosmos Metrics and Grafana Dashboard": "https://cumulo.pro/services/cosmos_testnet/monitoring",
+      "Cosmos Hub Activity Tracker": "https://cumulo.pro/services/cosmos_testnet/activity"
+    },
+    "tools_desc": {
+      "Cosmos Metrics and Grafana Dashboard": "Grafana-based monitoring stack for Cosmos testnet validators and RPC nodes with real-time metrics and system observability.",
+      "Cosmos Hub Activity Tracker": "Operational activity dashboard tracking validator participation, RPC infrastructure and Cosmos Hub testnet node operations."
+    },
+    "content": {
+      "Installation Guide": "https://cumulo.pro/services/cosmos_testnet/install"
+    }
+  }
 ]
