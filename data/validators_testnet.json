@@ -49,6 +49,33 @@
     }
   },
   {
+    "name": "Polkachu",
+    "webservices": "https://www.polkachu.com/testnets/cosmos",
+    "x": "polka_chu",
+    "validatorlogo": "polkachu.jpg",
+    "api": "https://cosmos-testnet-api.polkachu.com/",
+    "rpc": "https://cosmos-testnet-rpc.polkachu.com/",
+    "grpc": "cosmos-testnet-grpc.polkachu.com:14990",
+    "seed": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@testnet-seeds.polkachu.com:14956",
+    "addrbook": "https://snapshots.polkachu.com/testnet-addrbook/cosmos/addrbook.json",
+    "snapshot": "https://www.polkachu.com/testnets/cosmos/snapshots",
+    "state_sync": "https://www.polkachu.com/testnets/cosmos/state_sync",
+    "peers": "ae35eb87fbe117392159e8ec8fa65f7f14cd613f@37.27.0.90:26656,7d6d0529e4045c3ae3a80ff19fb711676f757bd6@35.210.49.135:26656,0cf26b47c7b0df497c37e812a3e362c550c56ecb@168.119.5.174:26656,c41a7021971d9592d25e039edc84aad3e3326e02@148.113.49.50:26656,21654e36c038598c742d21b808fa9b0914d266af@136.36.77.130:15006,a7e4f10c4e3c4ff28eb82fed5e394984e10dcd3a@92.145.78.239:26656,3126d07d97b5faf3ca6ee052803015ea6afdf151@134.119.219.101:26716,023bbf72de933e51d31ce0682423cb303d879f81@95.217.201.244:26656,209e68400b139400ef7c666a7780718b43157023@148.113.49.60:26656,0ee0629ac60cc23bca5ba341bd5b22b58bb8a5d9@185.135.81.50:28556",
+    "tools": "State-Sync,Snapshot,Live Peers,Installation Guide",
+    "tools_url": {
+      "State-Sync": "https://www.polkachu.com/testnets/cosmos/state_sync",
+      "Snapshots": "https://www.polkachu.com/testnets/cosmos/snapshots",
+      "Live Peers": "https://www.polkachu.com/live_peers/cosmos",
+      "Installation Guide": "https://www.polkachu.com/testnets/cosmos/installation"
+    },
+    "tools_desc": {
+      "State-Sync": "Fast node bootstrap using Polkachu state-sync infrastructure for Cosmos Hub testnet.",
+      "Snapshots": "Compressed snapshot archives for rapid node initialization and recovery.",
+      "Live Peers": "Real-time list of active Cosmos Hub testnet peers for persistent peer configuration.",
+      "Installation Guide": "Step-by-step instructions for deploying and configuring a Cosmos Hub testnet node."
+    }
+  },
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos_testnet/",
     "x": "Cumulo_pro",
