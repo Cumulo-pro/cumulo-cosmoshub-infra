@@ -1,101 +1,122 @@
 [
   {
-  "name": "Citizen Web3",
-  "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
-  "x": "citizen_web3",
-  "validatorlogo": "citizen_web3.jpg",
-  "explorer": "https://validatorinfo.com/networks/cosmoshub/tx",
-  "seed": "d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@mainnet.seednode.citizenweb3.com:26656",
-  "api": "https://api.cosmoshub-4.citizenweb3.com/",
-  "rpc": "https://rpc.cosmoshub-4.citizenweb3.com/",
-  "grpc": "grpc.cosmoshub-4.citizenweb3.com",
-  "websocket": "wss://rpc.cosmoshub-4.citizenweb3.com/websocket",
-  "archive_rpc": "https://rpc.cosmoshub-4-archive.citizenweb3.com/",
-  "archive_api": "https://api.cosmoshub-4-archive.citizenweb3.com/",
-  "archive_grpc": "grpc.cosmoshub-4-archive.citizenweb3.com",
-  "snapshot": "https://staking.citizenweb3.com/chains/cosmoshub",
-  "tools_url": {
-    "Indexer": "https://indexer.cosmoshub-4.citizenweb3.com/docs",
-    "Relayers": "https://staking.citizenweb3.com/chains/cosmoshub"
-  },
-  "tools_desc": {
-    "Indexer": "Production-grade Cosmos Hub indexer providing structured access to blocks, transactions, and chain events via OpenAPI 3.1.",
-    "Relayers": "Active IBC relayer infrastructure connecting Cosmos Hub with Osmosis, Neutron, Stride, Gravity-Bridge, Bostrom, and Namada."
-  },
-  "content": {
-    "Infrastructure": "https://github.com/citizenweb3/staking#citizen-web3-validator-architecture",
-    "IBC Relayers": "Cosmoshub<->Osmosis;Cosmoshub<->Neutron;Cosmoshub<->Stride;Cosmoshub<->Gravity-Bridge;Cosmoshub<->Bostrom;Cosmoshub<->Namada"
-  }
-},
-  {
-"name":"NodeStake",
-"webservices":"https://nodestake.org/xrp",
-"x":"NodeStake_top",
-"validatorlogo":"nodestake.jpg",
-"explorer":"https://explorer.nodestake.org/cosmos",
-"seed":"327fb4151de9f78f29ff10714085e347a4e3c836@rpc.cosmos.nodestake.org:666",
-"api":"https://api.cosmos.nodestake.org",
-"rpc":"https://rpc.cosmos.nodestake.org",
-"grpc":"grpc.cosmos.nodestake.org:443",
-"peers":"27ad834c62dbefc5beb74be7575515927bd07c58@37.120.245.50:26656,7b15dce221b13ca353187b4f7219a94db6b71ad3@185.119.118.109:2000,6ecca845883e9273062ee515d2657080e6539d9e@65.109.32.148:26726,f527c58fb1c30eca8c4226edd7495c9bc2ec69b5@46.4.80.48:14956",
-"addrbook":"https://ss.cosmos.nodestake.org/addrbook.json",
-"snapshot":"https://ss.cosmos.nodestake.org/2026-05-12_cosmos_31080507.tar.lz4",
-"tools_url":{
-  "State Sync":"https://ss.cosmos.nodestake.org/addrbook.json",
-  "Snapshots Browser":"https://ss.cosmos.nodestake.org/"
-},
-"tools_desc":{
-  "State Sync":"State sync and snapshot-based bootstrap for Cosmos Hub mainnet.",
-  "Snapshots Browser":"Snapshot distribution and availability system for fast restoration."
-},
-"content":{
-    "Installation Guide":"https://explorer.nodestake.org/cosmos"
+    "name": "Citizen Web3",
+    "webservices": "https://staking.citizenweb3.com/chains/cosmoshub",
+    "x": "citizen_web3",
+    "validatorlogo": "citizen_web3.jpg",
+    "explorer": "https://validatorinfo.com/networks/cosmoshub/tx",
+    "seed": "d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@mainnet.seednode.citizenweb3.com:26656",
+    "api": "https://api.cosmoshub-4.citizenweb3.com/",
+    "rpc": "https://rpc.cosmoshub-4.citizenweb3.com/",
+    "grpc": "grpc.cosmoshub-4.citizenweb3.com",
+    "websocket": "wss://rpc.cosmoshub-4.citizenweb3.com/websocket",
+    "archive_rpc": "https://rpc.cosmoshub-4-archive.citizenweb3.com/",
+    "archive_api": "https://api.cosmoshub-4-archive.citizenweb3.com/",
+    "archive_grpc": "grpc.cosmoshub-4-archive.citizenweb3.com",
+    "snapshot": "https://staking.citizenweb3.com/chains/cosmoshub",
+    "tools_url": {
+      "Indexer": "https://indexer.cosmoshub-4.citizenweb3.com/docs",
+      "Relayers": "https://staking.citizenweb3.com/chains/cosmoshub"
+    },
+    "tools_desc": {
+      "Indexer": "Production-grade Cosmos Hub indexer providing structured access to blocks, transactions, and chain events via OpenAPI 3.1.",
+      "Relayers": "Active IBC relayer infrastructure connecting Cosmos Hub with Osmosis, Neutron, Stride, Gravity-Bridge, Bostrom, and Namada."
+    },
+    "content": {
+      "Infrastructure": "https://github.com/citizenweb3/staking#citizen-web3-validator-architecture",
+      "IBC Relayers": "Cosmoshub<->Osmosis;Cosmoshub<->Neutron;Cosmoshub<->Stride;Cosmoshub<->Gravity-Bridge;Cosmoshub<->Bostrom;Cosmoshub<->Namada"
     }
-},
+  },
   {
-"name":"ITRocket",
-"webservices":"https://www.itrocket.net/services/mainnet/cosmoshub/",
-"x":"itrocket_team",
-"validatorlogo":"itrocket.png",
-"explorer":"https://www.itrocket.net/services/mainnet/cosmoshub/",
-"peers":"cbc6e2c364fec853fc74f01d4926c6046d9b2067@cosmoshub-mainnet-peer.itrocket.net:34656",
-"seed":"00bf1f9d3c65137dc99c40cd03864384ce0ef7c3@cosmoshub-mainnet-seed.itrocket.net:34656",
-"api":"https://cosmoshub-mainnet-api.itrocket.net",
-"rpc":"https://cosmoshub-mainnet-rpc.itrocket.net",
-"grpc":"cosmoshub-mainnet-grpc.itrocket.net:443",
-"addrbook":"https://server-1.itrocket.net/mainnet/cosmoshub/addrbook.json",
-"snapshot":"https://server-1.itrocket.net/mainnet/cosmoshub/",
-"tools":"Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
-"tools_url":{
-"Validator Analytics":"https://itrocket.net/services/mainnet/cosmoshub/analytics/validators-performance/?view=uptime&mode=full&range=allTime%20-",
-"Consensus Analytics":"https://itrocket.net/services/mainnet/cosmoshub/analytics/consensus/",
-"Peer Scanner":"https://www.itrocket.net/services/mainnet/cosmoshub/",
-"Public RPC":"https://www.itrocket.net/services/mainnet/cosmoshub/public-rpc/"
-},
-"tools_desc":{
-"Validator Analytics":"Performance analytics dashboard providing uptime, validator activity, and historical Cosmos Hub validator metrics.",
-"Consensus Analytics":"Consensus-level monitoring and analytics for Cosmos Hub block production and network participation.",
-"Peer Scanner":"Live peer discovery and peer quality monitoring infrastructure for Cosmos Hub nodes.",
-"Public RPC":"Curated public Cosmos Hub RPC endpoint directory with uptime and archival status visibility."
-},
-"content":{
-"Installation Guide":"https://www.itrocket.net/services/mainnet/cosmoshub/"
-}
-},
+    "name": "NodeStake",
+    "webservices": "https://nodestake.org/xrp",
+    "x": "NodeStake_top",
+    "validatorlogo": "nodestake.jpg",
+    "explorer": "https://explorer.nodestake.org/cosmos",
+    "seed": "327fb4151de9f78f29ff10714085e347a4e3c836@rpc.cosmos.nodestake.org:666",
+    "api": "https://api.cosmos.nodestake.org",
+    "rpc": "https://rpc.cosmos.nodestake.org",
+    "grpc": "grpc.cosmos.nodestake.org:443",
+    "peers": "27ad834c62dbefc5beb74be7575515927bd07c58@37.120.245.50:26656,7b15dce221b13ca353187b4f7219a94db6b71ad3@185.119.118.109:2000,6ecca845883e9273062ee515d2657080e6539d9e@65.109.32.148:26726,f527c58fb1c30eca8c4226edd7495c9bc2ec69b5@46.4.80.48:14956",
+    "addrbook": "https://ss.cosmos.nodestake.org/addrbook.json",
+    "snapshot": "https://ss.cosmos.nodestake.org/2026-05-12_cosmos_31080507.tar.lz4",
+    "tools_url": {
+      "State Sync": "https://ss.cosmos.nodestake.org/addrbook.json",
+      "Snapshots Browser": "https://ss.cosmos.nodestake.org/"
+    },
+    "tools_desc": {
+      "State Sync": "State sync and snapshot-based bootstrap for Cosmos Hub mainnet.",
+      "Snapshots Browser": "Snapshot distribution and availability system for fast restoration."
+    },
+    "content": {
+      "Installation Guide": "https://explorer.nodestake.org/cosmos"
+    }
+  },
   {
-"name":"Cosmos Rescue",
-"webservices":"https://cosmosrescue.com/",
-"x":"cosmosrescue",
-"validatorlogo":"cosmosrescue.jpg",
-"rpc":"https://cosmoshub-rpc.cosmosrescue.dev",
-"api":"https://cosmoshub-api.cosmosrescue.dev",
-"tools_url":{
-"Relayer Stats":"https://cosmosrescue.com/",
-"Atom Circuit":"https://atomcircuit.net/"
-},
-"tools_desc":{
-"Relayer Stats":"Public relayer infrastructure and monitoring services supporting interchain connectivity across Cosmos ecosystem networks.",
-"Atom Circuit":"Permissionless swap platform where protocol fees are used to buy and permanently stake ATOM with a validator selected by the user."
-}
-}
+    "name": "ITRocket",
+    "webservices": "https://www.itrocket.net/services/mainnet/cosmoshub/",
+    "x": "itrocket_team",
+    "validatorlogo": "itrocket.png",
+    "explorer": "https://www.itrocket.net/services/mainnet/cosmoshub/",
+    "peers": "cbc6e2c364fec853fc74f01d4926c6046d9b2067@cosmoshub-mainnet-peer.itrocket.net:34656",
+    "seed": "00bf1f9d3c65137dc99c40cd03864384ce0ef7c3@cosmoshub-mainnet-seed.itrocket.net:34656",
+    "api": "https://cosmoshub-mainnet-api.itrocket.net",
+    "rpc": "https://cosmoshub-mainnet-rpc.itrocket.net",
+    "grpc": "cosmoshub-mainnet-grpc.itrocket.net:443",
+    "addrbook": "https://server-1.itrocket.net/mainnet/cosmoshub/addrbook.json",
+    "snapshot": "https://server-1.itrocket.net/mainnet/cosmoshub/",
+    "tools": "Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
+    "tools_url": {
+      "Validator Analytics": "https://itrocket.net/services/mainnet/cosmoshub/analytics/validators-performance/?view=uptime&mode=full&range=allTime%20-",
+      "Consensus Analytics": "https://itrocket.net/services/mainnet/cosmoshub/analytics/consensus/",
+      "Peer Scanner": "https://www.itrocket.net/services/mainnet/cosmoshub/",
+      "Public RPC": "https://www.itrocket.net/services/mainnet/cosmoshub/public-rpc/"
+    },
+    "tools_desc": {
+      "Validator Analytics": "Performance analytics dashboard providing uptime, validator activity, and historical Cosmos Hub validator metrics.",
+      "Consensus Analytics": "Consensus-level monitoring and analytics for Cosmos Hub block production and network participation.",
+      "Peer Scanner": "Live peer discovery and peer quality monitoring infrastructure for Cosmos Hub nodes.",
+      "Public RPC": "Curated public Cosmos Hub RPC endpoint directory with uptime and archival status visibility."
+    },
+    "content": {
+      "Installation Guide": "https://www.itrocket.net/services/mainnet/cosmoshub/"
+    }
+  },
+  {
+    "name": "Cosmos Rescue",
+    "webservices": "https://cosmosrescue.com/",
+    "x": "cosmosrescue",
+    "validatorlogo": "cosmosrescue.jpg",
+    "rpc": "https://cosmoshub-rpc.cosmosrescue.dev",
+    "api": "https://cosmoshub-api.cosmosrescue.dev",
+    "tools_url": {
+      "Relayer Stats": "https://cosmosrescue.com/",
+      "Atom Circuit": "https://atomcircuit.net/"
+    },
+    "tools_desc": {
+      "Relayer Stats": "Public relayer infrastructure and monitoring services supporting interchain connectivity across Cosmos ecosystem networks.",
+      "Atom Circuit": "Permissionless swap platform where protocol fees are used to buy and permanently stake ATOM with a validator selected by the user."
+    }
+  },
+  {
+    "name": "Cumulo",
+    "webservices": "https://cumulo.pro/services/cosmos/",
+    "x": "Cumulo_pro",
+    "validatorlogo": "cumulo.jpg",
+    "explorer": "https://cumulo.pro/services/cosmos/stats",
+    "rpc": "https://rpc.cosmos.cumulo.com.es",
+    "websocket": "wss://rpc.cosmos.cumulo.com.es/websocket",
+    "api": "https://api.cosmos.cumulo.com.es",
+    "grpc": "https://grpc.cosmos.cumulo.com.es",
+    "tools": "Cosmos Node Monitoring,Cosmos Hub Activity Tracker",
+    "tools_url": {
+      "Cosmos Node Monitoring": "https://cumulo.pro/services/cosmos/monitoring",
+      "Cosmos Hub Activity Tracker": "https://cumulo.pro/services/cosmos/activity",
+      "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
+    },
+    "tools_desc": {
+      "Cosmos Node Monitoring": "Grafana-based monitoring dashboard for Cosmos mainnet nodes providing real-time metrics, system observability and performance tracking via Node Exporter integration.",
+      "Cosmos Hub Activity Tracker": "Operational activity dashboard for Cosmos Hub mainnet covering validator behavior, RPC usage and network participation analytics."
+    }
+  }
 ]
