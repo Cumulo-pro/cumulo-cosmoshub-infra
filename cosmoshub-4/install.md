@@ -102,12 +102,12 @@ $HOME/.gaia
 
 ### Genesis
 ```bash
-wget -O "$GAIA_HOME/config/genesis.json"   https://snapshots.polkachu.com/genesis/cosmos/genesis.json --inet4-only
+wget -O "$GAIA_HOME/config/genesis.json"  https://snapshots.polkachu.com/genesis/cosmos/genesis.json --inet4-only
 ```
 
 ### Addrbook
 ```bash
-wget -O "$GAIA_HOME/config/addrbook.json"   https://server-1.itrocket.net/mainnet/cosmoshub/addrbook.json
+wget -O "$GAIA_HOME/config/addrbook.json"  https://files2.cumulo.me/mainnet/cosmoshub/addrbook.json
 ```
 
 ---
