@@ -2,7 +2,7 @@
 
 Validator: `cosmos1cdekug2t0rzjjw96yaytw4ryt4u0mzwyaskz3m`  
 Chain: `provider` (Cosmos Hub ICS Testnet)  
-Reference: [cosmos/testnets — testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)  
+Reference: [cosmos/testnets - testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)  
 6 real on-chain transactions · Operations tested: instantiate, create_denom, mint, change_admin, modify-metadata, burn
 Date: April 2026 · Testnet Tuesday participation event  
 
@@ -63,14 +63,14 @@ The `x/tokenfactory` module exposes bindings to CosmWasm, allowing smart contrac
 In this study, we use a minimal sample contract (code ID `360`) uploaded to the provider testnet. The contract exposes the following interface:
 
 **Execute messages:**
-- `create_denom` — registers a new subdenom via the tokenfactory module
-- `mint_tokens` — mints tokens to a specified address
-- `change_admin` — transfers the denom admin to a new address
+- `create_denom` - registers a new subdenom via the tokenfactory module
+- `mint_tokens` - mints tokens to a specified address
+- `change_admin` - transfers the denom admin to a new address
 
 **Query messages:**
-- `get_denom` — returns the computed denom for a given creator and subdenom
+- `get_denom` - returns the computed denom for a given creator and subdenom
 
-When a denom is created through the contract, the **contract itself becomes the admin** of the denom — not the user's wallet. This is a critical distinction explored in detail in Section 6.
+When a denom is created through the contract, the **contract itself becomes the admin** of the denom - not the user's wallet. This is a critical distinction explored in detail in Section 6.
 
 ---
 
@@ -108,7 +108,7 @@ gaiad tx wasm instantiate 360 "{}" \
   -y
 ```
 
-> `--no-admin` prevents anyone from migrating or upgrading the contract after deployment. `"{}"` is the empty instantiation message — this contract requires no initialization parameters.
+> `--no-admin` prevents anyone from migrating or upgrading the contract after deployment. `"{}"` is the empty instantiation message - this contract requires no initialization parameters.
 
 **TX:** [C613BBE90941D92A161994D1B8CB0E8180A2DB662F754A8282551DC4873F9051](https://cumulo.pro/services/cosmos_testnet/search?q=C613BBE90941D92A161994D1B8CB0E8180A2DB662F754A8282551DC4873F9051)
 
@@ -257,9 +257,9 @@ gaiad q wasm contract-state smart \
 }
 ```
 
-> **Note:** The contract's `get_denom` query returns the *computed* denom based on the creator address provided — it constructs the denom string locally. The *actual* on-chain denom uses the contract's address as creator, not the user wallet's. These are two different things.
+> **Note:** The contract's `get_denom` query returns the *computed* denom based on the creator address provided - it constructs the denom string locally. The *actual* on-chain denom uses the contract's address as creator, not the user wallet's. These are two different things.
 
-### 6.3 Transferring admin to the wallet — change_admin
+### 6.3 Transferring admin to the wallet - change_admin
 
 To operate directly on the denom without routing through the contract, we transferred the admin from the contract to our wallet. The contract implements `change_admin` as an execute message:
 
@@ -309,7 +309,7 @@ gaiad tx tokenfactory modify-metadata \
   -y
 ```
 
-> The `6` exponent defines that 1 CUM = 1,000,000 base units — the same precision as ATOM.
+> The `6` exponent defines that 1 CUM = 1,000,000 base units - the same precision as ATOM.
 
 **TX:** [7CF4C6B245C4089954A29BA2CA28B8FBC95F870A71DBEE505FCE7E1E2DC5BC67](https://cumulo.pro/services/cosmos_testnet/search?q=7CF4C6B245C4089954A29BA2CA28B8FBC95F870A71DBEE505FCE7E1E2DC5BC67)
 
@@ -337,7 +337,7 @@ On-chain metadata result:
 }
 ```
 
-### 6.5 Burning tokens — deflationary supply management
+### 6.5 Burning tokens - deflationary supply management
 
 We burned 100 units to demonstrate permanent supply reduction:
 
@@ -405,7 +405,7 @@ gaiad tx tokenfactory force-transfer "<amount><denom>" <from_addr> <to_addr> --f
 # Transfer admin to another wallet
 gaiad tx tokenfactory change-admin <denom> <new_admin_address> --from <key>
 
-# Renounce admin permanently — token becomes immutable (IRREVERSIBLE)
+# Renounce admin permanently - token becomes immutable (IRREVERSIBLE)
 gaiad tx tokenfactory change-admin <denom> "" --from <key>
 
 # Update token name, symbol, description and decimal precision
@@ -448,7 +448,7 @@ When a denom is created through a CosmWasm contract, the contract address become
 The sample contract (code ID 360) only implements `create_denom`, `mint_tokens`, and `change_admin`. Operations like `burn`, `force-transfer`, or `modify-metadata` are not available as contract messages and must be called directly once admin is transferred.
 
 **3. Admin transfer is a one-way door if renounced.**
-Calling `change_admin` with an empty string (`""`) permanently removes all admin control. The token supply becomes fixed forever — no minting, burning, or metadata updates are possible. This can be a desirable property for a community token seeking credible supply scarcity.
+Calling `change_admin` with an empty string (`""`) permanently removes all admin control. The token supply becomes fixed forever - no minting, burning, or metadata updates are possible. This can be a desirable property for a community token seeking credible supply scarcity.
 
 **4. The `get_denom` contract query is a local computation, not an on-chain lookup.**
 The query constructs the denom string from the inputs provided rather than reading from chain state. It uses the `creator_address` argument, not the contract's own address, which can be misleading.
@@ -462,8 +462,8 @@ The query constructs the denom string from the inputs provided rather than readi
 
 | Resource | Link |
 |----------|------|
-| Task specification | [cosmos/testnets — demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25) |
-| Sample contract source | [cosmos/tokenfactory — wasm-demo](https://github.com/cosmos/tokenfactory/tree/main/wasm-demo/contracts/tokenfactory) |
+| Task specification | [cosmos/testnets - demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25) |
+| Sample contract source | [cosmos/tokenfactory - wasm-demo](https://github.com/cosmos/tokenfactory/tree/main/wasm-demo/contracts/tokenfactory) |
 | CosmWasm token-factory bindings | [CosmWasm/token-factory](https://github.com/CosmWasm/token-factory) |
 | Osmosis tokenfactory module docs | [docs.osmosis.zone/tokenfactory](https://docs.osmosis.zone/overview/features/tokenfactory/) |
 | Cosmos Developer Documentation | [docs.cosmos.network](https://docs.cosmos.network/) |
