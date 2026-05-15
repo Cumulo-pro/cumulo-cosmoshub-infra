@@ -2,9 +2,9 @@
 
 Validator: `cosmos1cdekug2t0rzjjw96yaytw4ryt4u0mzwyaskz3m`  
 Chain: `provider` (Cosmos Hub ICS Testnet)  
-Reference: [cosmos/testnets — testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)  
+Reference: [cosmos/testnets - testnet-tuesdays/demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25)  
 6 real on-chain transactions · Operations tested: instantiate, create_denom, mint, change_admin, modify-metadata, burn  
-**Updated May 2026** — extended with orphan denom scenario and enterprise compliance investigation  
+**Updated May 2026** - extended with orphan denom scenario and enterprise compliance investigation  
 Date: April–May 2026 · Testnet Tuesday participation event
 
 ---
@@ -17,8 +17,8 @@ Date: April–May 2026 · Testnet Tuesday participation event
 4. [Methodology](#4-methodology)
 5. [Task Execution](#5-task-execution)
 6. [Admin Lifecycle Investigation](#6-admin-lifecycle-investigation)
-7. [Orphan Denom — Compound Risk Scenario](#7-orphan-denom--compound-risk-scenario)
-8. [Enterprise Compliance — Capability Boundaries](#8-enterprise-compliance--capability-boundaries)
+7. [Orphan Denom - Compound Risk Scenario](#7-orphan-denom--compound-risk-scenario)
+8. [Enterprise Compliance - Capability Boundaries](#8-enterprise-compliance--capability-boundaries)
 9. [Extended Operations Reference](#9-extended-operations-reference)
 10. [Key Findings](#10-key-findings)
 11. [Sources & Verification](#11-sources--verification)
@@ -70,14 +70,14 @@ The `x/tokenfactory` module exposes bindings to CosmWasm, allowing smart contrac
 In this study, we use a minimal sample contract (code ID `360`) uploaded to the provider testnet. The contract exposes the following interface:
 
 **Execute messages:**
-- `create_denom` — registers a new subdenom via the tokenfactory module
-- `mint_tokens` — mints tokens to a specified address
-- `change_admin` — transfers the denom admin to a new address
+- `create_denom` - registers a new subdenom via the tokenfactory module
+- `mint_tokens` - mints tokens to a specified address
+- `change_admin` - transfers the denom admin to a new address
 
 **Query messages:**
-- `get_denom` — returns the computed denom for a given creator and subdenom
+- `get_denom` - returns the computed denom for a given creator and subdenom
 
-When a denom is created through the contract, the **contract itself becomes the admin** of the denom — not the user's wallet. This is a critical distinction explored in detail in Section 6.
+When a denom is created through the contract, the **contract itself becomes the admin** of the denom - not the user's wallet. This is a critical distinction explored in detail in Section 6.
 
 ---
 
@@ -116,7 +116,7 @@ gaiad tx wasm instantiate 360 "{}" \
   -y
 ```
 
-> `--no-admin` prevents anyone from migrating or upgrading the contract after deployment. `"{}"` is the empty instantiation message — this contract requires no initialization parameters.
+> `--no-admin` prevents anyone from migrating or upgrading the contract after deployment. `"{}"` is the empty instantiation message - this contract requires no initialization parameters.
 
 **TX:** [C613BBE90941D92A161994D1B8CB0E8180A2DB662F754A8282551DC4873F9051](https://cumulo.pro/services/cosmos_testnet/search?q=C613BBE90941D92A161994D1B8CB0E8180A2DB662F754A8282551DC4873F9051)
 
@@ -265,9 +265,9 @@ gaiad q wasm contract-state smart \
 }
 ```
 
-> ⚠️ **Production footgun:** The contract's `get_denom` query constructs the denom string from the `creator_address` argument provided — it does **not** read from chain state. If you pass your wallet address, you get back a denom that does not exist on-chain. The real denom uses the **contract's address** as creator, not the user wallet's. Testing locally with your wallet address will appear to work correctly, but the denom will be wrong in production. Always verify against `gaiad q tokenfactory denoms-from-admin <contract_address>`.
+> ⚠️ **Production footgun:** The contract's `get_denom` query constructs the denom string from the `creator_address` argument provided - it does **not** read from chain state. If you pass your wallet address, you get back a denom that does not exist on-chain. The real denom uses the **contract's address** as creator, not the user wallet's. Testing locally with your wallet address will appear to work correctly, but the denom will be wrong in production. Always verify against `gaiad q tokenfactory denoms-from-admin <contract_address>`.
 
-### 6.3 Transferring admin to the wallet — change_admin
+### 6.3 Transferring admin to the wallet - change_admin
 
 To operate directly on the denom without routing through the contract, we transferred the admin from the contract to our wallet. The contract implements `change_admin` as an execute message:
 
@@ -317,7 +317,7 @@ gaiad tx tokenfactory modify-metadata \
   -y
 ```
 
-> The `6` exponent defines that 1 CUM = 1,000,000 base units — the same precision as ATOM.
+> The `6` exponent defines that 1 CUM = 1,000,000 base units - the same precision as ATOM.
 
 **TX:** [7CF4C6B245C4089954A29BA2CA28B8FBC95F870A71DBEE505FCE7E1E2DC5BC67](https://cumulo.pro/services/cosmos_testnet/search?q=7CF4C6B245C4089954A29BA2CA28B8FBC95F870A71DBEE505FCE7E1E2DC5BC67)
 
@@ -345,7 +345,7 @@ On-chain metadata result:
 }
 ```
 
-### 6.5 Burning tokens — deflationary supply management
+### 6.5 Burning tokens - deflationary supply management
 
 We burned 100 units to demonstrate permanent supply reduction:
 
@@ -369,7 +369,7 @@ gaiad tx tokenfactory burn \
 
 ---
 
-## 7. Orphan Denom — Compound Risk Scenario
+## 7. Orphan Denom - Compound Risk Scenario
 
 This section documents a compound failure mode identified by the community following the original study: the combination of `--no-admin` contract deployment and admin renouncement can produce a denom that is permanently inoperable by anyone.
 
@@ -377,8 +377,8 @@ This section documents a compound failure mode identified by the community follo
 
 Two independently documented behaviors combine to create an irreversible dead end:
 
-- **`--no-admin` on contract instantiation** — the contract cannot be upgraded or migrated. Any logic not present at deployment is permanently absent.
-- **Admin renouncement** — transferring the denom admin to an empty address (`""`) or a burn address removes all admin control forever.
+- **`--no-admin` on contract instantiation** - the contract cannot be upgraded or migrated. Any logic not present at deployment is permanently absent.
+- **Admin renouncement** - transferring the denom admin to an empty address (`""`) or a burn address removes all admin control forever.
 
 When both conditions are met simultaneously, the result is an **orphan denom**: a token whose supply is permanently frozen, with no contract able to operate it (immutable) and no wallet able to control it (admin renounced).
 
@@ -388,7 +388,7 @@ When both conditions are met simultaneously, the result is an **orphan denom**: 
 
 We reproduced the orphan denom scenario on the provider testnet using a new contract and denom specifically created for this purpose.
 
-**Step 1 — Instantiate a new immutable contract**
+**Step 1 - Instantiate a new immutable contract**
 
 ```bash
 gaiad tx wasm instantiate 360 "{}" \
@@ -407,7 +407,7 @@ gaiad tx wasm instantiate 360 "{}" \
 
 Contract address: `cosmos14wqld0v6a4a4wr8ucya58melfyutg6s7u6cs0t9l8e59rpfhrz7qzqd35x`
 
-**Step 2 — Create denom ORPHAN**
+**Step 2 - Create denom ORPHAN**
 
 ```bash
 gaiad tx wasm execute cosmos14wqld0v6a4a4wr8ucya58melfyutg6s7u6cs0t9l8e59rpfhrz7qzqd35x \
@@ -434,7 +434,7 @@ Admin confirmed as contract:
 }
 ```
 
-**Step 3 — Attempt to renounce admin directly from the contract**
+**Step 3 - Attempt to renounce admin directly from the contract**
 
 The demo contract rejects an empty `new_admin_address`:
 
@@ -445,7 +445,7 @@ Input is empty: execute wasm contract failed
 
 > This is an additional finding: the CosmWasm demo contract validates that `new_admin_address` is non-empty, blocking direct renouncement through the contract interface. Renouncement requires transferring admin to a wallet first, then executing the renouncement from the wallet.
 
-**Step 4 — Transfer admin to wallet**
+**Step 4 - Transfer admin to wallet**
 
 ```bash
 gaiad tx wasm execute cosmos14wqld0v6a4a4wr8ucya58melfyutg6s7u6cs0t9l8e59rpfhrz7qzqd35x \
@@ -464,7 +464,7 @@ gaiad tx wasm execute cosmos14wqld0v6a4a4wr8ucya58melfyutg6s7u6cs0t9l8e59rpfhrz7
 
 **TX:** [4217029DF12C8F28597A37AE881F532DA5BD1F669C8B8A85022AB355A485FCA1](https://cumulo.pro/services/cosmos_testnet/search?q=4217029DF12C8F28597A37AE881F532DA5BD1F669C8B8A85022AB355A485FCA1)
 
-**Step 5 — Renounce admin to burn address (IRREVERSIBLE)**
+**Step 5 - Renounce admin to burn address (IRREVERSIBLE)**
 
 > `gaiad tx tokenfactory change-admin <denom> ""` is rejected by the CLI with `Invalid address (empty address string is not allowed)`. The standard method for permanent renouncement on the Cosmos Hub is to transfer admin to the canonical burn address.
 
@@ -493,7 +493,7 @@ Admin confirmed as burn address:
 }
 ```
 
-**Step 6 — Attempt to operate the orphan denom**
+**Step 6 - Attempt to operate the orphan denom**
 
 Any attempt to mint, burn, or transfer the ORPHAN denom now fails:
 
@@ -505,7 +505,7 @@ The denom is permanently inoperable. Neither the contract (immutable, `--no-admi
 
 ---
 
-## 8. Enterprise Compliance — Capability Boundaries
+## 8. Enterprise Compliance - Capability Boundaries
 
 This section investigates which tokenfactory operations relevant to regulated asset issuance are available in Gaia v26, following the enterprise compliance discussion on the Cosmos Hub Forum.
 
@@ -586,18 +586,18 @@ Error: this capability is not enabled on chain
 
 ### 8.5 Analysis
 
-The error `this capability is not enabled on chain` originates at `baseapp.go` — the Cosmos SDK message router layer — not at the tokenfactory keeper. This means the messages are not registered in the Hub's message router, regardless of whether the CLI supports them or the module implements them.
+The error `this capability is not enabled on chain` originates at `baseapp.go` - the Cosmos SDK message router layer - not at the tokenfactory keeper. This means the messages are not registered in the Hub's message router, regardless of whether the CLI supports them or the module implements them.
 
 | Operation | CLI available | On-chain (Gaia v26) | Error source |
 |-----------|--------------|---------------------|--------------|
-| `mint` | ✅ | ✅ | — |
-| `burn` | ✅ | ✅ | — |
-| `change-admin` | ✅ | ✅ | — |
-| `modify-metadata` | ✅ | ✅ | — |
+| `mint` | ✅ | ✅ | - |
+| `burn` | ✅ | ✅ | - |
+| `change-admin` | ✅ | ✅ | - |
+| `modify-metadata` | ✅ | ✅ | - |
 | `burn-from` | ✅ | ❌ | `baseapp.go:1051` |
 | `force-transfer` | ✅ | ❌ | `baseapp.go:1051` |
 
-The tokenfactory module parameters (queried via `gaiad q tokenfactory params`) expose only `denom_creation_fee` and `denom_creation_gas_consume` — no parameter controls the availability of these messages. Enabling `burn-from` and `force-transfer` on the Cosmos Hub would require a software upgrade that registers these message types in the baseapp router.
+The tokenfactory module parameters (queried via `gaiad q tokenfactory params`) expose only `denom_creation_fee` and `denom_creation_gas_consume` - no parameter controls the availability of these messages. Enabling `burn-from` and `force-transfer` on the Cosmos Hub would require a software upgrade that registers these message types in the baseapp router.
 
 ### 8.6 Implication for enterprise use cases
 
@@ -644,16 +644,16 @@ gaiad tx tokenfactory mint-to "<amount><denom>" <recipient_address> --from <key>
 # Burn tokens from your wallet (permanent)
 gaiad tx tokenfactory burn "<amount><denom>" --from <key>
 
-# Burn tokens held by another address — NOT ENABLED in Gaia v26
+# Burn tokens held by another address - NOT ENABLED in Gaia v26
 # gaiad tx tokenfactory burn-from "<amount><denom>" <address> --from <key>
 
-# Move tokens between two addresses without their consent — NOT ENABLED in Gaia v26
+# Move tokens between two addresses without their consent - NOT ENABLED in Gaia v26
 # gaiad tx tokenfactory force-transfer "<amount><denom>" <from_addr> <to_addr> --from <key>
 
 # Transfer admin to another wallet
 gaiad tx tokenfactory change-admin <denom> <new_admin_address> --from <key>
 
-# Renounce admin permanently — transfer to burn address (IRREVERSIBLE)
+# Renounce admin permanently - transfer to burn address (IRREVERSIBLE)
 # Note: passing "" as new admin is rejected by both the CLI and the demo contract
 gaiad tx tokenfactory change-admin <denom> cosmos1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnrql8a --from <key>
 
@@ -703,19 +703,19 @@ When a denom is created through a CosmWasm contract, the contract address become
 The sample contract (code ID 360) only implements `create_denom`, `mint_tokens`, and `change_admin`. Operations like `burn`, `force-transfer`, or `modify-metadata` are not available as contract messages and must be called directly once admin is transferred.
 
 **3. Admin transfer is a one-way door if renounced.**
-Calling `change_admin` with an empty string (`""`) permanently removes all admin control. The token supply becomes fixed forever — no minting, burning, or metadata updates are possible. This can be a desirable property for a community token seeking credible supply scarcity.
+Calling `change_admin` with an empty string (`""`) permanently removes all admin control. The token supply becomes fixed forever - no minting, burning, or metadata updates are possible. This can be a desirable property for a community token seeking credible supply scarcity.
 
 **4. `get_denom` is a local computation, not an on-chain lookup.**
-> ⚠️ **Production footgun.** The query constructs the denom string from the `creator_address` argument provided, not from chain state. If you pass your wallet address when testing, you get a denom that looks valid but does not exist on-chain — the real denom uses the contract's address as creator. Always verify the actual denom via `gaiad q tokenfactory denoms-from-admin <contract_address>`.
+> ⚠️ **Production footgun.** The query constructs the denom string from the `creator_address` argument provided, not from chain state. If you pass your wallet address when testing, you get a denom that looks valid but does not exist on-chain - the real denom uses the contract's address as creator. Always verify the actual denom via `gaiad q tokenfactory denoms-from-admin <contract_address>`.
 
 **5. subdenom is case-sensitive.**
 `CUM` and `cum` would be registered as two distinct denoms.
 
 **6. `--no-admin` + renouncement = orphan denom (compound risk).**
-Deploying a contract with `--no-admin` makes it permanently immutable. If the denom admin is subsequently renounced (transferred to a burn address), the resulting denom has no entity capable of operating it — the contract cannot be upgraded to add the logic, and no wallet holds admin rights. This state is irreversible. Additionally, the demo contract itself rejects empty `new_admin_address` values, so renouncement requires a two-step process: transfer admin to a wallet first, then renounce from the wallet to the burn address `cosmos1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnrql8a`.
+Deploying a contract with `--no-admin` makes it permanently immutable. If the denom admin is subsequently renounced (transferred to a burn address), the resulting denom has no entity capable of operating it - the contract cannot be upgraded to add the logic, and no wallet holds admin rights. This state is irreversible. Additionally, the demo contract itself rejects empty `new_admin_address` values, so renouncement requires a two-step process: transfer admin to a wallet first, then renounce from the wallet to the burn address `cosmos1qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqnrql8a`.
 
 **7. `burn-from` and `force-transfer` are not registered in Gaia v26.**
-Both commands exist in the `gaiad` CLI and are implemented in the `cosmos/tokenfactory` module, but the Cosmos Hub's Gaia v26 integration does not register these message types in the baseapp message router. Attempts to execute them return `this capability is not enabled on chain` at `cosmos-sdk@v0.53.6/baseapp/baseapp.go:1051`. These operations are not controllable via governance parameters — enabling them would require a software upgrade.
+Both commands exist in the `gaiad` CLI and are implemented in the `cosmos/tokenfactory` module, but the Cosmos Hub's Gaia v26 integration does not register these message types in the baseapp message router. Attempts to execute them return `this capability is not enabled on chain` at `cosmos-sdk@v0.53.6/baseapp/baseapp.go:1051`. These operations are not controllable via governance parameters - enabling them would require a software upgrade.
 
 ---
 
@@ -723,8 +723,8 @@ Both commands exist in the `gaiad` CLI and are implemented in the `cosmos/tokenf
 
 | Resource | Link |
 |----------|------|
-| Task specification | [cosmos/testnets — demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25) |
-| Sample contract source | [cosmos/tokenfactory — wasm-demo](https://github.com/cosmos/tokenfactory/tree/main/wasm-demo/contracts/tokenfactory) |
+| Task specification | [cosmos/testnets - demoday25](https://github.com/cosmos/testnets/tree/master/testnet-tuesdays/demoday25) |
+| Sample contract source | [cosmos/tokenfactory - wasm-demo](https://github.com/cosmos/tokenfactory/tree/main/wasm-demo/contracts/tokenfactory) |
 | CosmWasm token-factory bindings | [CosmWasm/token-factory](https://github.com/CosmWasm/token-factory) |
 | Osmosis tokenfactory module docs | [docs.osmosis.zone/tokenfactory](https://docs.osmosis.zone/overview/features/tokenfactory/) |
 | Cosmos Developer Documentation | [docs.cosmos.network](https://docs.cosmos.network/) |
@@ -733,7 +733,7 @@ Both commands exist in the `gaiad` CLI and are implemented in the `cosmos/tokenf
 
 ### On-chain transaction log
 
-**Original study — April 2026**
+**Original study - April 2026**
 
 | Operation | TX Hash | Explorer |
 |-----------|---------|---------|
@@ -744,7 +744,7 @@ Both commands exist in the `gaiad` CLI and are implemented in the `cosmos/tokenf
 | Set token metadata | `7CF4C6B2...` | [view](https://cumulo.pro/services/cosmos_testnet/search?q=7CF4C6B245C4089954A29BA2CA28B8FBC95F870A71DBEE505FCE7E1E2DC5BC67) |
 | Burn 100 CUM | `E080A82B...` | [view](https://cumulo.pro/services/cosmos_testnet/search?q=E080A82B56EB0A5BEE5EB282889C5F9BD24174FAFE661C1CF0319B8B8186CFDC) |
 
-**Extended study — May 2026**
+**Extended study - May 2026**
 
 | Operation | TX Hash | Explorer |
 |-----------|---------|---------|
