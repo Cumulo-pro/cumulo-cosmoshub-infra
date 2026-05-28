@@ -177,6 +177,27 @@
   }
 },
   {
+  "name": "Nodes Hub",
+  "webservices": "https://services.nodeshub.online/mainnet/cosmos",
+  "x": "NodesHub",
+  "validatorlogo": "nodeshub.jpg",
+  "seed": "6f6a3a908634b79b6fe7c4988efec2553f188234@cosmos.seed.nodeshub.online:14956",
+  "api": "https://cosmos.api.nodeshub.online",
+  "rpc": "https://cosmos.rpc.nodeshub.online",
+  "grpc": "https://cosmos.grpc.nodeshub.online",
+  "peers": "d9e1182c592a286d16e492a61c4026c79254c7ba@190.2.143.61:26656,a900dc924c07beecaf92c48510d9cb9d647607d0@162.19.60.166:26356,1da54d20c7339713f1d6d28dd2117087dd33d0ca@5.9.59.145:26656,8220e8029929413afff48dccc6a263e9ac0c3e5e@204.16.247.237:26656,d565edaa51392938ebecbb7f02001b6a91b9f6cf@159.69.70.55:60756,9d2cd8c2e32c3f3d480ccb2c5133cd06e8fe3939@148.251.6.198:26630,aa70e2cc756b8dd9e265e578197d3049d67d731f@93.189.30.109:26656,7387927874d1950a36e895c0cdf2d198b0bfaef8@135.181.174.106:26656,ea43dd766d5127f5fb886358365f3841b2c6188b@64.185.227.122:14956,4ddba29a7dfa740a4edeb5c620c963f67f951e1d@5.9.72.212:2000",
+  "addrbook": "https://files.nodeshub.online/mainnet/cosmos/addrbook.json",
+  "tools_url": {
+    "Installation Guide": "https://services.nodeshub.online/mainnet/cosmos"
+  },
+  "tools_desc": {
+    "Installation Guide": "Node setup guide and infrastructure services for Cosmos Hub mainnet including endpoints, peers, addrbook and genesis file."
+  },
+  "content": {
+    "Genesis": "https://files.nodeshub.online/mainnet/cosmos/genesis.json"
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
