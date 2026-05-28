@@ -125,6 +125,38 @@
   }
 },
   {
+  "name": "kjnodes",
+  "webservices": "https://services.kjnodes.com/mainnet/cosmoshub/",
+  "x": "kjnodes",
+  "validatorlogo": "kjnodes.jpg",
+  "explorer": "https://explorer.kjnodes.com/cosmoshub",
+  "seed": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc@cosmoshub.rpc.kjnodes.com:13459",
+  "api": "https://cosmoshub.api.kjnodes.com",
+  "rpc": "https://cosmoshub.rpc.kjnodes.com",
+  "grpc": "cosmoshub.grpc.kjnodes.com:443",
+  "peers": "d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub.rpc.kjnodes.com:13456",
+  "addrbook": "https://snapshots.kjnodes.com/cosmoshub/addrbook.json",
+  "snapshot": "https://snapshots.kjnodes.com/cosmoshub/snapshot_latest.tar.lz4",
+  "tools_url": {
+    "State Sync": "https://services.kjnodes.com/mainnet/cosmoshub/state-sync/",
+    "Snapshot": "https://services.kjnodes.com/mainnet/cosmoshub/snapshot/",
+    "Public RPC": "https://services.kjnodes.com/mainnet/cosmoshub/public-rpc/",
+    "Slashboard": "https://services.kjnodes.com/mainnet/cosmoshub/slashboard/",
+    "Useful Commands": "https://services.kjnodes.com/mainnet/cosmoshub/useful-commands/"
+  },
+  "tools_desc": {
+    "State Sync": "State sync endpoint and instructions for fast Cosmos Hub node bootstrap using kjnodes infrastructure.",
+    "Snapshot": "Daily pruned snapshots (every 6 hours) for fast Cosmos Hub node restoration, currently at 63+ GB.",
+    "Public RPC": "Curated public Cosmos Hub RPC endpoints maintained by kjnodes with uptime monitoring.",
+    "Slashboard": "Validator slashing and downtime monitoring dashboard for Cosmos Hub mainnet.",
+    "Useful Commands": "Reference guide of useful Cosmos Hub CLI commands for node operators and validators."
+  },
+  "content": {
+    "Installation Guide": "https://services.kjnodes.com/mainnet/cosmoshub/installation/",
+    "Upgrade Guide": "https://services.kjnodes.com/mainnet/cosmoshub/upgrade/"
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
