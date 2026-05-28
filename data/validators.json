@@ -157,6 +157,26 @@
   }
 },
   {
+  "name": "Enigma",
+  "webservices": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices",
+  "x": "EnigmaValidator",
+  "validatorlogo": "enigma.jpg",
+  "rpc": "https://cosmos-rpc.enigma-validator.com/",
+  "api": "https://cosmos-lcd.enigma-validator.com/",
+  "snapshot": "https://services.enigma-validator.com/cosmos/cosmos_None.tar.lz4",
+  "tools_url": {
+    "Installation Guide": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node",
+    "Snapshot": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices"
+  },
+  "tools_desc": {
+    "Installation Guide": "Step-by-step guide for setting up and configuring a Cosmos Hub node using Enigma's infrastructure and documentation.",
+    "Snapshot": "Periodic pruned snapshots for fast Cosmos Hub node restoration via Enigma's node services infrastructure."
+  },
+  "content": {
+    "Node Setup": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node"
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
