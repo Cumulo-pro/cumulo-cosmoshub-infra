@@ -293,6 +293,16 @@
   }
 },
   {
+  "name": "Stakecito Labs",
+  "webservices": "https://www.stakecito.com/chain-services/cosmos-hub",
+  "x": "stakecito",
+  "validatorlogo": "stakecito.jpg",
+  "seed": "e26a43cd3378167abebdb64926e1cb38d393bc71@cosmos-seed.stakecito.com:26656",
+  "rpc": "https://cosmos-rpc.stakecito.com",
+  "api": "https://cosmos-api.stakecito.com",
+  "grpc": "cosmos-grpc.stakecito.com:25790"
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
