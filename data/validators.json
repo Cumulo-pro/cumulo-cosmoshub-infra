@@ -272,6 +272,27 @@
   }
 },
   {
+  "name": "Lavender.Five Nodes",
+  "webservices": "https://www.lavenderfive.com/tools/cosmoshub/overview",
+  "x": "lavender_five",
+  "validatorlogo": "lavenderfive.jpg",
+  "seed": "20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:14956",
+  "rpc": "https://rpc.lavenderfive.com:443/cosmoshub",
+  "api": "https://rest.lavenderfive.com:443/cosmoshub",
+  "grpc": "cosmoshub.lavenderfive.com:443",
+  "websocket": "wss://rpc.lavenderfive.com:443/cosmoshub/websocket",
+  "tools_url": {
+    "State Sync": "https://www.lavenderfive.com/tools/cosmoshub/statesync",
+    "Metrics": "https://www.lavenderfive.com/tools/cosmoshub/metrics",
+    "Commands": "https://www.lavenderfive.com/tools/cosmoshub/commands"
+  },
+  "tools_desc": {
+    "State Sync": "State sync service for fast Cosmos Hub node bootstrap using Lavender.Five infrastructure.",
+    "Metrics": "Historic and current blockchain metrics dashboard for Cosmos Hub network monitoring.",
+    "Commands": "Common CLI commands and operations reference for Cosmos Hub node operators."
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
