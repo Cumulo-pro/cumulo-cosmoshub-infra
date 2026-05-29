@@ -230,6 +230,27 @@
   }
 },
   {
+  "name": "Bro_n_Bro",
+  "webservices": "https://bronbro.io/",
+  "x": "Bro_n_Bro",
+  "validatorlogo": "bronbro.jpg",
+  "rpc": "https://rpc.cosmoshub-4.cybernode.ai",
+  "api": "https://lcd.cosmoshub-4.cybernode.ai",
+  "grpc": "grpc.cosmoshub-4.cybernode.ai:1443",
+  "tools_url": {
+    "Spacebox Indexer": "https://github.com/bro-n-bro/spacebox",
+    "Monitor Boards": "https://monitor.bronbro.io/",
+    "Bro App": "https://app.bronbro.io/",
+    "IBC Relaying": "https://mapofzones.com/"
+  },
+  "tools_desc": {
+    "Spacebox Indexer": "Open-source Cosmos ecosystem indexer providing structured access to blocks, transactions and chain events.",
+    "Monitor Boards": "Grafana-based monitoring dashboards tracking metrics across multiple Cosmos ecosystem chains.",
+    "Bro App": "Cosmos asset management app for viewing balances and managing delegations across supported chains.",
+    "IBC Relaying": "Active IBC relayer infrastructure connecting Cosmos Hub with Bostrom, Osmosis, Juno, Evmos and Gravity Bridge."
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
