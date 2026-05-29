@@ -251,6 +251,27 @@
   }
 },
   {
+  "name": "POSTHUMAN",
+  "webservices": "https://nodes.posthuman.digital/chains/cosmoshub",
+  "x": "POSTHUMAN_DVS",
+  "validatorlogo": "posthuman.jpg",
+  "explorer": "https://explorer.posthuman.digital/cosmos/staking",
+  "seed": "6d581e53245f7f81c24a20392b60256a7e59de59@peer.cosmos.posthuman.digital:26656",
+  "rpc": "https://rpc.cosmos.posthuman.digital",
+  "api": "https://rest.cosmos.posthuman.digital",
+  "grpc": "https://grpc.cosmos.posthuman.digital",
+  "peers": "d6318b3bd51a5e2b8ed08f2e520d50289ed32bf1@52.79.43.100:26656,b0e746acb6fbed7a0311fe21cfb2ee94581ca3bc@51.79.21.187:26656,1da54d20c7339713f1d6d28dd2117087dd33d0ca@cosmos-seed.icycro.org:26656,fe21dd474640247888fc7c4dce82da8da08a8bfd@peer-cosmos-hub-01.stakeflow.io:26656,01c0d24922dcdf6f8816ec814a5c3436c5d5fbc5@65.108.195.29:36656,28d36c3d45f0208528de3c38f2934ae241bd23e7@peer-cosmoshub.mms.team:26656,87ccc1dcc0b846fc1623ab9a5ab55682e8e2ad2e@seed-cosmoshub.freshstaking.com:26656,2441723e318545be469d43611d331e3271477ede@cosmoshub-mainnet-peer.itrocket.net:34656,d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@78.46.79.242:26656,49ae570771a581d28bfb7c0f4e7716c662e482fa@51.255.85.232:26656",
+  "tools_url": {
+    "State Sync": "https://nodes.posthuman.digital/chains/cosmoshub?tab=state-sync"
+  },
+  "tools_desc": {
+    "State Sync": "State-sync server for Cosmos Hub with snapshot interval of 2000 blocks and automated shell script for config.toml setup."
+  },
+  "content": {
+    "Install Guide": "https://nodes.posthuman.digital/chains/cosmoshub"
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
