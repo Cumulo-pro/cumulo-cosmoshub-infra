@@ -211,6 +211,25 @@
   }
 },
   {
+  "name": "Crouton Digital",
+  "webservices": "https://crouton.digital/services/mainnet-networks/cosmos",
+  "x": "CroutonDigital",
+  "validatorlogo": "croutondigital.jpg",
+  "rpc": "https://cosmos-mainnet-rpc.crouton.digital",
+  "api": "https://cosmos-mainnet-api.crouton.digital",
+  "grpc": "cosmos-mainnet-grpc.crouton.digital:14990",
+  "peers": "def524b19130cbbc671ea6635d18f426f4afaa96@5.9.95.101:14956",
+  "snapshot": "https://storage.crouton.digital/mainnet/cosmos/snapshots/cosmos_latest.tar.lz4",
+  "tools_url": {
+    "Snapshot": "https://crouton.digital/services/mainnet-networks/cosmos#table-13",
+    "Installation Guide": "https://crouton.digital/services/mainnet-networks/cosmos"
+  },
+  "tools_desc": {
+    "Snapshot": "Latest pruned snapshot for fast Cosmos Hub node restoration via Crouton Digital's storage infrastructure.",
+    "Installation Guide": "Node infrastructure services for Cosmos Hub mainnet including public RPC, API, gRPC endpoints and peer connectivity."
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
