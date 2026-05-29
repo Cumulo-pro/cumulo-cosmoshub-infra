@@ -198,6 +198,19 @@
   }
 },
   {
+  "name": "Nodes.Guru",
+  "webservices": "https://nodes.guru/staking",
+  "x": "NodesGuru",
+  "validatorlogo": "nodesguru.png",
+  "explorer": "https://cosmos.explorers.guru/",
+  "tools_url": {
+    "Nodes Monitoring": "https://t.me/NodesGuru_bot"
+  },
+  "tools_desc": {
+     "Nodes Monitoring": "Telegram-based node health monitoring bot for Cosmos validators and node operators."
+  }
+},
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
