@@ -11,7 +11,7 @@
     "grpc": "grpc.provider.citizenweb3.com",
     "tools_url": {
       "Validator Info": "https://validatorinfo.com",
-      "Governance": "Voting History"
+      "Governance": "https://staking.citizenweb3.com/chains/cosmoshub"
     },
     "tools_desc": {
       "Validator Info": "Explorer and validator analytics platform providing visibility into Cosmos Hub testnet activity, voting history and network participation.",
@@ -23,7 +23,7 @@
     "webservices": "https://itrocket.net/services/testnet/cosmos/",
     "x": "itrocket_team",
     "validatorlogo": "itrocket.png",
-    "explorer": "https://itrocket.net/services/testnet/cosmos/",
+    "explorer": "https://testnet.itrocket.net/cosmos",
     "peers": "5359d38055601c523dbbec5c6fd7168d36354c16@cosmos-testnet-peer.itrocket.net:21656",
     "seed": "84871382a3ffa5e781034b6519126f2d5ea29f15@cosmos-testnet-seed.itrocket.net:21656",
     "api": "https://cosmos-testnet-api.itrocket.net",
@@ -31,10 +31,9 @@
     "grpc": "cosmos-testnet-grpc.itrocket.net:443",
     "addrbook": "https://server-2.itrocket.net/testnet/cosmos/addrbook.json",
     "snapshot": "https://server-2.itrocket.net/testnet/cosmos/",
-    "tools": "Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
     "tools_url": {
-      "Validator Analytics": "https://itrocket.net/services/testnet/cosmos/",
-      "Consensus Analytics": "https://itrocket.net/services/testnet/cosmos/",
+      "Validator Analytics": "https://itrocket.net/services/testnet/cosmos/analytics/validators-performance/",
+      "Consensus Analytics": "https://itrocket.net/services/testnet/cosmos/analytics/consensus/",
       "Peer Scanner": "https://itrocket.net/services/testnet/cosmos/",
       "Public RPC": "https://itrocket.net/services/testnet/cosmos/public-rpc/"
     },
@@ -45,7 +44,39 @@
       "Public RPC": "Curated public Cosmos Hub testnet RPC endpoint directory with availability checks."
     },
     "content": {
-      "Installation Guide": "https://itrocket.net/services/testnet/cosmos/"
+      "Installation Guide": "https://itrocket.net/services/testnet/cosmos/installation/"
+    }
+  },
+  {
+    "name": "kjnodes",
+    "webservices": "https://services.kjnodes.com/testnet/cosmoshub/",
+    "x": "kjnodes",
+    "validatorlogo": "kjnodes.jpg",
+    "explorer": "https://explorer.kjnodes.com/cosmoshub-testnet",
+    "seed": "3f472746f46493309650e5a033076689996c8881@cosmoshub-testnet.rpc.kjnodes.com:13459",
+    "api": "https://cosmoshub-testnet.api.kjnodes.com",
+    "rpc": "https://cosmoshub-testnet.rpc.kjnodes.com",
+    "grpc": "cosmoshub-testnet.grpc.kjnodes.com:443",
+    "peers": "d5519e378247dfb61dfe90652d1fe3e2b3005a5b@cosmoshub-testnet.rpc.kjnodes.com:13456",
+    "addrbook": "https://snapshots.kjnodes.com/cosmoshub-testnet/addrbook.json",
+    "snapshot": "https://snapshots.kjnodes.com/cosmoshub-testnet/snapshot_latest.tar.lz4",
+    "tools_url": {
+      "State Sync": "https://services.kjnodes.com/testnet/cosmoshub/state-sync/",
+      "Snapshot": "https://services.kjnodes.com/testnet/cosmoshub/snapshot/",
+      "Public RPC": "https://services.kjnodes.com/testnet/cosmoshub/public-rpc/",
+      "Useful Commands": "https://services.kjnodes.com/testnet/cosmoshub/useful-commands/",
+      "Proposal Bot": "https://t.me/kjnodes_testnet_proposal_bot"
+    },
+    "tools_desc": {
+      "State Sync": "State sync endpoint and instructions for fast Cosmos Hub testnet node bootstrap using kjnodes infrastructure.",
+      "Snapshot": "Periodic pruned snapshots for fast Cosmos Hub testnet node restoration.",
+      "Public RPC": "Curated public Cosmos Hub testnet RPC endpoints maintained by kjnodes.",
+      "Useful Commands": "Reference guide of useful Cosmos Hub CLI commands for testnet node operators.",
+      "Proposal Bot": "Telegram bot for real-time Cosmos Hub testnet governance proposal notifications."
+    },
+    "content": {
+      "Installation Guide": "https://services.kjnodes.com/testnet/cosmoshub/installation/",
+      "Upgrade Guide": "https://services.kjnodes.com/testnet/cosmoshub/upgrade/"
     }
   },
   {
@@ -53,19 +84,17 @@
     "webservices": "https://www.polkachu.com/testnets/cosmos",
     "x": "polka_chu",
     "validatorlogo": "polkachu.jpg",
-    "api": "https://cosmos-testnet-api.polkachu.com",
-    "rpc": "https://cosmos-testnet-rpc.polkachu.com",
-    "grpc": "cosmos-testnet-grpc.polkachu.com:14990",
     "seed": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@testnet-seeds.polkachu.com:14956",
+    "api": "https://cosmos-testnet-api.polkachu.com",
+    "rpc": "https://cosmos-testnet-rpc.polkachu.com:443",
+    "grpc": "cosmos-testnet-grpc.polkachu.com:14990",
+    "peers": "ae35eb87fbe117392159e8ec8fa65f7f14cd613f@37.27.0.90:26656,7d6d0529e4045c3ae3a80ff19fb711676f757bd6@35.210.49.135:26656,0cf26b47c7b0df497c37e812a3e362c550c56ecb@168.119.5.174:26656,c41a7021971d9592d25e039edc84aad3e3326e02@148.113.49.50:26656,21654e36c038598c742d21b808fa9b0914d266af@136.36.77.130:15006,a7e4f10c4e3c4ff28eb82fed5e394984e10dcd3a@92.145.78.239:26656,3126d07d97b5faf3ca6ee052803015ea6afdf151@134.119.219.101:26716,023bbf72de933e51d31ce0682423cb303d879f81@95.217.201.244:26656,209e68400b139400ef7c666a7780718b43157023@148.113.49.60:26656,0ee0629ac60cc23bca5ba341bd5b22b58bb8a5d9@185.135.81.50:28556",
     "addrbook": "https://snapshots.polkachu.com/testnet-addrbook/cosmos/addrbook.json",
     "snapshot": "https://www.polkachu.com/testnets/cosmos/snapshots",
-    "state_sync": "https://www.polkachu.com/testnets/cosmos/state_sync",
-    "peers": "ae35eb87fbe117392159e8ec8fa65f7f14cd613f@37.27.0.90:26656,7d6d0529e4045c3ae3a80ff19fb711676f757bd6@35.210.49.135:26656,0cf26b47c7b0df497c37e812a3e362c550c56ecb@168.119.5.174:26656,c41a7021971d9592d25e039edc84aad3e3326e02@148.113.49.50:26656,21654e36c038598c742d21b808fa9b0914d266af@136.36.77.130:15006,a7e4f10c4e3c4ff28eb82fed5e394984e10dcd3a@92.145.78.239:26656,3126d07d97b5faf3ca6ee052803015ea6afdf151@134.119.219.101:26716,023bbf72de933e51d31ce0682423cb303d879f81@95.217.201.244:26656,209e68400b139400ef7c666a7780718b43157023@148.113.49.60:26656,0ee0629ac60cc23bca5ba341bd5b22b58bb8a5d9@185.135.81.50:28556",
-    "tools": "State-Sync,Snapshot,Live Peers,Installation Guide",
     "tools_url": {
       "State-Sync": "https://www.polkachu.com/testnets/cosmos/state_sync",
       "Snapshots": "https://www.polkachu.com/testnets/cosmos/snapshots",
-      "Live Peers": "https://www.polkachu.com/live_peers/cosmos",
+      "Live Peers": "https://www.polkachu.com/testnets/cosmos/peers",
       "Installation Guide": "https://www.polkachu.com/testnets/cosmos/installation"
     },
     "tools_desc": {
