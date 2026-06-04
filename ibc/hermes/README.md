@@ -51,7 +51,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ injective-1
 
-> **First active IBC channel between Celestia mainnet and Injective** - the previous channel (channel-91) expired in April 2025 after 400+ days without updates. Created by Cumulo June 2025.
+> **First active IBC channel between Celestia mainnet and Injective**   
 
 | | celestia | injective-1 |
 |---|---|---|
