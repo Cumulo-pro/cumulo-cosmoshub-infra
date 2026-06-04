@@ -1,14 +1,14 @@
-# Hermes IBC Relayer — Reference Configuration
+# Hermes IBC Relayer - Reference Configuration
 # cumulo.me | June 2025 | Hermes v1.13.2
 #
 # Active paths:
 #   - mocha-4          <-> provider          (testnet)
-#   - celestia         <-> cosmoshub-4       (mainnet — own channel)
-#   - celestia         <-> xrplevm_1440000-1 (mainnet — own channel)
-#   - celestia         <-> injective-1       (mainnet — own channel)
-#   - cosmoshub-4      <-> xrplevm_1440000-1 (mainnet — relayer on Peersyst channel)
-#   - cosmoshub-4      <-> injective-1       (mainnet — relayer on existing channel)
-#   - xrplevm_1440000-1 <-> injective-1      (mainnet — relayer on existing channel)
+#   - celestia         <-> cosmoshub-4       (mainnet - own channel)
+#   - celestia         <-> xrplevm_1440000-1 (mainnet - own channel)
+#   - celestia         <-> injective-1       (mainnet - own channel)
+#   - cosmoshub-4      <-> xrplevm_1440000-1 (mainnet - relayer on Peersyst channel)
+#   - cosmoshub-4      <-> injective-1       (mainnet - relayer on existing channel)
+#   - xrplevm_1440000-1 <-> injective-1      (mainnet - relayer on existing channel)
 
 [global]
 log_level = "info"
@@ -41,7 +41,7 @@ host    = "127.0.0.1"
 port    = 3001
 
 # -------------------------------------------------------------------
-# TESTNET — Celestia Mocha-4
+# TESTNET - Celestia Mocha-4
 # -------------------------------------------------------------------
 [[chains]]
 id             = "mocha-4"
@@ -73,7 +73,7 @@ denom = "utia"
 derivation = "cosmos"
 
 # -------------------------------------------------------------------
-# TESTNET — Cosmos Hub Provider
+# TESTNET - Cosmos Hub Provider
 # -------------------------------------------------------------------
 [[chains]]
 id             = "provider"
@@ -105,7 +105,7 @@ denom = "uatom"
 derivation = "cosmos"
 
 # -------------------------------------------------------------------
-# MAINNET — Celestia
+# MAINNET - Celestia
 # -------------------------------------------------------------------
 [[chains]]
 id             = "celestia"
@@ -137,7 +137,7 @@ denom = "utia"
 derivation = "cosmos"
 
 # -------------------------------------------------------------------
-# MAINNET — Cosmos Hub
+# MAINNET - Cosmos Hub
 # -------------------------------------------------------------------
 [[chains]]
 id             = "cosmoshub-4"
@@ -169,7 +169,7 @@ denom = "uatom"
 derivation = "cosmos"
 
 # -------------------------------------------------------------------
-# MAINNET — XRPL EVM
+# MAINNET - XRPL EVM
 # -------------------------------------------------------------------
 [[chains]]
 id             = "xrplevm_1440000-1"
@@ -202,7 +202,7 @@ derivation = "ethermint"
 proto_type = { pk_type = "/ethermint.crypto.v1.ethsecp256k1.PubKey" }
 
 # -------------------------------------------------------------------
-# MAINNET — Injective (public endpoints via Polkachu)
+# MAINNET - Injective (public endpoints via Polkachu)
 # -------------------------------------------------------------------
 [[chains]]
 id             = "injective-1"
