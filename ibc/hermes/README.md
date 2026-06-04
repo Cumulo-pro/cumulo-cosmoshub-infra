@@ -29,7 +29,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ cosmoshub-4
 
-> **First IBC channel between Celestia mainnet and Cosmos Hub** - created by Cumulo June 2025.
+> **First IBC channel between Celestia mainnet and Cosmos Hub**   
 
 | | celestia | cosmoshub-4 |
 |---|---|---|
@@ -40,7 +40,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ xrplevm_1440000-1
 
-> **First IBC channel between Celestia mainnet and XRPL EVM** - created by Cumulo June 2025.
+> **First IBC channel between Celestia mainnet and XRPL EVM**  
 
 | | celestia | xrplevm_1440000-1 |
 |---|---|---|
