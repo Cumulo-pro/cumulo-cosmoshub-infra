@@ -351,4 +351,4 @@ grpc_addr = "http://injective-grpc.polkachu.com:14390"
 
 ---
 
-*cumulo.me - IBC Initiative - June 2025*
+*cumulo.me - IBC Initiative - June 2026*
