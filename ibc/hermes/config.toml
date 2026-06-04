@@ -1,0 +1,235 @@
+# Hermes IBC Relayer — Reference Configuration
+# cumulo.me | June 2025 | Hermes v1.13.2
+#
+# Active paths:
+#   - mocha-4          <-> provider          (testnet)
+#   - celestia         <-> cosmoshub-4       (mainnet — own channel)
+#   - celestia         <-> xrplevm_1440000-1 (mainnet — own channel)
+#   - celestia         <-> injective-1       (mainnet — own channel)
+#   - cosmoshub-4      <-> xrplevm_1440000-1 (mainnet — relayer on Peersyst channel)
+#   - cosmoshub-4      <-> injective-1       (mainnet — relayer on existing channel)
+#   - xrplevm_1440000-1 <-> injective-1      (mainnet — relayer on existing channel)
+
+[global]
+log_level = "info"
+
+[mode.clients]
+enabled      = true
+refresh      = true
+misbehaviour = true
+
+[mode.connections]
+enabled = false
+
+[mode.channels]
+enabled = false
+
+[mode.packets]
+enabled         = true
+clear_interval  = 100
+clear_on_start  = true
+tx_confirmation = true
+
+[rest]
+enabled = false
+host    = "127.0.0.1"
+port    = 3000
+
+[telemetry]
+enabled = true        # Metrics at https://hermes-metrics.cumulo.me/metrics
+host    = "127.0.0.1"
+port    = 3001
+
+# -------------------------------------------------------------------
+# TESTNET — Celestia Mocha-4
+# -------------------------------------------------------------------
+[[chains]]
+id             = "mocha-4"
+type           = "CosmosSdk"
+rpc_addr       = "https://mocha.celestia.rpc.cumulo.me"
+grpc_addr      = "https://mocha.grpc.cumulo.me"
+event_source   = { mode = "push", url = "wss://mocha.celestia.rpc.cumulo.me/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "celestia"
+key_name       = "relayer-mocha"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 0.1
+denom = "utia"
+
+[chains.address_type]
+derivation = "cosmos"
+
+# -------------------------------------------------------------------
+# TESTNET — Cosmos Hub Provider
+# -------------------------------------------------------------------
+[[chains]]
+id             = "provider"
+type           = "CosmosSdk"
+rpc_addr       = "https://cosmos.rpc.testnet.cumulo.me"
+grpc_addr      = "https://cosmos.grpc.testnet.cumulo.me"
+event_source   = { mode = "push", url = "wss://cosmos.rpc.testnet.cumulo.me/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "cosmos"
+key_name       = "relayer-provider"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 0.025
+denom = "uatom"
+
+[chains.address_type]
+derivation = "cosmos"
+
+# -------------------------------------------------------------------
+# MAINNET — Celestia
+# -------------------------------------------------------------------
+[[chains]]
+id             = "celestia"
+type           = "CosmosSdk"
+rpc_addr       = "https://celestia.cumulo.org.es"
+grpc_addr      = "https://celestia.grpc.cumulo.org.es"
+event_source   = { mode = "push", url = "wss://celestia.cumulo.org.es/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "celestia"
+key_name       = "relayer-celestia"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 0.004
+denom = "utia"
+
+[chains.address_type]
+derivation = "cosmos"
+
+# -------------------------------------------------------------------
+# MAINNET — Cosmos Hub
+# -------------------------------------------------------------------
+[[chains]]
+id             = "cosmoshub-4"
+type           = "CosmosSdk"
+rpc_addr       = "https://rpc.cosmos.cumulo.com.es"
+grpc_addr      = "https://grpc.cosmos.cumulo.com.es"
+event_source   = { mode = "push", url = "wss://rpc.cosmos.cumulo.com.es/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "cosmos"
+key_name       = "relayer-cosmoshub"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "14days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 0.025
+denom = "uatom"
+
+[chains.address_type]
+derivation = "cosmos"
+
+# -------------------------------------------------------------------
+# MAINNET — XRPL EVM
+# -------------------------------------------------------------------
+[[chains]]
+id             = "xrplevm_1440000-1"
+type           = "CosmosSdk"
+rpc_addr       = "https://rpc.xrpl.cumulo.org.es"
+grpc_addr      = "https://grpc.xrpl.cumulo.org.es"
+event_source   = { mode = "push", url = "wss://rpc.xrpl.cumulo.org.es/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "ethm"
+key_name       = "relayer-xrplevm"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "18hours"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 600000000
+denom = "axrp"
+
+[chains.address_type]
+derivation = "ethermint"
+proto_type = { pk_type = "/ethermint.crypto.v1.ethsecp256k1.PubKey" }
+
+# -------------------------------------------------------------------
+# MAINNET — Injective (public endpoints via Polkachu)
+# -------------------------------------------------------------------
+[[chains]]
+id             = "injective-1"
+type           = "CosmosSdk"
+rpc_addr       = "https://injective-rpc.polkachu.com"
+grpc_addr      = "http://injective-grpc.polkachu.com:14390"
+event_source   = { mode = "push", url = "wss://injective-rpc.polkachu.com/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "inj"
+key_name       = "relayer-injective"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 200000
+max_gas        = 3000000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "20s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 160000000
+denom = "inj"
+
+[chains.address_type]
+derivation = "ethermint"
+proto_type = { pk_type = "/injective.crypto.v1beta1.ethsecp256k1.PubKey" }
