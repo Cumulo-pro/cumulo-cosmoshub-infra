@@ -1,5 +1,5 @@
 # Hermes IBC Relayer - Reference Configuration
-# cumulo.me | June 2025 | Hermes v1.13.2
+# cumulo.me | June 2026 | Hermes v1.13.2
 #
 # Active paths:
 #   - mocha-4          <-> provider          (testnet)
@@ -9,6 +9,8 @@
 #   - cosmoshub-4      <-> xrplevm_1440000-1 (mainnet - relayer on Peersyst channel)
 #   - cosmoshub-4      <-> injective-1       (mainnet - relayer on existing channel)
 #   - xrplevm_1440000-1 <-> injective-1      (mainnet - relayer on existing channel)
+#   - celestia         <-> seda-1            (mainnet - channel pending)
+#   - celestia         <-> osmosis-1         (mainnet - channel pending)
 
 [global]
 log_level = "info"
@@ -36,13 +38,10 @@ host    = "127.0.0.1"
 port    = 3000
 
 [telemetry]
-enabled = true        # Metrics at https://hermes-metrics.cumulo.me/metrics
+enabled = true
 host    = "127.0.0.1"
 port    = 3001
 
-# -------------------------------------------------------------------
-# TESTNET - Celestia Mocha-4
-# -------------------------------------------------------------------
 [[chains]]
 id             = "mocha-4"
 type           = "CosmosSdk"
@@ -72,9 +71,6 @@ denom = "utia"
 [chains.address_type]
 derivation = "cosmos"
 
-# -------------------------------------------------------------------
-# TESTNET - Cosmos Hub Provider
-# -------------------------------------------------------------------
 [[chains]]
 id             = "provider"
 type           = "CosmosSdk"
@@ -104,9 +100,6 @@ denom = "uatom"
 [chains.address_type]
 derivation = "cosmos"
 
-# -------------------------------------------------------------------
-# MAINNET - Celestia
-# -------------------------------------------------------------------
 [[chains]]
 id             = "celestia"
 type           = "CosmosSdk"
@@ -119,7 +112,7 @@ account_prefix = "celestia"
 key_name       = "relayer-celestia"
 key_store_type = "Test"
 store_prefix   = "ibc"
-default_gas    = 100000
+default_gas    = 300000
 max_gas        = 600000
 gas_multiplier = 1.5
 max_msg_num    = 30
@@ -136,9 +129,6 @@ denom = "utia"
 [chains.address_type]
 derivation = "cosmos"
 
-# -------------------------------------------------------------------
-# MAINNET - Cosmos Hub
-# -------------------------------------------------------------------
 [[chains]]
 id             = "cosmoshub-4"
 type           = "CosmosSdk"
@@ -168,9 +158,6 @@ denom = "uatom"
 [chains.address_type]
 derivation = "cosmos"
 
-# -------------------------------------------------------------------
-# MAINNET - XRPL EVM
-# -------------------------------------------------------------------
 [[chains]]
 id             = "xrplevm_1440000-1"
 type           = "CosmosSdk"
@@ -201,15 +188,12 @@ denom = "axrp"
 derivation = "ethermint"
 proto_type = { pk_type = "/ethermint.crypto.v1.ethsecp256k1.PubKey" }
 
-# -------------------------------------------------------------------
-# MAINNET - Injective (public endpoints via Polkachu)
-# -------------------------------------------------------------------
 [[chains]]
 id             = "injective-1"
 type           = "CosmosSdk"
-rpc_addr       = "https://injective-rpc.polkachu.com"
-grpc_addr      = "http://injective-grpc.polkachu.com:14390"
-event_source   = { mode = "push", url = "wss://injective-rpc.polkachu.com/websocket" }
+rpc_addr       = "https://sentry.tm.injective.network:443"
+grpc_addr      = "https://sentry.chain.grpc.injective.network:443"
+event_source   = { mode = "push", url = "wss://sentry.tm.injective.network:443/websocket" }
 rpc_timeout    = "10s"
 trusted_node   = false
 account_prefix = "inj"
@@ -222,7 +206,7 @@ gas_multiplier = 1.5
 max_msg_num    = 30
 max_tx_size    = 180000
 clock_drift    = "5s"
-max_block_time = "20s"
+max_block_time = "30s"
 trusting_period = "7days"
 compat_mode    = "0.37"
 
@@ -233,3 +217,61 @@ denom = "inj"
 [chains.address_type]
 derivation = "ethermint"
 proto_type = { pk_type = "/injective.crypto.v1beta1.ethsecp256k1.PubKey" }
+
+[[chains]]
+id             = "seda-1"
+type           = "CosmosSdk"
+rpc_addr       = "https://seda.rpc.cumulo.org.es"
+grpc_addr      = "https://seda.grpc.cumulo.org.es"
+event_source   = { mode = "push", url = "wss://seda.rpc.cumulo.org.es/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "seda"
+key_name       = "relayer-seda"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 100000
+max_gas        = 600000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "30s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 10000000000
+denom = "aseda"
+
+[chains.address_type]
+derivation = "cosmos"
+
+[[chains]]
+id             = "osmosis-1"
+type           = "CosmosSdk"
+rpc_addr       = "https://rpc.osmosis.zone"
+grpc_addr      = "https://grpc.osmosis.zone:443"
+event_source   = { mode = "push", url = "wss://rpc.osmosis.zone/websocket" }
+rpc_timeout    = "10s"
+trusted_node   = false
+account_prefix = "osmo"
+key_name       = "relayer-osmosis"
+key_store_type = "Test"
+store_prefix   = "ibc"
+default_gas    = 200000
+max_gas        = 3000000
+gas_multiplier = 1.5
+max_msg_num    = 30
+max_tx_size    = 180000
+clock_drift    = "5s"
+max_block_time = "10s"
+trusting_period = "7days"
+compat_mode    = "0.37"
+
+[chains.gas_price]
+price = 0.0025
+denom = "uosmo"
+
+[chains.address_type]
+derivation = "cosmos"
