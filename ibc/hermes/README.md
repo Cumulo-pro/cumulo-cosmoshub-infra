@@ -11,8 +11,10 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
 | `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channel | ✅ Live |
 | `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
-| `celestia ↔ seda-1` | Mainnet - channel pending | 🔜 Pending |
-| `celestia ↔ osmosis-1` | Mainnet - channel pending | 🔜 Pending |
+| `cosmoshub-4 ↔ seda-1` | Mainnet - relayer on existing channel | ✅ Live |
+| `cosmoshub-4 ↔ osmosis-1` | Mainnet - relayer on existing channels (×5) | ✅ Live |
+| `injective-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | ✅ Live |
+| `seda-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | ✅ Live |
 
 > **Hermes version:** v1.13.2
 
@@ -89,6 +91,41 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | **channel** | `channel-0` | `channel-436` |
 | **port** | `transfer` | `transfer` |
 
+### Mainnet - cosmoshub-4 ↔ seda-1
+
+| | cosmoshub-4 | seda-1 |
+|---|---|---|
+| **connection** | `connection-1098` | — |
+| **channel** | `channel-1337` | `channel-1` |
+| **port** | `transfer` | `transfer` |
+
+### Mainnet - cosmoshub-4 ↔ osmosis-1
+
+> Hermes relays 5 channels between Cosmos Hub and Osmosis. `packet_filter` on osmosis-1 is required (see config.toml).
+
+| cosmoshub-4 channel | osmosis-1 channel | Notes |
+|---|---|---|
+| `channel-141` | `channel-0` | Main channel |
+| `channel-188` | `channel-30` | |
+| `channel-189` | `channel-23` | |
+| `channel-193` | `channel-29` | |
+| `channel-338` | `channel-245` | |
+
+### Mainnet - injective-1 ↔ osmosis-1
+
+| | injective-1 | osmosis-1 |
+|---|---|---|
+| **channel** | `channel-5` | `channel-109` |
+| **port** | `transfer` | `transfer` |
+
+### Mainnet - seda-1 ↔ osmosis-1
+
+| | seda-1 | osmosis-1 |
+|---|---|---|
+| **connection** | `connection-0` | — |
+| **channel** | `channel-0` | `channel-75016` |
+| **port** | `transfer` | `transfer` |
+
 ---
 
 ## Relayer Wallets
@@ -101,8 +138,8 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | cosmoshub-4 | `cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f` |
 | xrplevm_1440000-1 | `ethm1jl3w0f8r6688ghd30he8ddjtnmtuevkvtjwj6r` |
 | injective-1 | `inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr` |
-| seda-1 | *(pending channel)* |
-| osmosis-1 | *(pending channel)* |
+| seda-1 | `seda1...` *(hermes keys list --chain seda-1)* |
+| osmosis-1 | `osmo1djcckm2zw4xyz2lt6yg6euhgnrwp29k38n2l86` |
 
 ---
 
@@ -314,6 +351,22 @@ hermes clear packets --chain injective-1 --port transfer --channel channel-0
 # xrplevm <> injective
 hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-0
 hermes clear packets --chain injective-1       --port transfer --channel channel-436
+
+# cosmoshub-4 <> seda-1
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-1337
+hermes clear packets --chain seda-1      --port transfer --channel channel-1
+
+# cosmoshub-4 <> osmosis-1 (main channel)
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-141
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-0
+
+# injective-1 <> osmosis-1
+hermes clear packets --chain injective-1 --port transfer --channel channel-5
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-109
+
+# seda-1 <> osmosis-1
+hermes clear packets --chain seda-1    --port transfer --channel channel-0
+hermes clear packets --chain osmosis-1 --port transfer --channel channel-75016
 ```
 
 ### Wallet Balance
@@ -328,6 +381,8 @@ curl -s https://celestia.api.cumulo.org.es/cosmos/bank/v1beta1/balances/celestia
 curl -s https://api.cosmos.cumulo.com.es/cosmos/bank/v1beta1/balances/cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f | jq .
 curl -s https://api.xrpl.cumulo.org.es/cosmos/bank/v1beta1/balances/ethm1jl3w0f8r6688ghd30he8ddjtnmtuevkvtjwj6r | jq .
 curl -s https://sentry.lcd.injective.network/cosmos/bank/v1beta1/balances/inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr | jq .
+curl -s https://seda.api.cumulo.org.es/cosmos/bank/v1beta1/balances/$(hermes keys list --chain seda-1 | grep -oP 'seda1\w+') | jq .
+curl -s https://lcd.osmosis.zone/cosmos/bank/v1beta1/balances/osmo1djcckm2zw4xyz2lt6yg6euhgnrwp29k38n2l86 | jq .
 ```
 
 ---
@@ -375,6 +430,12 @@ location / {
 | chain-registry PR #7712 | https://github.com/cosmos/chain-registry/pull/7712 |
 | Hermes GitHub | https://github.com/informalsystems/hermes |
 | Faucet Cosmos provider testnet | https://faucet.polypore.xyz |
+
+---
+
+### Osmosis packet_filter
+
+Osmosis has 100,000+ IBC channels. Without `packet_filter`, Hermes spawns thousands of workers and collapses. Always configure `packet_filter` with `policy = 'allow'` listing only the channels you want to relay.
 
 ---
 
