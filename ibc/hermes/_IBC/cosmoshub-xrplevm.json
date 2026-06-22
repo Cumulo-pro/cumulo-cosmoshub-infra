@@ -1,0 +1,22 @@
+{
+  "chain_a": {
+    "chain_id": "cosmoshub-4",
+    "client_id": "07-tendermint-1411",
+    "connection_id": "connection-1134",
+    "channel_id": "channel-1377",
+    "port_id": "transfer"
+  },
+  "chain_b": {
+    "chain_id": "xrplevm_1440000-1",
+    "client_id": "07-tendermint-2",
+    "connection_id": "connection-2",
+    "channel_id": "channel-2",
+    "port_id": "transfer"
+  },
+  "ordering": "ORDER_UNORDERED",
+  "version": "ics20-1",
+  "state": "STATE_OPEN",
+  "note": "Peersyst channel — Cumulo relayer",
+  "preferred": true,
+  "active": true
+}

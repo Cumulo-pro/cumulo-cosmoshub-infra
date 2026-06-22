@@ -1,0 +1,18 @@
+{
+  "chain_a": {
+    "chain_id": "injective-1",
+    "channel_id": "channel-5",
+    "port_id": "transfer"
+  },
+  "chain_b": {
+    "chain_id": "osmosis-1",
+    "channel_id": "channel-109",
+    "port_id": "transfer"
+  },
+  "ordering": "ORDER_UNORDERED",
+  "version": "ics20-1",
+  "state": "STATE_OPEN",
+  "note": "Existing channel — Cumulo relayer",
+  "preferred": true,
+  "active": true
+}

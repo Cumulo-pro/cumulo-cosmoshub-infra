@@ -1,0 +1,22 @@
+{
+  "chain_a": {
+    "chain_id": "mocha-4",
+    "client_id": "07-tendermint-633",
+    "connection_id": "connection-684",
+    "channel_id": "channel-464",
+    "port_id": "transfer"
+  },
+  "chain_b": {
+    "chain_id": "provider",
+    "client_id": "07-tendermint-436",
+    "connection_id": "connection-301",
+    "channel_id": "channel-586",
+    "port_id": "transfer"
+  },
+  "ordering": "ORDER_UNORDERED",
+  "version": "ics20-1",
+  "state": "STATE_OPEN",
+  "note": "Cumulo own channel — testnet",
+  "preferred": true,
+  "active": true
+}

@@ -1,0 +1,19 @@
+{
+  "chain_a": {
+    "chain_id": "cosmoshub-4",
+    "connection_id": "connection-1098",
+    "channel_id": "channel-1337",
+    "port_id": "transfer"
+  },
+  "chain_b": {
+    "chain_id": "seda-1",
+    "channel_id": "channel-1",
+    "port_id": "transfer"
+  },
+  "ordering": "ORDER_UNORDERED",
+  "version": "ics20-1",
+  "state": "STATE_OPEN",
+  "note": "Existing channel — Cumulo relayer",
+  "preferred": true,
+  "active": true
+}

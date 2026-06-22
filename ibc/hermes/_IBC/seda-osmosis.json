@@ -1,0 +1,19 @@
+{
+  "chain_a": {
+    "chain_id": "seda-1",
+    "connection_id": "connection-0",
+    "channel_id": "channel-0",
+    "port_id": "transfer"
+  },
+  "chain_b": {
+    "chain_id": "osmosis-1",
+    "channel_id": "channel-75016",
+    "port_id": "transfer"
+  },
+  "ordering": "ORDER_UNORDERED",
+  "version": "ics20-1",
+  "state": "STATE_OPEN",
+  "note": "Existing channel — Cumulo relayer",
+  "preferred": true,
+  "active": true
+}

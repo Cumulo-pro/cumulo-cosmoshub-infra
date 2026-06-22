@@ -1,0 +1,34 @@
+{
+  "channels": [
+    {
+      "chain_a": { "chain_id": "cosmoshub-4", "channel_id": "channel-141", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1",   "channel_id": "channel-0",   "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Main cosmoshub<->osmosis channel — Cumulo relayer", "preferred": true, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "cosmoshub-4", "channel_id": "channel-188", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1",   "channel_id": "channel-30",  "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "cosmoshub-4", "channel_id": "channel-189", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1",   "channel_id": "channel-23",  "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "cosmoshub-4", "channel_id": "channel-193", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1",   "channel_id": "channel-29",  "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "cosmoshub-4", "channel_id": "channel-338", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1",   "channel_id": "channel-245", "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    }
+  ]
+}

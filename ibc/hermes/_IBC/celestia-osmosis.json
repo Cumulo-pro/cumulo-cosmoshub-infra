@@ -1,0 +1,22 @@
+{
+  "channels": [
+    {
+      "chain_a": { "chain_id": "celestia", "connection_id": "connection-2", "channel_id": "channel-2", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1", "connection_id": "connection-2503", "channel_id": "channel-6994", "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Primary celestia<->osmosis channel — Cumulo relayer", "preferred": true, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "celestia", "connection_id": "connection-2", "channel_id": "channel-10", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1", "connection_id": "connection-2503", "channel_id": "channel-7282", "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    },
+    {
+      "chain_a": { "chain_id": "celestia", "connection_id": "connection-2", "channel_id": "channel-11", "port_id": "transfer" },
+      "chain_b": { "chain_id": "osmosis-1", "connection_id": "connection-2503", "channel_id": "channel-7283", "port_id": "transfer" },
+      "ordering": "ORDER_UNORDERED", "version": "ics20-1", "state": "STATE_OPEN",
+      "note": "Existing channel — Cumulo relayer", "preferred": false, "active": true
+    }
+  ]
+}
