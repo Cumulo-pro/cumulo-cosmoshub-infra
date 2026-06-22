@@ -10,7 +10,9 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | `celestia ↔ injective-1` | Mainnet - own channel | ✅ Live |
 | `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
 | `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channel | ✅ Live |
-| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on existing channel | ✅ Live |
+| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
+| `celestia ↔ seda-1` | Mainnet - channel pending | 🔜 Pending |
+| `celestia ↔ osmosis-1` | Mainnet - channel pending | 🔜 Pending |
 
 > **Hermes version:** v1.13.2
 
@@ -29,7 +31,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ cosmoshub-4
 
-> **First IBC channel between Celestia mainnet and Cosmos Hub**   
+> **First IBC channel between Celestia mainnet and Cosmos Hub**
 
 | | celestia | cosmoshub-4 |
 |---|---|---|
@@ -40,7 +42,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ xrplevm_1440000-1
 
-> **First IBC channel between Celestia mainnet and XRPL EVM**  
+> **First IBC channel between Celestia mainnet and XRPL EVM**
 
 | | celestia | xrplevm_1440000-1 |
 |---|---|---|
@@ -51,7 +53,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ injective-1
 
-> **First active IBC channel between Celestia mainnet and Injective**   
+> **First active IBC channel between Celestia mainnet and Injective**
 
 | | celestia | injective-1 |
 |---|---|---|
@@ -78,7 +80,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | **channel** | `channel-211` | `channel-0` |
 | **port** | `transfer` | `transfer` |
 
-### Mainnet - xrplevm_1440000-1 ↔ injective-1
+### Mainnet - xrplevm_1440000-1 ↔ injective-1 (Peersyst channel)
 
 | | xrplevm_1440000-1 | injective-1 |
 |---|---|---|
@@ -99,6 +101,8 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | cosmoshub-4 | `cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f` |
 | xrplevm_1440000-1 | `ethm1jl3w0f8r6688ghd30he8ddjtnmtuevkvtjwj6r` |
 | injective-1 | `inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr` |
+| seda-1 | *(pending channel)* |
+| osmosis-1 | *(pending channel)* |
 
 ---
 
@@ -125,15 +129,15 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet
 
-| Parameter | Celestia | Cosmos Hub | XRPL EVM | Injective |
-|---|---|---|---|---|
-| chain-id | `celestia` | `cosmoshub-4` | `xrplevm_1440000-1` | `injective-1` |
-| RPC | `https://celestia.cumulo.org.es` | `https://rpc.cosmos.cumulo.com.es` | `https://rpc.xrpl.cumulo.org.es` | `https://injective-rpc.polkachu.com` |
-| API | `https://celestia.api.cumulo.org.es` | `https://api.cosmos.cumulo.com.es` | `https://api.xrpl.cumulo.org.es` | `https://injective-api.polkachu.com` |
-| gRPC | `https://celestia.grpc.cumulo.org.es` | `https://grpc.cosmos.cumulo.com.es` | `https://grpc.xrpl.cumulo.org.es` | `injective-grpc.polkachu.com:14390` |
-| denom | `utia` | `uatom` | `axrp` | `inj` |
-| addr prefix | `celestia` | `cosmos` | `ethm` | `inj` |
-| node type | Own node | Own node | Own node | Public (Polkachu) |
+| Parameter | Celestia | Cosmos Hub | XRPL EVM | Injective | SEDA | Osmosis |
+|---|---|---|---|---|---|---|
+| chain-id | `celestia` | `cosmoshub-4` | `xrplevm_1440000-1` | `injective-1` | `seda-1` | `osmosis-1` |
+| RPC | `https://celestia.cumulo.org.es` | `https://rpc.cosmos.cumulo.com.es` | `https://rpc.xrpl.cumulo.org.es` | `https://sentry.tm.injective.network:443` | `https://seda.rpc.cumulo.org.es` | `https://rpc.osmosis.zone` |
+| API | `https://celestia.api.cumulo.org.es` | `https://api.cosmos.cumulo.com.es` | `https://api.xrpl.cumulo.org.es` | `https://sentry.lcd.injective.network` | `https://seda.api.cumulo.org.es` | `https://lcd.osmosis.zone` |
+| gRPC | `https://celestia.grpc.cumulo.org.es` | `https://grpc.cosmos.cumulo.com.es` | `https://grpc.xrpl.cumulo.org.es` | `https://sentry.chain.grpc.injective.network:443` | `https://seda.grpc.cumulo.org.es` | `https://grpc.osmosis.zone:443` |
+| denom | `utia` | `uatom` | `axrp` | `inj` | `aseda` | `uosmo` |
+| addr prefix | `celestia` | `cosmos` | `ethm` | `inj` | `seda` | `osmo` |
+| node type | Own node | Own node | Own node | Injective Sentry | Own node | Public |
 
 ---
 
@@ -168,9 +172,11 @@ celestia-appd keys add relayer-celestia   --keyring-backend test --output json 2
 gaiad         keys add relayer-cosmoshub  --keyring-backend test --output json 2>&1 | tee $HOME/.hermes/cosmoshub-key.json
 exrpd         keys add relayer-xrplevm    --keyring-backend test --output json 2>&1 | tee $HOME/.hermes/xrplevm-key.json
 injectived    keys add relayer-injective  --keyring-backend test --output json 2>&1 | tee $HOME/.hermes/injective-key.json
+sedad         keys add relayer-seda       --keyring-backend test --output json 2>&1 | tee $HOME/.hermes/seda-key.json
+osmosisd      keys add relayer-osmosis    --keyring-backend test --output json 2>&1 | tee $HOME/.hermes/osmosis-key.json
 
 # Extract mnemonics
-for chain in mocha provider celestia-mainnet cosmoshub xrplevm injective; do
+for chain in mocha provider celestia-mainnet cosmoshub xrplevm injective seda osmosis; do
   jq -r '.mnemonic' $HOME/.hermes/${chain}-key.json > $HOME/.hermes/${chain}-mnemonic.txt
 done
 
@@ -181,6 +187,8 @@ hermes keys add --chain celestia          --mnemonic-file $HOME/.hermes/celestia
 hermes keys add --chain cosmoshub-4       --mnemonic-file $HOME/.hermes/cosmoshub-mnemonic.txt
 hermes keys add --chain xrplevm_1440000-1 --mnemonic-file $HOME/.hermes/xrplevm-mnemonic.txt
 hermes keys add --chain injective-1       --mnemonic-file $HOME/.hermes/injective-mnemonic.txt
+hermes keys add --chain seda-1            --mnemonic-file $HOME/.hermes/seda-mnemonic.txt
+hermes keys add --chain osmosis-1         --mnemonic-file $HOME/.hermes/osmosis-mnemonic.txt
 ```
 
 > **Note:** Injective uses ethermint derivation. The address generated by `injectived keys add` may differ from the one Hermes derives. Always use the address shown by `hermes keys list --chain injective-1`.
@@ -198,7 +206,7 @@ hermes health-check
 | Warning | Reason | Action |
 |---|---|---|
 | `potential compat_mode misconfiguration` | CometBFT v0.38, v0.37 configured | Ignore - intentional |
-| `could not infer compatibility mode` | Injective with public endpoints | Ignore |
+| `could not infer compatibility mode` | Injective with Sentry endpoints | Ignore |
 | `does not provide minimum gas price` | Node doesn't advertise min gas | Ignore |
 
 ---
@@ -217,6 +225,14 @@ hermes create channel --a-chain celestia --b-chain xrplevm_1440000-1 \
 # celestia ↔ injective-1
 hermes create channel --a-chain celestia --b-chain injective-1 \
   --a-port transfer --b-port transfer --new-client-connection --yes
+
+# celestia ↔ seda-1 (pending)
+hermes create channel --a-chain celestia --b-chain seda-1 \
+  --a-port transfer --b-port transfer --new-client-connection --yes
+
+# celestia ↔ osmosis-1 (pending)
+hermes create channel --a-chain celestia --b-chain osmosis-1 \
+  --a-port transfer --b-port transfer --new-client-connection --yes
 ```
 
 ---
@@ -226,7 +242,7 @@ hermes create channel --a-chain celestia --b-chain injective-1 \
 ```bash
 sudo tee /etc/systemd/system/hermes.service > /dev/null <<EOF
 [Unit]
-Description=Hermes IBC Relayer -- mocha-4/provider + celestia/cosmoshub-4 + celestia/xrplevm + celestia/injective (cumulo.me)
+Description=Hermes IBC Relayer -- cumulo.me
 After=network-online.target
 
 [Service]
@@ -280,12 +296,24 @@ hermes clear packets --chain celestia    --port transfer --channel channel-278
 hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-1879
 
 # celestia <> xrplevm
-hermes clear packets --chain celestia         --port transfer --channel channel-280
+hermes clear packets --chain celestia          --port transfer --channel channel-280
 hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-6
 
 # celestia <> injective
 hermes clear packets --chain celestia    --port transfer --channel channel-281
 hermes clear packets --chain injective-1 --port transfer --channel channel-453
+
+# cosmoshub-4 <> xrplevm
+hermes clear packets --chain cosmoshub-4       --port transfer --channel channel-1377
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-2
+
+# cosmoshub-4 <> injective
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-211
+hermes clear packets --chain injective-1 --port transfer --channel channel-0
+
+# xrplevm <> injective
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-0
+hermes clear packets --chain injective-1       --port transfer --channel channel-436
 ```
 
 ### Wallet Balance
@@ -299,7 +327,7 @@ curl -s https://cosmos.api.testnet.cumulo.me/cosmos/bank/v1beta1/balances/cosmos
 curl -s https://celestia.api.cumulo.org.es/cosmos/bank/v1beta1/balances/celestia1ahzs5c3g3z9u9wxwxmcmqgu6htagp4md627uas | jq .
 curl -s https://api.cosmos.cumulo.com.es/cosmos/bank/v1beta1/balances/cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f | jq .
 curl -s https://api.xrpl.cumulo.org.es/cosmos/bank/v1beta1/balances/ethm1jl3w0f8r6688ghd30he8ddjtnmtuevkvtjwj6r | jq .
-curl -s https://injective-api.polkachu.com/cosmos/bank/v1beta1/balances/inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr | jq .
+curl -s https://sentry.lcd.injective.network/cosmos/bank/v1beta1/balances/inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr | jq .
 ```
 
 ---
@@ -322,18 +350,17 @@ location / {
 }
 ```
 
-### Injective gRPC plaintext
-
-Polkachu's Injective gRPC endpoint uses plaintext (no TLS) on port 14390:
-```toml
-grpc_addr = "http://injective-grpc.polkachu.com:14390"
-```
-
 ### XRPL EVM specific
 
 - `trusting_period = "18hours"` - PoA chain with 1 day unbonding period
 - `gas price = 600000000 axrp/gas` - minimum enforced by the node
 - Binary: `exrpd`
+
+### SEDA specific
+
+- `gas price = 10000000000 aseda/gas`
+- `account_prefix = "seda"`
+- derivation: `cosmos`
 
 ---
 
