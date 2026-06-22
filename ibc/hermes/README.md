@@ -138,7 +138,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | cosmoshub-4 | `cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f` |
 | xrplevm_1440000-1 | `ethm1jl3w0f8r6688ghd30he8ddjtnmtuevkvtjwj6r` |
 | injective-1 | `inj1xr30he02u6wpkzqj7c2g74qq7fvu68vywcl5fr` |
-| seda-1 | `seda1...` *(hermes keys list --chain seda-1)* |
+| seda-1 | `seda10l7d6fe3l68zghf6fyrpj5xqpj748sfg6jszcv` |
 | osmosis-1 | `osmo1djcckm2zw4xyz2lt6yg6euhgnrwp29k38n2l86` |
 
 ---
@@ -148,7 +148,6 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | PR | Channels |
 |---|---|
 | https://github.com/cosmos/chain-registry/pull/7712 | celestia ↔ cosmoshub + celestia ↔ xrplevm |
-| Pending | celestia ↔ injective |
 
 ---
 
