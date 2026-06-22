@@ -2,19 +2,22 @@
 
 Operational guide for running a Hermes IBC relayer using Cumulo's public infrastructure.
 
-| Path | Type | Status |
-|---|---|---|
-| `mocha-4 ↔ provider` | Testnet - own channel | ✅ Live |
-| `celestia ↔ cosmoshub-4` | Mainnet - own channel | ✅ Live |
-| `celestia ↔ xrplevm_1440000-1` | Mainnet - own channel | ✅ Live |
-| `celestia ↔ injective-1` | Mainnet - own channel | ✅ Live |
-| `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
-| `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channel | ✅ Live |
-| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | ✅ Live |
-| `cosmoshub-4 ↔ seda-1` | Mainnet - relayer on existing channel | ✅ Live |
-| `cosmoshub-4 ↔ osmosis-1` | Mainnet - relayer on existing channels (×5) | ✅ Live |
-| `injective-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | ✅ Live |
-| `seda-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | ✅ Live |
+| Path | Type | Channels | Status |
+|---|---|---|---|
+| `mocha-4 ↔ provider` | Testnet - own channel | 1 | ✅ Live |
+| `celestia ↔ cosmoshub-4` | Mainnet - own channel | 1 | ✅ Live |
+| `celestia ↔ xrplevm_1440000-1` | Mainnet - own channel | 1 | ✅ Live |
+| `celestia ↔ injective-1` | Mainnet - own channel | 1 | ✅ Live |
+| `celestia ↔ osmosis-1` | Mainnet - relayer on existing channels | 3 | ✅ Live |
+| `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
+| `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
+| `cosmoshub-4 ↔ osmosis-1` | Mainnet - relayer on existing channels | 8 | ✅ Live |
+| `cosmoshub-4 ↔ seda-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
+| `injective-1 ↔ osmosis-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
+| `seda-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+
+**Total active channels: 19**
 
 > **Hermes version:** v1.13.2
 
@@ -82,6 +85,12 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | **channel** | `channel-211` | `channel-0` |
 | **port** | `transfer` | `transfer` |
 
+Also relaying:
+
+| cosmoshub-4 channel | injective-1 channel |
+|---|---|
+| `channel-220` | `channel-1` |
+
 ### Mainnet - xrplevm_1440000-1 ↔ injective-1 (Peersyst channel)
 
 | | xrplevm_1440000-1 | injective-1 |
@@ -101,7 +110,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - cosmoshub-4 ↔ osmosis-1
 
-> Hermes relays 5 channels between Cosmos Hub and Osmosis. `packet_filter` on osmosis-1 is required (see config.toml).
+> Hermes relays 8 channels between Cosmos Hub and Osmosis. `packet_filter` on osmosis-1 is required (see config.toml).
 
 | cosmoshub-4 channel | osmosis-1 channel | Notes |
 |---|---|---|
@@ -110,13 +119,26 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | `channel-189` | `channel-23` | |
 | `channel-193` | `channel-29` | |
 | `channel-338` | `channel-245` | |
+| `channel-213` | `channel-61` | |
+| `channel-215` | `channel-63` | |
+| `channel-216` | `channel-64` | |
+
+### Mainnet - celestia ↔ osmosis-1
+
+> Hermes relays 3 channels between Celestia and Osmosis. `packet_filter` on both celestia and osmosis-1 is required (see config.toml).
+
+| celestia channel | osmosis-1 channel | connection (celestia) | connection (osmosis) |
+|---|---|---|---|
+| `channel-2` | `channel-6994` | `connection-2` | `connection-2503` |
+| `channel-10` | `channel-7282` | `connection-2` | `connection-2503` |
+| `channel-11` | `channel-7283` | `connection-2` | `connection-2503` |
 
 ### Mainnet - injective-1 ↔ osmosis-1
 
-| | injective-1 | osmosis-1 |
-|---|---|---|
-| **channel** | `channel-5` | `channel-109` |
-| **port** | `transfer` | `transfer` |
+| injective-1 channel | osmosis-1 channel |
+|---|---|
+| `channel-5` | `channel-109` |
+| `channel-8` | `channel-122` |
 
 ### Mainnet - seda-1 ↔ osmosis-1
 
@@ -241,7 +263,7 @@ hermes health-check
 
 | Warning | Reason | Action |
 |---|---|---|
-| `potential compat_mode misconfiguration` | CometBFT v0.38, v0.37 configured | Ignore - intentional |
+| `potential compat_mode misconfiguration` | Chain upgraded to v0.38, config still v0.37 | **Fix immediately** — update `compat_mode` in config.toml and restart. Ignoring this will cause the IBC client to expire after the trusting period. |
 | `could not infer compatibility mode` | Injective with Sentry endpoints | Ignore |
 | `does not provide minimum gas price` | Node doesn't advertise min gas | Ignore |
 
@@ -359,9 +381,31 @@ hermes clear packets --chain seda-1      --port transfer --channel channel-1
 hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-141
 hermes clear packets --chain osmosis-1   --port transfer --channel channel-0
 
+# cosmoshub-4 <> osmosis-1 (additional channels)
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-213
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-61
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-215
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-63
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-216
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-64
+
+# cosmoshub-4 <> injective-1 (additional channel)
+hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-220
+hermes clear packets --chain injective-1 --port transfer --channel channel-1
+
+# celestia <> osmosis-1
+hermes clear packets --chain celestia  --port transfer --channel channel-2
+hermes clear packets --chain osmosis-1 --port transfer --channel channel-6994
+hermes clear packets --chain celestia  --port transfer --channel channel-10
+hermes clear packets --chain osmosis-1 --port transfer --channel channel-7282
+hermes clear packets --chain celestia  --port transfer --channel channel-11
+hermes clear packets --chain osmosis-1 --port transfer --channel channel-7283
+
 # injective-1 <> osmosis-1
 hermes clear packets --chain injective-1 --port transfer --channel channel-5
 hermes clear packets --chain osmosis-1   --port transfer --channel channel-109
+hermes clear packets --chain injective-1 --port transfer --channel channel-8
+hermes clear packets --chain osmosis-1   --port transfer --channel channel-122
 
 # seda-1 <> osmosis-1
 hermes clear packets --chain seda-1    --port transfer --channel channel-0
