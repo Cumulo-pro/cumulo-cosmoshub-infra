@@ -1,4 +1,4 @@
-# Cumulo - Cosmos Hub Infrastructure
+# Cumulo: Cosmos Hub Infrastructure
 
 This repository documents the infrastructure, configuration, and operational practices used by **Cumulo** to run and maintain a **Cosmos Hub (cosmoshub-4)** node and validator.
 
