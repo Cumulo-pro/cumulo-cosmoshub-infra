@@ -1,4 +1,4 @@
-# Hermes IBC Relayer : cumulo.me
+# Hermes IBC Relayer
 
 Operational guide for running a Hermes IBC relayer using Cumulo's public infrastructure.
 
