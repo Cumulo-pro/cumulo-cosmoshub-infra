@@ -1,5 +1,5 @@
 # Cosmos Hub Node CLI Command Reference
-*(Gaia / gaiad — cosmoshub-4)*
+*(Gaia / gaiad - cosmoshub-4)*
 
 This document is a **practical operator command reference** for running a **Cosmos Hub** node and validator.
 It is intentionally concise, structured, and focused on **day-to-day operations**.
@@ -11,7 +11,7 @@ All commands assume:
 
 ---
 
-## ⚙️ systemd — Service Operations
+## ⚙️ systemd - Service Operations
 
 ### Reload systemd units
 ```bash
