@@ -5,12 +5,12 @@
 #   - mocha-4          <-> provider          (testnet)
 #   - celestia         <-> cosmoshub-4       (mainnet - own channel)
 #   - celestia         <-> xrplevm_1440000-1 (mainnet - own channel)
-#   - celestia         <-> injective-1       (mainnet - own channel)
+#   - celestia         <-> injective-1       (mainnet - relayer on existing channel)
 #   - cosmoshub-4      <-> xrplevm_1440000-1 (mainnet - relayer on Peersyst channel)
 #   - cosmoshub-4      <-> injective-1       (mainnet - relayer on existing channel)
 #   - xrplevm_1440000-1 <-> injective-1      (mainnet - relayer on existing channel)
-#   - celestia         <-> seda-1            (mainnet - channel pending)
-#   - celestia         <-> osmosis-1         (mainnet - channel pending)
+#   - cosmoshub-4      <-> seda-1            (mainnet - relayer on existing channel)
+#   - celestia/cosmoshub/xrplevm/injective/seda <-> osmosis-1 (mainnet - relayer on existing channels)
 
 [global]
 log_level = "info"
@@ -54,7 +54,7 @@ account_prefix = "celestia"
 key_name       = "relayer-mocha"
 key_store_type = "Test"
 store_prefix   = "ibc"
-default_gas    = 100000
+default_gas    = 300000
 max_gas        = 600000
 gas_multiplier = 1.5
 max_msg_num    = 30
@@ -265,7 +265,7 @@ gas_multiplier = 1.5
 max_msg_num    = 30
 max_tx_size    = 180000
 clock_drift    = "5s"
-max_block_time = "10s"
+max_block_time = "30s"
 trusting_period = "7days"
 compat_mode    = "0.37"
 
