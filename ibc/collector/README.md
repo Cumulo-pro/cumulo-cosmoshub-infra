@@ -1,23 +1,23 @@
 # IBC Relayer Activity Collector
 
-Script Node.js que recoge el historial de txs IBC de cada wallet relayer de Cumulo y genera un JSON acumulativo consultado por el dashboard.
+Node.js service that collects the full IBC transaction history for each Cumulo relayer wallet and generates a cumulative JSON file consumed by the Activity Tracker dashboard.
 
 ---
 
-## Ubicación en servidor
+## Server Location
 
-| Recurso | Ruta |
+| Resource | Path |
 |---|---|
 | Script | `/opt/ibc-relayer-collector/collector-relayers.js` |
-| JSON generado | `/var/lib/cumulo-ibc-relayer/activity.json` |
-| Servicio systemd | `ibc-relayer-collector` |
-| URL pública | `https://data.relayers.cumulo.com.es/activity.json` |
+| Output JSON | `/var/lib/cumulo-ibc-relayer/activity.json` |
+| systemd service | `ibc-relayer-collector` |
+| Public URL | `https://data.relayers.cumulo.com.es/activity.json` |
 
 ---
 
-## Wallets configuradas
+## Configured Wallets
 
-| Key | Chain | Network | Dirección |
+| Key | Chain | Network | Address |
 |---|---|---|---|
 | `celestia_mainnet` | celestia | mainnet | `celestia1ahzs5c3g3z9u9wxwxmcmqgu6htagp4md627uas` |
 | `cosmoshub_mainnet` | cosmoshub-4 | mainnet | `cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f` |
@@ -31,43 +31,43 @@ Script Node.js que recoge el historial de txs IBC de cada wallet relayer de Cumu
 
 ---
 
-## Añadir una nueva wallet
+## Adding a New Wallet
 
-Editar el array `WALLETS` en el script:
+Edit the `WALLETS` array in the script:
 
 ```bash
 nano /opt/ibc-relayer-collector/collector-relayers.js
 ```
 
-Añadir una entrada con este formato:
+Add an entry with this format:
 
 ```javascript
 {
-  key:     "chain_mainnet",          // identificador único, snake_case
-  chain:   "chain-id",               // chain_id exacto de la red
-  network: "mainnet",                // "mainnet" o "testnet"
-  label:   "Chain Mainnet",          // nombre mostrado en el dashboard
-  address: "addr1...",               // dirección del wallet relayer
-  rest:    "https://api.chain.com",  // endpoint REST (preferiblemente propio de Cumulo)
-  explorer_tx: "https://mintscan.io/chain/tx/",  // null si no hay explorer
-  denom:   "utoken",                 // denom nativo (el que paga fees)
-  denom_display: "TOKEN",            // símbolo para mostrar
-  exp:     1e6,                      // 1e6 para 6 decimales, 1e18 para 18 decimales
+  key:          "chain_mainnet",         // unique identifier, snake_case
+  chain:        "chain-id",              // exact chain_id
+  network:      "mainnet",               // "mainnet" or "testnet"
+  label:        "Chain Mainnet",         // display name in the dashboard
+  address:      "addr1...",              // relayer wallet address
+  rest:         "https://api.chain.com", // REST endpoint (prefer Cumulo's own)
+  explorer_tx:  "https://mintscan.io/chain/tx/", // null if no explorer
+  denom:        "utoken",                // native fee denom
+  denom_display:"TOKEN",                 // symbol shown in the dashboard
+  exp:          1e6,                     // decimal exponent: 1e6 or 1e18
 },
 ```
 
-**Decimales por chain:**
+**Decimals by chain:**
 - `1e6` → Celestia (TIA), Cosmos Hub (ATOM), Osmosis (OSMO)
 - `1e18` → Injective (INJ), SEDA (SEDA), XRPL EVM (XRP), Dymension (DYM)
 
-Reiniciar el servicio tras guardar:
+Restart the service after saving:
 
 ```bash
 sudo systemctl restart ibc-relayer-collector
 systemctl status ibc-relayer-collector
 ```
 
-Verificar que la nueva wallet aparece en los logs:
+Verify the new wallet appears in the logs:
 
 ```bash
 journalctl -u ibc-relayer-collector -n 50
@@ -75,37 +75,37 @@ journalctl -u ibc-relayer-collector -n 50
 
 ---
 
-## Comandos útiles
+## Useful Commands
 
 ```bash
-# Ver estado del servicio
+# Check service status
 systemctl status ibc-relayer-collector
 
-# Ejecutar una vez manualmente (sin tocar el servicio)
+# Run once manually (without affecting the service)
 node /opt/ibc-relayer-collector/collector-relayers.js
 
-# Ver logs en tiempo real
+# Stream logs in real time
 journalctl -u ibc-relayer-collector -f
 
-# Ver últimas líneas del JSON generado
+# Inspect the last bytes of the generated JSON
 tail -c 500 /var/lib/cumulo-ibc-relayer/activity.json
 
-# Reiniciar
+# Restart
 sudo systemctl restart ibc-relayer-collector
 ```
 
 ---
 
-## Funcionamiento
+## How It Works
 
-- Corre en modo `--watch`, ejecutándose cada **1 hora**
-- En cada ejecución descarga txs nuevas desde la última altura conocida (incremental)
-- Escribe atómicamente (`activity.json.tmp` → `activity.json`) para evitar lecturas parciales
-- El dashboard lo consume vía `activity_proxy.php` con caché de 5 minutos
+- Runs in `--watch` mode, executing every **1 hour**
+- Each run fetches only new transactions since the last known block height (incremental)
+- Writes atomically (`activity.json.tmp` → `activity.json`) to prevent partial reads
+- The dashboard consumes it via `activity_proxy.php` with a 5-minute client cache
 
-## Tipos de tx recogidos
+## Collected Transaction Types
 
-| Tipo | Categoría |
+| Type | Category |
 |---|---|
 | MsgRecvPacket | relay |
 | MsgAcknowledgement | relay |
