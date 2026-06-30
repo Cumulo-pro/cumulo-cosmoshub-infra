@@ -29,8 +29,11 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
 | `injective-1 ↔ osmosis-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
 | `seda-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+| `celestia ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+| `cosmoshub-4 ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+| `osmosis-1 ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
 
-**Total active channels: 19**
+**Total active channels: 22**
 
 > **Hermes version:** v1.13.2
 
