@@ -1,4 +1,17 @@
-# Hermes IBC Relayer
+# IBC Relayer Infrastructure : cumulo.me
+
+Cumulo operates an IBC relayer on Cosmos Hub mainnet and testnet. This repo contains the Hermes configuration, channel registry, and documentation for the full IBC stack.
+
+| Component | Description | Link |
+|---|---|---|
+| **Hermes config** | Relayer config, channels, wallets, maintenance | [config.toml](config.toml) · [_IBC/](_IBC/) |
+| **Dashboard** | Live channel status + fee wallet health | https://cumulo.pro/services/ibc/ |
+| **Activity Tracker** | On-chain relay tx history per wallet | https://cumulo.pro/services/ibc/activity |
+| **Collector** | Node.js service that generates activity data | [collector/](../collector/) |
+
+---
+
+## Hermes IBC Relayer
 
 Operational guide for running a Hermes IBC relayer using Cumulo's public infrastructure.
 
@@ -7,7 +20,7 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | `mocha-4 ↔ provider` | Testnet - own channel | 1 | ✅ Live |
 | `celestia ↔ cosmoshub-4` | Mainnet - own channel | 1 | ✅ Live |
 | `celestia ↔ xrplevm_1440000-1` | Mainnet - own channel | 1 | ✅ Live |
-| `celestia ↔ injective-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
+| `celestia ↔ injective-1` | Mainnet - own channel | 1 | ✅ Live |
 | `celestia ↔ osmosis-1` | Mainnet - relayer on existing channels | 3 | ✅ Live |
 | `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
 | `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
@@ -29,9 +42,9 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 | | mocha-4 | provider |
 |---|---|---|
-| **client** | `07-tendermint-633` | `07-tendermint-436` |
-| **connection** | `connection-684` | `connection-301` |
-| **channel** | `channel-464` | `channel-586` |
+| **client** | `07-tendermint-636` | `07-tendermint-447` |
+| **connection** | `connection-687` | `connection-308` |
+| **channel** | `channel-467` | `channel-593` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - celestia ↔ cosmoshub-4
@@ -58,13 +71,13 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ injective-1
 
-> Cumulo operates as additional relayer on the official channel.  
+> **First active IBC channel between Celestia mainnet and Injective**
 
 | | celestia | injective-1 |
 |---|---|---|
-| **client** | `07-tendermint-28` | `07-tendermint-226` |
-| **connection** | `connection-6` | `connection-210` |
-| **channel** | `channel-7` | `channel-152` |
+| **client** | `07-tendermint-166` | `07-tendermint-327` |
+| **connection** | `connection-106` | `connection-331` |
+| **channel** | `channel-281` | `channel-453` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - cosmoshub-4 ↔ xrplevm_1440000-1 (Peersyst channel)
