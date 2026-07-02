@@ -1,4 +1,4 @@
-# IBC Relayer Infrastructure : cumulo.me
+# IBC Relayer Infrastructure by Cumulo
 
 Cumulo operates an IBC relayer on Cosmos Hub mainnet and testnet. This repo contains the Hermes configuration, channel registry, and documentation for the full IBC stack.
 
@@ -498,4 +498,4 @@ Osmosis has 100,000+ IBC channels. Without `packet_filter`, Hermes spawns thousa
 
 ---
 
-*cumulo.me - IBC Initiative - June 2026*
+*Cumulo - IBC Initiative - June 2026*
