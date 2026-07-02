@@ -1,4 +1,4 @@
-# IBC Relayer Infrastructure: cumulo.me
+# IBC Relayer Infrastructure by Cumulo
 
 Cumulo operates an IBC relayer across 22 channels between 8 chains on Cosmos Hub mainnet and testnet.
 
