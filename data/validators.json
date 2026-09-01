@@ -303,6 +303,50 @@
   "grpc": "cosmos-grpc.stakecito.com:25790"
 },
   {
+    "name": "Silk Nodes",
+    "webservices": "https://silknodes.io/networks/cosmos",
+    "x": "silk_nodes",
+    "validatorlogo": "silknodes.jpg",
+    "explorer": "https://explorer.silknodes.io/cosmos",
+    "seed": "284313184f63d9f06b218a67a0e2de126b64258d@seeds.silknodes.io:15012",
+    "peers": "e1b058e5cfa2b836ddaa496b10911da62dcf182e@164.152.161.249:26656,c35d12225bb9257d42fa5cc05fff64a1597dadcf@164.152.163.157:26656,31e7a2eff51ce94def4d04f1e0b361d6e2827fad@169.155.44.206:26656",
+    "api": "https://api.silknodes.io/cosmos",
+    "rpc": "https://rpc.silknodes.io/cosmos",
+    "grpc": "cosmos.grpc.silknodes.io:443",
+    "addrbook": "https://services.silknodes.io/addrbook/cosmos/addrbook.json",
+    "snapshot": "https://silknodes.io/services/snapshot/cosmos",
+    "tools_url": {
+      "State Sync": "https://silknodes.io/services/statesync/cosmos",
+      "Live Peers": "https://silknodes.io/services/livepeers/cosmos",
+      "Install Guide": "https://silknodes.io/services/installguide/cosmos",
+      "CLI Cheat Sheet": "https://silknodes.io/services/clisheet/cosmos"
+    },
+    "tools_desc": {
+      "State Sync": "State sync endpoint and instructions for fast Cosmos Hub node bootstrap using Silk Nodes infrastructure.",
+      "Live Peers": "Live peer list for Cosmos Hub maintained by Silk Nodes, for resolving P2P connectivity issues.",
+      "Install Guide": "Step-by-step installation and configuration guide for running a Cosmos Hub node with Silk Nodes services.",
+      "CLI Cheat Sheet": "Reference of common CLI commands for Cosmos Hub node operators, maintained by Silk Nodes."
+    },
+    "content": {
+      "Genesis": "https://silknodes.io/services/genesisfile/cosmos"
+    }
+  },
+  {
+    "name": "HighStakes.ch",
+    "webservices": "https://highstakes.ch/protocols/cosmos",
+    "x": "HighStakes_CH",
+    "validatorlogo": "highstakes.jpg",
+    "rpc": "https://cosmos-rpc.highstakes.ch",
+    "snapshot": "https://tools.highstakes.ch/files/cosmos.tar.gz",
+    "tools_url": {
+      "Snapshot Browser": "https://tools.highstakes.ch/snapshots/cosmos"
+    },
+    "tools_desc": {
+      "Snapshot Browser": "Cosmos Hub mainnet (cosmoshub-4) snapshots, a new file added roughly every 3 hours, with a stable 'latest snapshot' link for automation via wget."
+    }
+  }
+,
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
