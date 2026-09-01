@@ -36,10 +36,17 @@
     "seed": "327fb4151de9f78f29ff10714085e347a4e3c836@rpc.cosmos.nodestake.org:666",
     "api": "https://api.cosmos.nodestake.org",
     "rpc": "https://rpc.cosmos.nodestake.org",
+    "statesync_rpc": "https://rpc.cosmos.nodestake.org",
     "grpc": "grpc.cosmos.nodestake.org:443",
     "peers": "27ad834c62dbefc5beb74be7575515927bd07c58@37.120.245.50:26656,7b15dce221b13ca353187b4f7219a94db6b71ad3@185.119.118.109:2000,6ecca845883e9273062ee515d2657080e6539d9e@65.109.32.148:26726,f527c58fb1c30eca8c4226edd7495c9bc2ec69b5@46.4.80.48:14956",
     "addrbook": "https://ss.cosmos.nodestake.org/addrbook.json",
     "snapshot": "https://ss.cosmos.nodestake.org/2026-05-12_cosmos_31080507.tar.lz4",
+    "snapshot_check": {
+      "kind": "page_scrape",
+      "resolve_url": "https://ss.cosmos.nodestake.org/",
+      "file_regex": "https://ss\\.cosmos\\.nodestake\\.org/\\d{4}-\\d{2}-\\d{2}_cosmos_\\d+\\.tar\\.lz4",
+      "min_size_bytes": 1000000000
+    },
     "tools_url": {
       "State Sync": "https://ss.cosmos.nodestake.org/addrbook.json",
       "Snapshots Browser": "https://ss.cosmos.nodestake.org/"
@@ -62,9 +69,21 @@
     "seed": "00bf1f9d3c65137dc99c40cd03864384ce0ef7c3@cosmoshub-mainnet-seed.itrocket.net:34656",
     "api": "https://cosmoshub-mainnet-api.itrocket.net",
     "rpc": "https://cosmoshub-mainnet-rpc.itrocket.net",
+    "statesync_rpc": "https://cosmoshub-mainnet-rpc.itrocket.net",
+    "statesync_peer": "cbc6e2c364fec853fc74f01d4926c6046d9b2067@cosmoshub-mainnet-peer.itrocket.net:34656",
     "grpc": "cosmoshub-mainnet-grpc.itrocket.net:443",
     "addrbook": "https://server-1.itrocket.net/mainnet/cosmoshub/addrbook.json",
     "snapshot": "https://server-1.itrocket.net/mainnet/cosmoshub/",
+    "snapshot_check": {
+      "kind": "json_index",
+      "resolve_url": "https://server-1.itrocket.net/mainnet/cosmoshub/.current_state.json",
+      "base_url": "https://server-1.itrocket.net/mainnet/cosmoshub/",
+      "file_key": "snapshot_name",
+      "height_key": "snapshot_height",
+      "size_key": "snapshot_size",
+      "date_key": "snapshot_block_time",
+      "db_backend_key": "db_backend"
+    },
     "tools": "Validator Analytics,Consensus Analytics,Peer Scanner,Public RPC",
     "tools_url": {
       "Validator Analytics": "https://itrocket.net/services/mainnet/cosmoshub/analytics/validators-performance/?view=uptime&mode=full&range=allTime%20-",
@@ -99,209 +118,235 @@
     }
   },
   {
-  "name": "Polkachu",
-  "webservices": "https://www.polkachu.com/networks/cosmos",
-  "x": "polka_chu",
-  "validatorlogo": "polkachu.jpg",
-  "explorer": "",
-  "seed": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@seeds.polkachu.com:14956",
-  "api": "https://cosmos-api.polkachu.com",
-  "rpc": "https://cosmos-rpc.polkachu.com",
-  "grpc": "cosmos-grpc.polkachu.com:14990",
-  "peers": "a7f14a48cd97c0eae7833849ccdf4e9418622c56@65.108.128.201:14956",
-  "addrbook": "https://snapshots.polkachu.com/addrbook/cosmos/addrbook.json",
-  "snapshot": "https://www.polkachu.com/tendermint_snapshots/cosmos",
-  "archive_snapshot": "",
-  "tools_url": {
-    "State-sync": "https://www.polkachu.com/state_sync/cosmos",
-    "Live Peers": "https://www.polkachu.com/live_peers/cosmos",
-    "IBC Relaying": "https://www.polkachu.com/relayers#cosmos",
-    "Installation Guide": "https://www.polkachu.com/installation/cosmos"
+    "name": "Polkachu",
+    "webservices": "https://www.polkachu.com/networks/cosmos",
+    "x": "polka_chu",
+    "validatorlogo": "polkachu.jpg",
+    "explorer": "",
+    "seed": "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@seeds.polkachu.com:14956",
+    "api": "https://cosmos-api.polkachu.com",
+    "rpc": "https://cosmos-rpc.polkachu.com",
+    "statesync_rpc": "https://cosmos-rpc.polkachu.com:443",
+    "statesync_peer": "a7f14a48cd97c0eae7833849ccdf4e9418622c56@65.108.128.201:14956",
+    "grpc": "cosmos-grpc.polkachu.com:14990",
+    "peers": "a7f14a48cd97c0eae7833849ccdf4e9418622c56@65.108.128.201:14956",
+    "addrbook": "https://snapshots.polkachu.com/addrbook/cosmos/addrbook.json",
+    "snapshot": "https://www.polkachu.com/tendermint_snapshots/cosmos",
+    "snapshot_check": {
+      "kind": "page_scrape",
+      "resolve_url": "https://www.polkachu.com/tendermint_snapshots/cosmos",
+      "file_regex": "https://snapshots\\.polkachu\\.com/snapshots/cosmos/cosmos_\\d+\\.tar\\.lz4",
+      "min_size_bytes": 1000000000
+    },
+    "archive_snapshot": "",
+    "tools_url": {
+      "State-sync": "https://www.polkachu.com/state_sync/cosmos",
+      "Live Peers": "https://www.polkachu.com/live_peers/cosmos",
+      "IBC Relaying": "https://www.polkachu.com/relayers#cosmos",
+      "Installation Guide": "https://www.polkachu.com/installation/cosmos"
+    },
+    "tools_desc": {
+      "State-sync": "State sync instructions and parameters for fast Cosmos Hub node bootstrap using Polkachu infrastructure.",
+      "Live Peers": "Real-time list of active Cosmos Hub peers observed by Polkachu state-sync infrastructure for improved connectivity.",
+      "IBC Relaying": "Information and infrastructure related to Polkachu IBC relayer operations across Cosmos ecosystem chains."
+    }
   },
-  "tools_desc": {
-    "State-sync": "State sync instructions and parameters for fast Cosmos Hub node bootstrap using Polkachu infrastructure.",
-    "Live Peers": "Real-time list of active Cosmos Hub peers observed by Polkachu state-sync infrastructure for improved connectivity.",
-    "IBC Relaying": "Information and infrastructure related to Polkachu IBC relayer operations across Cosmos ecosystem chains."
-  }
-},
   {
-  "name": "kjnodes",
-  "webservices": "https://services.kjnodes.com/mainnet/cosmoshub/",
-  "x": "kjnodes",
-  "validatorlogo": "kjnodes.jpg",
-  "explorer": "https://explorer.kjnodes.com/cosmoshub",
-  "seed": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc@cosmoshub.rpc.kjnodes.com:13459",
-  "api": "https://cosmoshub.api.kjnodes.com",
-  "rpc": "https://cosmoshub.rpc.kjnodes.com",
-  "grpc": "cosmoshub.grpc.kjnodes.com:443",
-  "peers": "d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub.rpc.kjnodes.com:13456",
-  "addrbook": "https://snapshots.kjnodes.com/cosmoshub/addrbook.json",
-  "snapshot": "https://snapshots.kjnodes.com/cosmoshub/snapshot_latest.tar.lz4",
-  "tools_url": {
-    "State Sync": "https://services.kjnodes.com/mainnet/cosmoshub/state-sync/",
-    "Snapshot": "https://services.kjnodes.com/mainnet/cosmoshub/snapshot/",
-    "Public RPC": "https://services.kjnodes.com/mainnet/cosmoshub/public-rpc/",
-    "Slashboard": "https://services.kjnodes.com/mainnet/cosmoshub/slashboard/",
-    "Useful Commands": "https://services.kjnodes.com/mainnet/cosmoshub/useful-commands/"
+    "name": "kjnodes",
+    "webservices": "https://services.kjnodes.com/mainnet/cosmoshub/",
+    "x": "kjnodes",
+    "validatorlogo": "kjnodes.jpg",
+    "explorer": "https://explorer.kjnodes.com/cosmoshub",
+    "seed": "400f3d9e30b69e78a7fb891f60d76fa3c73f0ecc@cosmoshub.rpc.kjnodes.com:13459",
+    "api": "https://cosmoshub.api.kjnodes.com",
+    "rpc": "https://cosmoshub.rpc.kjnodes.com",
+    "statesync_rpc": "https://cosmoshub.rpc.kjnodes.com",
+    "statesync_peer": "d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub.rpc.kjnodes.com:13456",
+    "grpc": "cosmoshub.grpc.kjnodes.com:443",
+    "peers": "d9bfa29e0cf9c4ce0cc9c26d98e5d97228f93b0b@cosmoshub.rpc.kjnodes.com:13456",
+    "addrbook": "https://snapshots.kjnodes.com/cosmoshub/addrbook.json",
+    "snapshot": "https://snapshots.kjnodes.com/cosmoshub/snapshot_latest.tar.lz4",
+    "snapshot_check": {
+      "kind": "stable_url",
+      "min_size_bytes": 1000000000
+    },
+    "tools_url": {
+      "State Sync": "https://services.kjnodes.com/mainnet/cosmoshub/state-sync/",
+      "Snapshot": "https://services.kjnodes.com/mainnet/cosmoshub/snapshot/",
+      "Public RPC": "https://services.kjnodes.com/mainnet/cosmoshub/public-rpc/",
+      "Slashboard": "https://services.kjnodes.com/mainnet/cosmoshub/slashboard/",
+      "Useful Commands": "https://services.kjnodes.com/mainnet/cosmoshub/useful-commands/"
+    },
+    "tools_desc": {
+      "State Sync": "State sync endpoint and instructions for fast Cosmos Hub node bootstrap using kjnodes infrastructure.",
+      "Snapshot": "Daily pruned snapshots (every 6 hours) for fast Cosmos Hub node restoration, currently at 63+ GB.",
+      "Public RPC": "Curated public Cosmos Hub RPC endpoints maintained by kjnodes with uptime monitoring.",
+      "Slashboard": "Validator slashing and downtime monitoring dashboard for Cosmos Hub mainnet.",
+      "Useful Commands": "Reference guide of useful Cosmos Hub CLI commands for node operators and validators."
+    },
+    "content": {
+      "Installation Guide": "https://services.kjnodes.com/mainnet/cosmoshub/installation/",
+      "Upgrade Guide": "https://services.kjnodes.com/mainnet/cosmoshub/upgrade/"
+    }
   },
-  "tools_desc": {
-    "State Sync": "State sync endpoint and instructions for fast Cosmos Hub node bootstrap using kjnodes infrastructure.",
-    "Snapshot": "Daily pruned snapshots (every 6 hours) for fast Cosmos Hub node restoration, currently at 63+ GB.",
-    "Public RPC": "Curated public Cosmos Hub RPC endpoints maintained by kjnodes with uptime monitoring.",
-    "Slashboard": "Validator slashing and downtime monitoring dashboard for Cosmos Hub mainnet.",
-    "Useful Commands": "Reference guide of useful Cosmos Hub CLI commands for node operators and validators."
-  },
-  "content": {
-    "Installation Guide": "https://services.kjnodes.com/mainnet/cosmoshub/installation/",
-    "Upgrade Guide": "https://services.kjnodes.com/mainnet/cosmoshub/upgrade/"
-  }
-},
   {
-  "name": "Enigma",
-  "webservices": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices",
-  "x": "EnigmaValidator",
-  "validatorlogo": "enigma.jpg",
-  "rpc": "https://cosmos-rpc.enigma-validator.com/",
-  "api": "https://cosmos-lcd.enigma-validator.com/",
-  "snapshot": "https://services.enigma-validator.com/cosmos/cosmos_None.tar.lz4",
-  "tools_url": {
-    "Installation Guide": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node",
-    "Snapshot": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices"
+    "name": "Enigma",
+    "webservices": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices",
+    "x": "EnigmaValidator",
+    "validatorlogo": "enigma.jpg",
+    "rpc": "https://cosmos-rpc.enigma-validator.com/",
+    "api": "https://cosmos-lcd.enigma-validator.com/",
+    "snapshot": "https://services.enigma-validator.com/cosmos/cosmos_None.tar.lz4",
+    "snapshot_check": {
+      "kind": "unknown",
+      "note": "Published link (cosmos_None.tar.lz4) failed to connect during investigation (2026-09-01) - looks like a broken/unpopulated template on their site, not a transient outage. Re-check before enabling."
+    },
+    "tools_url": {
+      "Installation Guide": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node",
+      "Snapshot": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices"
+    },
+    "tools_desc": {
+      "Installation Guide": "Step-by-step guide for setting up and configuring a Cosmos Hub node using Enigma's infrastructure and documentation.",
+      "Snapshot": "Periodic pruned snapshots for fast Cosmos Hub node restoration via Enigma's node services infrastructure."
+    },
+    "content": {
+      "Node Setup": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node"
+    }
   },
-  "tools_desc": {
-    "Installation Guide": "Step-by-step guide for setting up and configuring a Cosmos Hub node using Enigma's infrastructure and documentation.",
-    "Snapshot": "Periodic pruned snapshots for fast Cosmos Hub node restoration via Enigma's node services infrastructure."
-  },
-  "content": {
-    "Node Setup": "https://documentation.enigma-validator.com/docs/mainnets/Cosmos-hub/setup-node"
-  }
-},
   {
-  "name": "Nodes Hub",
-  "webservices": "https://services.nodeshub.online/mainnet/cosmos",
-  "x": "NodesHub",
-  "validatorlogo": "nodeshub.jpg",
-  "seed": "6f6a3a908634b79b6fe7c4988efec2553f188234@cosmos.seed.nodeshub.online:14956",
-  "api": "https://cosmos.api.nodeshub.online",
-  "rpc": "https://cosmos.rpc.nodeshub.online",
-  "grpc": "https://cosmos.grpc.nodeshub.online",
-  "peers": "d9e1182c592a286d16e492a61c4026c79254c7ba@190.2.143.61:26656,a900dc924c07beecaf92c48510d9cb9d647607d0@162.19.60.166:26356,1da54d20c7339713f1d6d28dd2117087dd33d0ca@5.9.59.145:26656,8220e8029929413afff48dccc6a263e9ac0c3e5e@204.16.247.237:26656,d565edaa51392938ebecbb7f02001b6a91b9f6cf@159.69.70.55:60756,9d2cd8c2e32c3f3d480ccb2c5133cd06e8fe3939@148.251.6.198:26630,aa70e2cc756b8dd9e265e578197d3049d67d731f@93.189.30.109:26656,7387927874d1950a36e895c0cdf2d198b0bfaef8@135.181.174.106:26656,ea43dd766d5127f5fb886358365f3841b2c6188b@64.185.227.122:14956,4ddba29a7dfa740a4edeb5c620c963f67f951e1d@5.9.72.212:2000",
-  "addrbook": "https://files.nodeshub.online/mainnet/cosmos/addrbook.json",
-  "tools_url": {
-    "Installation Guide": "https://services.nodeshub.online/mainnet/cosmos"
+    "name": "Nodes Hub",
+    "webservices": "https://services.nodeshub.online/mainnet/cosmos",
+    "x": "NodesHub",
+    "validatorlogo": "nodeshub.jpg",
+    "seed": "6f6a3a908634b79b6fe7c4988efec2553f188234@cosmos.seed.nodeshub.online:14956",
+    "api": "https://cosmos.api.nodeshub.online",
+    "rpc": "https://cosmos.rpc.nodeshub.online",
+    "grpc": "https://cosmos.grpc.nodeshub.online",
+    "peers": "d9e1182c592a286d16e492a61c4026c79254c7ba@190.2.143.61:26656,a900dc924c07beecaf92c48510d9cb9d647607d0@162.19.60.166:26356,1da54d20c7339713f1d6d28dd2117087dd33d0ca@5.9.59.145:26656,8220e8029929413afff48dccc6a263e9ac0c3e5e@204.16.247.237:26656,d565edaa51392938ebecbb7f02001b6a91b9f6cf@159.69.70.55:60756,9d2cd8c2e32c3f3d480ccb2c5133cd06e8fe3939@148.251.6.198:26630,aa70e2cc756b8dd9e265e578197d3049d67d731f@93.189.30.109:26656,7387927874d1950a36e895c0cdf2d198b0bfaef8@135.181.174.106:26656,ea43dd766d5127f5fb886358365f3841b2c6188b@64.185.227.122:14956,4ddba29a7dfa740a4edeb5c620c963f67f951e1d@5.9.72.212:2000",
+    "addrbook": "https://files.nodeshub.online/mainnet/cosmos/addrbook.json",
+    "tools_url": {
+      "Installation Guide": "https://services.nodeshub.online/mainnet/cosmos"
+    },
+    "tools_desc": {
+      "Installation Guide": "Node setup guide and infrastructure services for Cosmos Hub mainnet including endpoints, peers, addrbook and genesis file."
+    },
+    "content": {
+      "Genesis": "https://files.nodeshub.online/mainnet/cosmos/genesis.json"
+    }
   },
-  "tools_desc": {
-    "Installation Guide": "Node setup guide and infrastructure services for Cosmos Hub mainnet including endpoints, peers, addrbook and genesis file."
-  },
-  "content": {
-    "Genesis": "https://files.nodeshub.online/mainnet/cosmos/genesis.json"
-  }
-},
   {
-  "name": "Nodes.Guru",
-  "webservices": "https://nodes.guru/staking",
-  "x": "NodesGuru",
-  "validatorlogo": "nodesguru.png",
-  "explorer": "https://cosmos.explorers.guru/",
-  "tools_url": {
-    "Nodes Monitoring": "https://t.me/NodesGuru_bot"
+    "name": "Nodes.Guru",
+    "webservices": "https://nodes.guru/staking",
+    "x": "NodesGuru",
+    "validatorlogo": "nodesguru.png",
+    "explorer": "https://cosmos.explorers.guru/",
+    "tools_url": {
+      "Nodes Monitoring": "https://t.me/NodesGuru_bot"
+    },
+    "tools_desc": {
+      "Nodes Monitoring": "Telegram-based node health monitoring bot for Cosmos validators and node operators."
+    }
   },
-  "tools_desc": {
-     "Nodes Monitoring": "Telegram-based node health monitoring bot for Cosmos validators and node operators."
-  }
-},
   {
-  "name": "Crouton Digital",
-  "webservices": "https://crouton.digital/services/mainnet-networks/cosmos",
-  "x": "CroutonDigital",
-  "validatorlogo": "croutondigital.jpg",
-  "rpc": "https://cosmos-mainnet-rpc.crouton.digital",
-  "api": "https://cosmos-mainnet-api.crouton.digital",
-  "grpc": "cosmos-mainnet-grpc.crouton.digital:14990",
-  "peers": "def524b19130cbbc671ea6635d18f426f4afaa96@5.9.95.101:14956",
-  "snapshot": "https://storage.crouton.digital/mainnet/cosmos/snapshots/cosmos_latest.tar.lz4",
-  "tools_url": {
-    "Snapshot": "https://crouton.digital/services/mainnet-networks/cosmos#table-13",
-    "Installation Guide": "https://crouton.digital/services/mainnet-networks/cosmos"
+    "name": "Crouton Digital",
+    "webservices": "https://crouton.digital/services/mainnet-networks/cosmos",
+    "x": "CroutonDigital",
+    "validatorlogo": "croutondigital.jpg",
+    "rpc": "https://cosmos-mainnet-rpc.crouton.digital",
+    "statesync_rpc": "https://cosmos-mainnet-rpc.crouton.digital",
+    "statesync_peer": "def524b19130cbbc671ea6635d18f426f4afaa96@5.9.95.101:14956",
+    "api": "https://cosmos-mainnet-api.crouton.digital",
+    "grpc": "cosmos-mainnet-grpc.crouton.digital:14990",
+    "peers": "def524b19130cbbc671ea6635d18f426f4afaa96@5.9.95.101:14956",
+    "snapshot": "https://storage.crouton.digital/mainnet/cosmos/snapshots/cosmos_latest.tar.lz4",
+    "snapshot_check": {
+      "kind": "stable_url",
+      "min_size_bytes": 1000000000
+    },
+    "tools_url": {
+      "Snapshot": "https://crouton.digital/services/mainnet-networks/cosmos#table-13",
+      "Installation Guide": "https://crouton.digital/services/mainnet-networks/cosmos"
+    },
+    "tools_desc": {
+      "Snapshot": "Latest pruned snapshot for fast Cosmos Hub node restoration via Crouton Digital's storage infrastructure.",
+      "Installation Guide": "Node infrastructure services for Cosmos Hub mainnet including public RPC, API, gRPC endpoints and peer connectivity."
+    }
   },
-  "tools_desc": {
-    "Snapshot": "Latest pruned snapshot for fast Cosmos Hub node restoration via Crouton Digital's storage infrastructure.",
-    "Installation Guide": "Node infrastructure services for Cosmos Hub mainnet including public RPC, API, gRPC endpoints and peer connectivity."
-  }
-},
   {
-  "name": "Bro_n_Bro",
-  "webservices": "https://bronbro.io/",
-  "x": "Bro_n_Bro",
-  "validatorlogo": "bronbro.jpg",
-  "rpc": "https://rpc.cosmoshub-4.cybernode.ai",
-  "api": "https://lcd.cosmoshub-4.cybernode.ai",
-  "grpc": "grpc.cosmoshub-4.cybernode.ai:1443",
-  "tools_url": {
-    "Spacebox Indexer": "https://github.com/bro-n-bro/spacebox",
-    "Monitor Boards": "https://monitor.bronbro.io/",
-    "Bro App": "https://app.bronbro.io/",
-    "IBC Relaying": "https://mapofzones.com/"
+    "name": "Bro_n_Bro",
+    "webservices": "https://bronbro.io/",
+    "x": "Bro_n_Bro",
+    "validatorlogo": "bronbro.jpg",
+    "rpc": "https://rpc.cosmoshub-4.cybernode.ai",
+    "api": "https://lcd.cosmoshub-4.cybernode.ai",
+    "grpc": "grpc.cosmoshub-4.cybernode.ai:1443",
+    "tools_url": {
+      "Spacebox Indexer": "https://github.com/bro-n-bro/spacebox",
+      "Monitor Boards": "https://monitor.bronbro.io/",
+      "Bro App": "https://app.bronbro.io/",
+      "IBC Relaying": "https://mapofzones.com/"
+    },
+    "tools_desc": {
+      "Spacebox Indexer": "Open-source Cosmos ecosystem indexer providing structured access to blocks, transactions and chain events.",
+      "Monitor Boards": "Grafana-based monitoring dashboards tracking metrics across multiple Cosmos ecosystem chains.",
+      "Bro App": "Cosmos asset management app for viewing balances and managing delegations across supported chains.",
+      "IBC Relaying": "Active IBC relayer infrastructure connecting Cosmos Hub with Bostrom, Osmosis, Juno, Evmos and Gravity Bridge."
+    }
   },
-  "tools_desc": {
-    "Spacebox Indexer": "Open-source Cosmos ecosystem indexer providing structured access to blocks, transactions and chain events.",
-    "Monitor Boards": "Grafana-based monitoring dashboards tracking metrics across multiple Cosmos ecosystem chains.",
-    "Bro App": "Cosmos asset management app for viewing balances and managing delegations across supported chains.",
-    "IBC Relaying": "Active IBC relayer infrastructure connecting Cosmos Hub with Bostrom, Osmosis, Juno, Evmos and Gravity Bridge."
-  }
-},
   {
-  "name": "POSTHUMAN",
-  "webservices": "https://nodes.posthuman.digital/chains/cosmoshub",
-  "x": "POSTHUMAN_DVS",
-  "validatorlogo": "posthuman.jpg",
-  "explorer": "https://explorer.posthuman.digital/cosmos/staking",
-  "seed": "6d581e53245f7f81c24a20392b60256a7e59de59@peer.cosmos.posthuman.digital:26656",
-  "rpc": "https://rpc.cosmos.posthuman.digital",
-  "api": "https://rest.cosmos.posthuman.digital",
-  "grpc": "https://grpc.cosmos.posthuman.digital",
-  "peers": "d6318b3bd51a5e2b8ed08f2e520d50289ed32bf1@52.79.43.100:26656,b0e746acb6fbed7a0311fe21cfb2ee94581ca3bc@51.79.21.187:26656,1da54d20c7339713f1d6d28dd2117087dd33d0ca@cosmos-seed.icycro.org:26656,fe21dd474640247888fc7c4dce82da8da08a8bfd@peer-cosmos-hub-01.stakeflow.io:26656,01c0d24922dcdf6f8816ec814a5c3436c5d5fbc5@65.108.195.29:36656,28d36c3d45f0208528de3c38f2934ae241bd23e7@peer-cosmoshub.mms.team:26656,87ccc1dcc0b846fc1623ab9a5ab55682e8e2ad2e@seed-cosmoshub.freshstaking.com:26656,2441723e318545be469d43611d331e3271477ede@cosmoshub-mainnet-peer.itrocket.net:34656,d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@78.46.79.242:26656,49ae570771a581d28bfb7c0f4e7716c662e482fa@51.255.85.232:26656",
-  "tools_url": {
-    "State Sync": "https://nodes.posthuman.digital/chains/cosmoshub?tab=state-sync"
+    "name": "POSTHUMAN",
+    "webservices": "https://nodes.posthuman.digital/chains/cosmoshub",
+    "x": "POSTHUMAN_DVS",
+    "validatorlogo": "posthuman.jpg",
+    "explorer": "https://explorer.posthuman.digital/cosmos/staking",
+    "seed": "6d581e53245f7f81c24a20392b60256a7e59de59@peer.cosmos.posthuman.digital:26656",
+    "rpc": "https://rpc.cosmos.posthuman.digital",
+    "statesync_rpc": "https://rpc.cosmos.posthuman.digital",
+    "statesync_peer": "6d581e53245f7f81c24a20392b60256a7e59de59@peer.cosmos.posthuman.digital:26656",
+    "api": "https://rest.cosmos.posthuman.digital",
+    "grpc": "https://grpc.cosmos.posthuman.digital",
+    "peers": "d6318b3bd51a5e2b8ed08f2e520d50289ed32bf1@52.79.43.100:26656,b0e746acb6fbed7a0311fe21cfb2ee94581ca3bc@51.79.21.187:26656,1da54d20c7339713f1d6d28dd2117087dd33d0ca@cosmos-seed.icycro.org:26656,fe21dd474640247888fc7c4dce82da8da08a8bfd@peer-cosmos-hub-01.stakeflow.io:26656,01c0d24922dcdf6f8816ec814a5c3436c5d5fbc5@65.108.195.29:36656,28d36c3d45f0208528de3c38f2934ae241bd23e7@peer-cosmoshub.mms.team:26656,87ccc1dcc0b846fc1623ab9a5ab55682e8e2ad2e@seed-cosmoshub.freshstaking.com:26656,2441723e318545be469d43611d331e3271477ede@cosmoshub-mainnet-peer.itrocket.net:34656,d567c93fa5b646c8cca8ba0a2d7499bca6aeba52@78.46.79.242:26656,49ae570771a581d28bfb7c0f4e7716c662e482fa@51.255.85.232:26656",
+    "tools_url": {
+      "State Sync": "https://nodes.posthuman.digital/chains/cosmoshub?tab=state-sync"
+    },
+    "tools_desc": {
+      "State Sync": "State-sync server for Cosmos Hub with snapshot interval of 2000 blocks and automated shell script for config.toml setup."
+    },
+    "content": {
+      "Install Guide": "https://nodes.posthuman.digital/chains/cosmoshub"
+    }
   },
-  "tools_desc": {
-    "State Sync": "State-sync server for Cosmos Hub with snapshot interval of 2000 blocks and automated shell script for config.toml setup."
-  },
-  "content": {
-    "Install Guide": "https://nodes.posthuman.digital/chains/cosmoshub"
-  }
-},
   {
-  "name": "Lavender.Five Nodes",
-  "webservices": "https://www.lavenderfive.com/tools/cosmoshub/overview",
-  "x": "lavender_five",
-  "validatorlogo": "lavenderfive.jpg",
-  "seed": "20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:14956",
-  "rpc": "https://rpc.lavenderfive.com:443/cosmoshub",
-  "api": "https://rest.lavenderfive.com:443/cosmoshub",
-  "grpc": "cosmoshub.lavenderfive.com:443",
-  "websocket": "wss://rpc.lavenderfive.com:443/cosmoshub/websocket",
-  "tools_url": {
-    "State Sync": "https://www.lavenderfive.com/tools/cosmoshub/statesync",
-    "Metrics": "https://www.lavenderfive.com/tools/cosmoshub/metrics",
-    "Commands": "https://www.lavenderfive.com/tools/cosmoshub/commands"
+    "name": "Lavender.Five Nodes",
+    "webservices": "https://www.lavenderfive.com/tools/cosmoshub/overview",
+    "x": "lavender_five",
+    "validatorlogo": "lavenderfive.jpg",
+    "seed": "20e1000e88125698264454a884812746c2eb4807@seeds.lavenderfive.com:14956",
+    "rpc": "https://rpc.lavenderfive.com:443/cosmoshub",
+    "api": "https://rest.lavenderfive.com:443/cosmoshub",
+    "grpc": "cosmoshub.lavenderfive.com:443",
+    "websocket": "wss://rpc.lavenderfive.com:443/cosmoshub/websocket",
+    "tools_url": {
+      "State Sync": "https://www.lavenderfive.com/tools/cosmoshub/statesync",
+      "Metrics": "https://www.lavenderfive.com/tools/cosmoshub/metrics",
+      "Commands": "https://www.lavenderfive.com/tools/cosmoshub/commands"
+    },
+    "tools_desc": {
+      "State Sync": "State sync service for fast Cosmos Hub node bootstrap using Lavender.Five infrastructure.",
+      "Metrics": "Historic and current blockchain metrics dashboard for Cosmos Hub network monitoring.",
+      "Commands": "Common CLI commands and operations reference for Cosmos Hub node operators."
+    }
   },
-  "tools_desc": {
-    "State Sync": "State sync service for fast Cosmos Hub node bootstrap using Lavender.Five infrastructure.",
-    "Metrics": "Historic and current blockchain metrics dashboard for Cosmos Hub network monitoring.",
-    "Commands": "Common CLI commands and operations reference for Cosmos Hub node operators."
-  }
-},
   {
-  "name": "Stakecito Labs",
-  "webservices": "https://www.stakecito.com/chain-services/cosmos-hub",
-  "x": "stakecito",
-  "validatorlogo": "stakecito.jpg",
-  "seed": "e26a43cd3378167abebdb64926e1cb38d393bc71@cosmos-seed.stakecito.com:26656",
-  "rpc": "https://cosmos-rpc.stakecito.com",
-  "api": "https://cosmos-api.stakecito.com",
-  "grpc": "cosmos-grpc.stakecito.com:25790"
-},
+    "name": "Stakecito Labs",
+    "webservices": "https://www.stakecito.com/chain-services/cosmos-hub",
+    "x": "stakecito",
+    "validatorlogo": "stakecito.jpg",
+    "seed": "e26a43cd3378167abebdb64926e1cb38d393bc71@cosmos-seed.stakecito.com:26656",
+    "rpc": "https://cosmos-rpc.stakecito.com",
+    "api": "https://cosmos-api.stakecito.com",
+    "grpc": "cosmos-grpc.stakecito.com:25790"
+  },
   {
     "name": "Silk Nodes",
     "webservices": "https://silknodes.io/networks/cosmos",
@@ -315,6 +360,10 @@
     "grpc": "cosmos.grpc.silknodes.io:443",
     "addrbook": "https://services.silknodes.io/addrbook/cosmos/addrbook.json",
     "snapshot": "https://silknodes.io/services/snapshot/cosmos",
+    "snapshot_check": {
+      "kind": "unknown",
+      "note": "Site (silknodes.io) is up but the specific snapshot/state-sync sub-pages returned 404 during investigation (2026-09-01) - looks like a JS-rendered SPA route not reachable by a plain fetch. Needs a headless-browser check or manual re-check before enabling."
+    },
     "tools_url": {
       "State Sync": "https://silknodes.io/services/statesync/cosmos",
       "Live Peers": "https://silknodes.io/services/livepeers/cosmos",
@@ -338,14 +387,17 @@
     "validatorlogo": "highstakes.jpg",
     "rpc": "https://cosmos-rpc.highstakes.ch",
     "snapshot": "https://tools.highstakes.ch/files/cosmos.tar.gz",
+    "snapshot_check": {
+      "kind": "stable_url",
+      "min_size_bytes": 1000000000
+    },
     "tools_url": {
       "Snapshot Browser": "https://tools.highstakes.ch/snapshots/cosmos"
     },
     "tools_desc": {
       "Snapshot Browser": "Cosmos Hub mainnet (cosmoshub-4) snapshots, a new file added roughly every 3 hours, with a stable 'latest snapshot' link for automation via wget."
     }
-  }
-,
+  },
   {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
@@ -353,6 +405,7 @@
     "validatorlogo": "cumulo.jpg",
     "explorer": "https://cumulo.pro/services/cosmos/stats",
     "rpc": "https://rpc.cosmos.cumulo.com.es",
+    "statesync_rpc": "https://rpc.cosmos.cumulo.com.es",
     "websocket": "wss://rpc.cosmos.cumulo.com.es/websocket",
     "api": "https://api.cosmos.cumulo.com.es",
     "grpc": "https://grpc.cosmos.cumulo.com.es",
@@ -365,8 +418,8 @@
       "Cosmos Node Monitoring": "Grafana-based monitoring dashboard for Cosmos mainnet nodes providing real-time metrics, system observability and performance tracking via Node Exporter integration.",
       "Cosmos Hub Activity Tracker": "Operational activity dashboard for Cosmos Hub mainnet covering validator behavior, RPC usage and network participation analytics."
     },
-     "content": {
-       "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
+    "content": {
+      "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
     }
   }
 ]
