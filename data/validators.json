@@ -400,6 +400,38 @@
     }
   },
   {
+    "name": "Positiva Ultra",
+    "webservices": "https://cosmos.validata.zone/",
+    "x": "PositivaLab",
+    "validatorlogo": "positivaultra.jpg",
+    "rpc": "https://rpc.cosmos.validata.zone",
+    "api": "https://api.cosmos.validata.zone",
+    "peers": "e64fcfbdfeabd196fed6398a1547bfe91fe6a951@peer.cosmos.validata.zone:45656",
+    "addrbook": "https://snapshot6.validata.zone/cosmos/addrbook.json",
+    "snapshot": "https://snapshot6.validata.zone/cosmos/cosmos_snapshot.tar.gz",
+    "tools_url": {
+      "Monitoring": "https://cosmos.validata.zone/monitor",
+      "Delegator Statistics": "https://cosmos.validata.zone/delegators",
+      "Top Delegators": "https://cosmos.validata.zone/delegators/top"
+    },
+    "tools_desc": {
+      "Monitoring": "Independent monitoring for validator status, delegations/redelegations, governance proposals, upgrades and relayer balance alerts, hosted by Positiva Lab (tool name: Validata).",
+      "Delegator Statistics": "Delegator profit, rewards and delegation statistics dashboard for Cosmos Hub.",
+      "Top Delegators": "Ranking of top Cosmos Hub delegators by stake."
+    }
+  },
+  {
+    "name": "LuckyStar",
+    "webservices": "https://snapshots.luckystar.asia/cosmos",
+    "x": "",
+    "validatorlogo": "luckystar.jpg",
+    "snapshot": "https://snapshots.luckystar.asia/cosmos/cosmos_data.tar.zst",
+    "content": {
+      "Genesis": "https://snapshots.luckystar.asia/cosmos/genesis.json"
+    },
+    "_missing": "rpc, api, grpc, seed, addrbook, explorer and X/twitter handle not published for Cosmos Hub on their site or gitbook (luckystar-1.gitbook.io) as of 2026-09 — ask Havana directly if needed. Their gitbook's 'API, RPC, gRPC' page and cosmos-eco chain list do not include Cosmos Hub itself (only other Cosmos-ecosystem chains: Althea, Arkeo, AtomOne, Axone, BitBadges, Bitway/Side, Intento, Kii, Kopi, Lumera, Orai, Seda, Sunrise, TAC, XRPL, Zeta)."
+  },
+  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
