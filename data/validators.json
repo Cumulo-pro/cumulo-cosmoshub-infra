@@ -43,7 +43,7 @@
     "snapshot": "https://ss.cosmos.nodestake.org/2026-05-12_cosmos_31080507.tar.lz4",
     "snapshot_check": {
       "kind": "page_scrape",
-      "resolve_url": "https://ss.cosmos.nodestake.org/",
+      "resolve_url": "https://ss.cosmos.nodestake.org/log.txt",
       "base_url": "https://ss.cosmos.nodestake.org/",
       "file_regex": "\\d{4}-\\d{2}-\\d{2}_cosmos_\\d+\\.tar\\.lz4",
       "min_size_bytes": 1000000000
