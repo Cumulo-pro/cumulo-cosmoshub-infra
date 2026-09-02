@@ -194,7 +194,7 @@
     "name": "Enigma",
     "webservices": "https://www.enigma-validator.com/networks?asset=cosmoshub#networkservices",
     "x": "EnigmaValidator",
-    "validatorlogo": "enigma.png",
+    "validatorlogo": "enigma.jpg",
     "rpc": "https://cosmos-rpc.enigma-validator.com/",
     "api": "https://cosmos-lcd.enigma-validator.com/",
     "snapshot": "https://services.enigma-validator.com/cosmos/cosmos_None.tar.lz4",
@@ -352,7 +352,7 @@
     "name": "Silk Nodes",
     "webservices": "https://silknodes.io/networks/cosmos",
     "x": "silk_nodes",
-    "validatorlogo": "silk_nodes.jpg",
+    "validatorlogo": "silknodes.jpg",
     "explorer": "https://explorer.silknodes.io/cosmos",
     "seed": "284313184f63d9f06b218a67a0e2de126b64258d@seeds.silknodes.io:15012",
     "peers": "e1b058e5cfa2b836ddaa496b10911da62dcf182e@164.152.161.249:26656,c35d12225bb9257d42fa5cc05fff64a1597dadcf@164.152.163.157:26656,31e7a2eff51ce94def4d04f1e0b361d6e2827fad@169.155.44.206:26656",
@@ -400,38 +400,6 @@
     }
   },
   {
-    "name": "Positiva Ultra",
-    "webservices": "https://cosmos.validata.zone/",
-    "x": "PositivaLab",
-    "validatorlogo": "positivaultra.jpg",
-    "rpc": "https://rpc.cosmos.validata.zone",
-    "api": "https://api.cosmos.validata.zone",
-    "peers": "e64fcfbdfeabd196fed6398a1547bfe91fe6a951@peer.cosmos.validata.zone:45656",
-    "addrbook": "https://snapshot6.validata.zone/cosmos/addrbook.json",
-    "snapshot": "https://snapshot6.validata.zone/cosmos/cosmos_snapshot.tar.gz",
-    "tools_url": {
-      "Monitoring": "https://cosmos.validata.zone/monitor",
-      "Delegator Statistics": "https://cosmos.validata.zone/delegators",
-      "Top Delegators": "https://cosmos.validata.zone/delegators/top"
-    },
-    "tools_desc": {
-      "Monitoring": "Independent monitoring for validator status, delegations/redelegations, governance proposals, upgrades and relayer balance alerts, hosted by Positiva Lab (tool name: Validata).",
-      "Delegator Statistics": "Delegator profit, rewards and delegation statistics dashboard for Cosmos Hub.",
-      "Top Delegators": "Ranking of top Cosmos Hub delegators by stake."
-    }
-  },
-  {
-    "name": "LuckyStar",
-    "webservices": "https://snapshots.luckystar.asia/cosmos",
-    "x": "",
-    "validatorlogo": "luckystar.jpg",
-    "snapshot": "https://snapshots.luckystar.asia/cosmos/cosmos_data.tar.zst",
-    "content": {
-      "Genesis": "https://snapshots.luckystar.asia/cosmos/genesis.json"
-    },
-    "_missing": "rpc, api, grpc, seed, addrbook, explorer and X/twitter handle not published for Cosmos Hub on their site or gitbook (luckystar-1.gitbook.io) as of 2026-09 — ask Havana directly if needed. Their gitbook's 'API, RPC, gRPC' page and cosmos-eco chain list do not include Cosmos Hub itself (only other Cosmos-ecosystem chains: Althea, Arkeo, AtomOne, Axone, BitBadges, Bitway/Side, Intento, Kii, Kopi, Lumera, Orai, Seda, Sunrise, TAC, XRPL, Zeta)."
-  },
-  {
     "name": "Cumulo",
     "webservices": "https://cumulo.pro/services/cosmos/",
     "x": "Cumulo_pro",
@@ -454,5 +422,49 @@
     "content": {
       "Node Installation Guide": "https://cumulo.pro/services/cosmos/install"
     }
+  },
+  {
+    "name": "Positiva Ultra",
+    "webservices": "https://cosmos.validata.zone/",
+    "x": "PositivaLab",
+    "validatorlogo": "positivaultra.jpg",
+    "rpc": "https://rpc.cosmos.validata.zone",
+    "api": "https://api.cosmos.validata.zone",
+    "peers": "e64fcfbdfeabd196fed6398a1547bfe91fe6a951@peer.cosmos.validata.zone:45656",
+    "addrbook": "https://snapshot6.validata.zone/cosmos/addrbook.json",
+    "snapshot": "https://snapshot6.validata.zone/cosmos/cosmos_snapshot.tar.gz",
+    "snapshot_check": {
+      "kind": "stable_url",
+      "resolve_url": "https://snapshot6.validata.zone/cosmos/cosmos_snapshot.tar.gz",
+      "min_size_bytes": 1000000000
+    },
+    "statesync_rpc": "https://rpc.cosmos.validata.zone",
+    "statesync_peer": "e64fcfbdfeabd196fed6398a1547bfe91fe6a951@peer.cosmos.validata.zone:45656",
+    "tools_url": {
+      "Monitoring": "https://cosmos.validata.zone/monitor",
+      "Delegator Statistics": "https://cosmos.validata.zone/delegators",
+      "Top Delegators": "https://cosmos.validata.zone/delegators/top"
+    },
+    "tools_desc": {
+      "Monitoring": "Independent monitoring for validator status, delegations/redelegations, governance proposals, upgrades and relayer balance alerts, hosted by Positiva Lab (tool name: Validata).",
+      "Delegator Statistics": "Delegator profit, rewards and delegation statistics dashboard for Cosmos Hub.",
+      "Top Delegators": "Ranking of top Cosmos Hub delegators by stake."
+    }
+  },
+  {
+    "name": "LuckyStar",
+    "webservices": "https://snapshots.luckystar.asia/cosmos",
+    "x": "",
+    "validatorlogo": "luckystar.jpg",
+    "snapshot": "https://snapshots.luckystar.asia/cosmos/cosmos_data.tar.zst",
+    "snapshot_check": {
+      "kind": "stable_url",
+      "resolve_url": "https://snapshots.luckystar.asia/cosmos/cosmos_data.tar.zst",
+      "min_size_bytes": 1000000000
+    },
+    "content": {
+      "Genesis": "https://snapshots.luckystar.asia/cosmos/genesis.json"
+    },
+    "_missing": "rpc, api, grpc, seed, addrbook, explorer and X/twitter handle not published for Cosmos Hub on their site or gitbook (luckystar-1.gitbook.io) as of 2026-09 - ask Havana directly if needed. Their gitbook's 'API, RPC, gRPC' page and cosmos-eco chain list do not include Cosmos Hub itself (only other Cosmos-ecosystem chains: Althea, Arkeo, AtomOne, Axone, BitBadges, Bitway/Side, Intento, Kii, Kopi, Lumera, Orai, Seda, Sunrise, TAC, XRPL, Zeta)."
   }
 ]
