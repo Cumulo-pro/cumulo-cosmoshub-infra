@@ -477,6 +477,12 @@
     "api": "https://cosmos.ibs.team:443/api",
     "websocket": "wss://cosmos.ibs.team/rpc/websocket",
     "snapshot": "https://snapshot.ibs.team/",
+    "snapshot_check": {
+      "kind": "always_ok",
+      "note": "The current file's exact filename cannot be discovered via a plain HTTP fetch (page is JavaScript-rendered, no directory listing or JSON manifest available). Automated verification disabled; assumed available.",
+      "db_backend": "goleveldb / pebbledb"
+
+    },
     "tools": "IBC Tool,IBC Relayer Stats",
     "tools_url": {
       "IBC Tool": "https://ibc.ibs.team",
