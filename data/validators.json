@@ -427,7 +427,7 @@
     "name": "Positiva Ultra",
     "webservices": "https://cosmos.validata.zone/",
     "x": "PositivaLab",
-    "validatorlogo": "positivaultra.jpg",
+    "validatorlogo": "positiva.jpg",
     "rpc": "https://rpc.cosmos.validata.zone",
     "api": "https://api.cosmos.validata.zone",
     "peers": "e64fcfbdfeabd196fed6398a1547bfe91fe6a951@peer.cosmos.validata.zone:45656",
