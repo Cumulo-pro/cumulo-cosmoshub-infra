@@ -466,5 +466,25 @@
       "Genesis": "https://snapshots.luckystar.asia/cosmos/genesis.json"
     },
     "_missing": "rpc, api, grpc, seed, addrbook, explorer and X/twitter handle not published for Cosmos Hub on their site or gitbook (luckystar-1.gitbook.io) as of 2026-09 - ask Havana directly if needed. Their gitbook's 'API, RPC, gRPC' page and cosmos-eco chain list do not include Cosmos Hub itself (only other Cosmos-ecosystem chains: Althea, Arkeo, AtomOne, Axone, BitBadges, Bitway/Side, Intento, Kii, Kopi, Lumera, Orai, Seda, Sunrise, TAC, XRPL, Zeta)."
+  },
+  {
+    "name": "Inter Blockchain Services",
+    "webservices": "https://ibs.team/services",
+    "x": "IBSvalidator",
+    "validatorlogo": "ibs.jpg",
+    "seed": "10ed1e176d874c8bb3c7c065685d2da6a4b86475@seed-cosmos.ibs.team:16685",
+    "rpc": "https://cosmos.ibs.team:443/rpc",
+    "api": "https://cosmos.ibs.team:443/api",
+    "websocket": "wss://cosmos.ibs.team/rpc/websocket",
+    "snapshot": "https://snapshot.ibs.team/",
+    "tools": "IBC Tool,IBC Relayer Stats",
+    "tools_url": {
+      "IBC Tool": "https://ibc.ibs.team",
+      "IBC Relayer Stats": "https://ibc-stats.ibs.team"
+    },
+    "tools_desc": {
+      "IBC Tool": "Operational IBC console to select a chain, inspect channel pairs, monitor pending packets, and trigger update-client or clear-packets actions across IBS-supported connections.",
+      "IBC Relayer Stats": "Public relayer performance dashboard ranking operators by transactions, packets and success rate over 1D, 7D, 30D and 60D windows, with table and chart views."
+    }
   }
 ]
