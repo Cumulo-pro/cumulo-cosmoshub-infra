@@ -497,5 +497,26 @@
       "IBC Tool": "Operational IBC console to select a chain, inspect channel pairs, monitor pending packets, and trigger update-client or clear-packets actions across IBS-supported connections.",
       "IBC Relayer Stats": "Public relayer performance dashboard ranking operators by transactions, packets and success rate over 1D, 7D, 30D and 60D windows, with table and chart views."
     }
+  },
+  {
+    "name": "BryanLabs",
+    "webservices": "https://bryanlabs.net/networks/cosmoshub",
+    "x": "danbryan80",
+    "rpc": "https://cosmoshub-rpc.bryanlabs.net",
+    "api": "https://cosmoshub-api.bryanlabs.net",
+    "grpc": "cosmoshub-grpc.bryanlabs.net:443",
+    "websocket": "wss://cosmoshub-rpc.bryanlabs.net/websocket",
+    "snapshot": "https://bryanlabs.net/snapshots/chains/cosmoshub-4",
+    "tools_url": {
+      "Public Endpoints": "https://bryanlabs.net/networks/cosmoshub",
+      "Snapshots": "https://bryanlabs.net/snapshots/chains/cosmoshub-4"
+    },
+    "tools_desc": {
+      "Public Endpoints": "Public RPC, REST API, gRPC, and WebSocket access to Cosmos Hub mainnet (cosmoshub-4).",
+      "Snapshots": "Pruned Cosmos Hub snapshots for LevelDB and PebbleDB."
+    },
+    "content": {
+      "Operator": "Independent infrastructure provider operated by Dan Bryan, not a validator."
+    }
   }
 ]
