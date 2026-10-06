@@ -502,6 +502,7 @@
     "name": "BryanLabs",
     "webservices": "https://bryanlabs.net/networks/cosmoshub",
     "x": "danbryan80",
+    "explorer": "https://bryanlabs.net/explore/cosmoshub",
     "rpc": "https://cosmoshub-rpc.bryanlabs.net",
     "api": "https://cosmoshub-api.bryanlabs.net",
     "grpc": "cosmoshub-grpc.bryanlabs.net:443",
@@ -509,14 +510,20 @@
     "snapshot": "https://bryanlabs.net/snapshots/chains/cosmoshub-4",
     "tools_url": {
       "Public Endpoints": "https://bryanlabs.net/networks/cosmoshub",
-      "Snapshots": "https://bryanlabs.net/snapshots/chains/cosmoshub-4"
+      "Snapshots": "https://bryanlabs.net/snapshots/chains/cosmoshub-4",
+      "Explorer": "https://bryanlabs.net/explore/cosmoshub",
+      "Tax Reports": "https://bryanlabs.net/tax",
+      "Upgrade Tracker": "https://bryanlabs.net/upgrades"
     },
     "tools_desc": {
       "Public Endpoints": "Public RPC, REST API, gRPC, and WebSocket access to Cosmos Hub mainnet (cosmoshub-4).",
-      "Snapshots": "Pruned Cosmos Hub snapshots for LevelDB and PebbleDB."
+      "Snapshots": "Pruned Cosmos Hub snapshots for LevelDB and PebbleDB.",
+      "Explorer": "Cosmos Hub block explorer with transactions, governance, and a CosmWasm console.",
+      "Tax Reports": "Cosmos SDK transaction history and historical balances exported for tax reporting.",
+      "Upgrade Tracker": "Scheduled Cosmos chain upgrades, upgrade history, and webhook notifications."
     },
     "content": {
-      "Operator": "Independent infrastructure provider operated by Dan Bryan, not a validator."
+      "Operator": "Independent infrastructure provider operated by Dan Bryan."
     }
   }
 ]
