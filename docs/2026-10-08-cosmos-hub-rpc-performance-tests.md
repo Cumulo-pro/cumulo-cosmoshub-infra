@@ -43,7 +43,7 @@ This report records every test run on 2026-10-08 against Cumulo's current produc
 | R5 | ≥ 15,000 blocks of blocks and tx index on every node | 150,016 blocks retained (§6) | ✅ Met today |
 | R6 | `indexer = "kv"`, empty `index-events` | Confirmed in config; all events returned by `tx_search` (§6) | ✅ Met today |
 | R7 | ≤ 3 blocks behind head; WS events within 10 s | Max lag of 1 block during all load tests, including worst-case search overload (§7, §8). WS event latency not yet measured | ✅ Lag met · WS latency ⏳ to test |
-| R8 | Serve ≤ 300 blocks after upgrade height | Node on current release (Gaia v28.3.1); upgrades applied manually today (§9) | ⚙️ Cosmovisor planned |
+| R8 | Serve ≤ 300 blocks after upgrade height | Node on current release (Gaia v28.3.1); upgrades performed hands-on by an operator present at every upgrade height (§9) | ✅ Process in place · timing ⏳ to measure |
 | R9 | External monitoring of every interface, on-call alerting, outage notice < 12 h | RPC and REST monitored from 4 regions every 5 min (§5) | ⚙️ gRPC, WS and alerting planned |
 
 Legend: ✅ verified · ⚙️ part of the planned build · ⏳ test defined, not yet run (§10).
@@ -262,10 +262,12 @@ Post-test at 14:12:03: height lag 0, load average 2.90, back at baseline.
 | Check | Result |
 |---|---|
 | Running version | Gaia `v28.3.1`, Cosmos SDK `v0.53.4`, the current release line on `cosmoshub-4` at test time |
-| Upgrade mechanism | Manual binary swap at the upgrade height; Cosmovisor not in use |
+| Upgrade mechanism | Hands-on: an operator is present at every upgrade height and swaps the binary prepared in advance. Cosmovisor is deliberately not used |
 | Historical upgrade timing | Not available from local logs (journal retention does not cover the last network upgrade); to be reconstructed from external monitoring history |
 
-The sponsored service will use Cosmovisor with the upgrade binary staged in advance on every node (§11), so nodes switch versions at the upgrade height without manual intervention.
+Cumulo performs every Cosmos Hub upgrade hands-on rather than through Cosmovisor. An operator is online at the upgrade height, with the new binary already built and verified, and restarts the nodes as soon as the chain halts. This keeps a human in the loop for each upgrade (for example, to verify an unexpected or out-of-band release before running it, as documented in our [v28.1.0 incident report](2026-09-05-cosmos-hub-v28.1.0-incident-report.md)) while keeping the upgrade window short.
+
+The sponsored service will follow the same procedure: all of its nodes are upgraded in the same session as Cumulo's validator, well within the 300-block limit.
 
 ---
 
@@ -302,7 +304,7 @@ The items below cannot be verified on the current single-node setup, or have not
    - The RFP per-client limit of 5 searches/s on top of the above.
 4. **Consensus stays healthy under overload.** The node never fell more than 1 block behind during any test, including search overload (§7, §8).
 5. **Dedicated nodes in separate locations.** The sponsored service will run on dedicated machines, so its capacity is not shared with other workloads, in two locations to avoid a single point of failure.
-6. **Automated upgrades.** Cosmovisor with pre-staged binaries on every node.
+6. **Hands-on upgrades.** Every service node is upgraded by an operator present at the upgrade height, in the same session as Cumulo's validator, with binaries built and verified in advance.
 
 ---
 
