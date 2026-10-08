@@ -132,7 +132,7 @@ All load-test capacity figures are **node-level**: requests were sent from the n
 
 ## 5. External multi-region monitoring
 
-Cumulo operates [EndPoint Scan](https://cumulo.pro/services/cosmos/rpcscan.php) ([API view](https://cumulo.pro/services/cosmos/apiscan.php)), a public health check of validator-run Cosmos Hub endpoints from four probe locations (US, EU, CA, AS). The endpoint list is maintained publicly on GitHub and any provider can request inclusion.
+Cumulo operates [EndPoint Scan](https://cumulo.pro/services/cosmos/rpcscan) ([API view](https://cumulo.pro/services/cosmos/apiscan)), a public health check of validator-run Cosmos Hub endpoints from four probe locations (US, EU, CA, AS). The endpoint list is maintained publicly on GitHub and any provider can request inclusion.
 
 Dashboard capture, last scan 10:06:44:
 
