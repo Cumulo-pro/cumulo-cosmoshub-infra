@@ -21,6 +21,7 @@ This repository covers:
 - Upgrade and maintenance procedures
 - Security and key-management practices
 - Ongoing operational changes and upgrades
+- Incident reports, performance tests and on-chain studies
 
 ---
 
@@ -29,7 +30,52 @@ This repository covers:
 - **Network:** Cosmos Hub  
 - **Chain ID:** `cosmoshub-4`  
 - **Client:** `gaiad`  
-- **Current version:** `v25.2.0`  
+- **Current version:** `v28.3.1`  
+
+---
+
+## 🔌 Public Endpoints
+
+| Interface | Endpoint |
+|---|---|
+| RPC (incl. WebSocket) | `https://rpc.cosmos.cumulo.com.es` |
+| REST API | `https://api.cosmos.cumulo.com.es` |
+| gRPC | `grpc.cosmos.cumulo.com.es:443` |
+
+All endpoints are served over TLS, without an API key, with CORS enabled for browser applications.
+
+---
+
+## 📡 EndPoint Scan
+
+Cumulo runs **EndPoint Scan**, a public multi-region health check (US · EU · CA · AS) of validator-run Cosmos Hub endpoints. It reports latency, a reliability score, CORS and TLS certificate status, refreshed every 5 minutes.
+
+- RPC Mainnet: <https://cumulo.pro/services/cosmos/rpcscan.php>
+- API Mainnet: <https://cumulo.pro/services/cosmos/apiscan.php>
+- RPC Testnet: <https://cumulo.pro/services/cosmos_testnet/rpcscan.php>
+- API Testnet: <https://cumulo.pro/services/cosmos_testnet/apiscan.php>
+
+The list of monitored endpoints is maintained in [`data/validators.json`](data/validators.json) (mainnet) and [`data/validators_testnet.json`](data/validators_testnet.json) (testnet). Any provider can request inclusion by opening a pull request against these files.
+
+---
+
+## 📝 Reports
+
+Operational reports, newest first:
+
+| Date | Report |
+|---|---|
+| 2026-10-08 | [Cosmos Hub RPC — Performance & Compliance Test Report](docs/2026-10-08-cosmos-hub-rpc-performance-tests.md) |
+| 2026-09-05 | [Cosmos Hub mainnet app-hash event: v28.1.0 emergency patch](docs/2026-09-05-cosmos-hub-v28.1.0-incident-report.md) |
+
+---
+
+## 🔬 Studies
+
+On-chain research published by Cumulo:
+
+- [Tokenfactory and Wasm bindings (v2)](studies/tokenfactory-wasm-bindings-2026-04-v2.md) · [first version](studies/tokenfactory-wasm-bindings-2026-04.md)
+- [Gas surcharge on multisend transactions](studies/gas-surcharge-multisend-2026-03/README.md)
 
 ---
 
@@ -51,12 +97,22 @@ This repository is part of that commitment.
 ## 📁 Repository Structure
 
 ```text
-cosmoshub-4/
-├─ README.md              # Network-specific overview
-├─ install/               # Node installation and configuration
-├─ validator/             # Validator setup and policies
-├─ operations/            # Upgrades, backups, incident handling
-├─ monitoring/            # Metrics and observability
-├─ configs/               # Example configuration files
-├─ systemd/               # Service definitions
-└─ scripts/               # Operational helper scripts
+.
+├─ README.md
+├─ cosmoshub-4/                 # Node and validator documentation
+│  ├─ install.md                # Node installation and configuration
+│  ├─ cosmoshub_testnet_fullnode_validator_setup.md
+│  ├─ COSMOS_CLI_COMMAND_REFERENCE.md
+│  ├─ Cosmos_CometBFT_Metrics.md
+│  ├─ dashboard-*.json          # Grafana dashboard
+│  ├─ horcrux/                  # Threshold signing (Horcrux)
+│  └─ validator/                # Validator setup, wallet and policies
+├─ data/                        # Endpoint lists used by EndPoint Scan
+│  ├─ validators.json
+│  └─ validators_testnet.json
+├─ docs/                        # Incident reports and test reports
+├─ ibc/                         # IBC relaying
+│  ├─ collector/
+│  └─ hermes/                   # Hermes config and channel definitions
+└─ studies/                     # On-chain research
+```
