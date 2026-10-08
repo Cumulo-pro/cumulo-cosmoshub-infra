@@ -50,10 +50,10 @@ All endpoints are served over TLS, without an API key, with CORS enabled for bro
 
 Cumulo runs **EndPoint Scan**, a public multi-region health check (US · EU · CA · AS) of validator-run Cosmos Hub endpoints. It reports latency, a reliability score, CORS and TLS certificate status, refreshed every 5 minutes.
 
-- RPC Mainnet: <https://cumulo.pro/services/cosmos/rpcscan.php>
-- API Mainnet: <https://cumulo.pro/services/cosmos/apiscan.php>
-- RPC Testnet: <https://cumulo.pro/services/cosmos_testnet/rpcscan.php>
-- API Testnet: <https://cumulo.pro/services/cosmos_testnet/apiscan.php>
+- RPC Mainnet: <https://cumulo.pro/services/cosmos/rpcscan>
+- API Mainnet: <https://cumulo.pro/services/cosmos/apiscan>
+- RPC Testnet: <https://cumulo.pro/services/cosmos_testnet/rpcscan>
+- API Testnet: <https://cumulo.pro/services/cosmos_testnet/apiscan>
 
 The list of monitored endpoints is maintained in [`data/validators.json`](data/validators.json) (mainnet) and [`data/validators_testnet.json`](data/validators_testnet.json) (testnet). Any provider can request inclusion by opening a pull request against these files.
 
