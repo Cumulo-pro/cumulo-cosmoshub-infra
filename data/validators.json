@@ -502,6 +502,7 @@
     "name": "BryanLabs",
     "webservices": "https://bryanlabs.net/networks/cosmoshub",
     "x": "danbryan80",
+    "validatorlogo": "bryanlabs.png",
     "explorer": "https://bryanlabs.net/explore/cosmoshub",
     "rpc": "https://cosmoshub-rpc.bryanlabs.net",
     "api": "https://cosmoshub-api.bryanlabs.net",
