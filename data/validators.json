@@ -522,9 +522,6 @@
       "Explorer": "Cosmos Hub block explorer with transactions, governance, and a CosmWasm console.",
       "Tax Reports": "Cosmos SDK transaction history and historical balances exported for tax reporting.",
       "Upgrade Tracker": "Scheduled Cosmos chain upgrades, upgrade history, and webhook notifications."
-    },
-    "content": {
-      "Operator": "Independent infrastructure provider operated by Dan Bryan."
     }
   }
 ]
