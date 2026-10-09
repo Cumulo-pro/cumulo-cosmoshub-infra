@@ -1,9 +1,9 @@
-# Cosmos Hub RPC — Performance & Compliance Test Report
+# Cosmos Hub RPC: Performance & Compliance Test Report
 
 | | |
 |---|---|
 | **Operator** | Cumulo ([cumulo.pro](https://cumulo.pro)) |
-| **Date** | 2026-10-08 — all times in UTC |
+| **Date** | 2026-10-08   all times in UTC |
 | **Purpose** | Evidence for the ICF Ecosystem Growth Delegation RFP *"Cosmos Hub Sponsored Endpoint Provider"* ([forum post](https://forum.cosmos.network/t/targeted-rfp-cosmos-hub-sponsored-endpoint-provider/17414)) |
 | **Chain** | `cosmoshub-4` |
 | **Public endpoints** | `rpc.cosmos.cumulo.com.es` · `api.cosmos.cumulo.com.es` · `grpc.cosmos.cumulo.com.es` |
@@ -20,15 +20,15 @@ This report records every test run on 2026-10-08 against Cumulo's current produc
 4. [Interface checks](#4-interface-checks)
 5. [External multi-region monitoring](#5-external-multi-region-monitoring)
 6. [Retention and indexing](#6-retention-and-indexing)
-7. [Load tests — general traffic](#7-load-tests--general-traffic)
-8. [Load tests — worst-case searches](#8-load-tests--worst-case-searches)
+7. [Load tests   general traffic](#7-load-tests--general-traffic)
+8. [Load tests   worst-case searches](#8-load-tests--worst-case-searches)
 9. [Upgrade readiness](#9-upgrade-readiness)
 10. [Requirements not yet tested](#10-requirements-not-yet-tested)
 11. [Conclusions for the service design](#11-conclusions-for-the-service-design)
 12. [Limitations](#12-limitations)
-- [Appendix A — Raw load-test reports](#appendix-a--raw-load-test-reports)
-- [Appendix B — Height-lag log](#appendix-b--height-lag-log)
-- [Appendix C — Reproduction scripts](#appendix-c--reproduction-scripts)
+- [Appendix A   Raw load-test reports](#appendix-a--raw-load-test-reports)
+- [Appendix B   Height-lag log](#appendix-b--height-lag-log)
+- [Appendix C   Reproduction scripts](#appendix-c--reproduction-scripts)
 
 ---
 
@@ -60,7 +60,7 @@ All load-test capacity figures are **node-level**: requests were sent from the n
 | Node role | Full node, non-validating (`voting_power: 0`), moniker `RPCCumulo` |
 | Indexer | `indexer = "kv"`, `index-events = []`, `tx_index: on` |
 | Retention at test time | Height `33,162,918` (2026-09-28 12:44) → `33,312,934` (2026-10-08 10:07) = 150,016 blocks |
-| CPU | AMD Ryzen 9 9950X — 16 cores / 32 threads, 4.3 GHz base |
+| CPU | AMD Ryzen 9 9950X   16 cores / 32 threads, 4.3 GHz base |
 | Memory | 192 GB DDR5 |
 | Storage | NVMe SSDs in software RAID |
 | Reverse proxy | nginx 1.30.5, TLS on all public interfaces |
@@ -91,14 +91,14 @@ All load-test capacity figures are **node-level**: requests were sent from the n
 | 10:21–10:24 | Node process / config review; nginx review; API and gRPC checks; WebSocket direct and via nginx; API CORS preflight | §4 |
 | 10:25–10:26 | Version and upgrade-mechanism check | §9 |
 | 10:28–10:31 | Height-lag baseline | §2, App. B |
-| 10:32–10:42 | **Run 1** — full stepped run (mixed 25/50/100/150 req/s, heavy 10/20/40 req/s) with height-lag watcher | §7.3, App. B |
-| ~10:43–10:46 | **Run 2** — mixed 100 and 150 req/s, reports saved | §7.2 |
-| ~10:48–10:51 | **Run 3** — heavy 20 and 40 req/s, reports saved | §7.2 |
-| ~10:53–10:55 | **Run 4** — worst-case searches, unbounded, 5 req/s | §8.2 |
+| 10:32–10:42 | **Run 1**   full stepped run (mixed 25/50/100/150 req/s, heavy 10/20/40 req/s) with height-lag watcher | §7.3, App. B |
+| ~10:43–10:46 | **Run 2**   mixed 100 and 150 req/s, reports saved | §7.2 |
+| ~10:48–10:51 | **Run 3**   heavy 20 and 40 req/s, reports saved | §7.2 |
+| ~10:53–10:55 | **Run 4**   worst-case searches, unbounded, 5 req/s | §8.2 |
 | 10:56 | Recovery check | §8.2 |
 | ~13:41 | Single-query latency of worst-case searches | §8.1 |
 | 14:00 | Host baseline check before Run 5 | §8.3 |
-| ~14:01–14:10 | **Run 5** — worst-case searches, bounded, stepped run 8/11/14/20 req/s | §8.3 |
+| ~14:01–14:10 | **Run 5**   worst-case searches, bounded, stepped run 8/11/14/20 req/s | §8.3 |
 | 14:12 | Post-test lag and load check | §8.3 |
 
 ---
@@ -116,7 +116,7 @@ All load-test capacity figures are **node-level**: requests were sent from the n
 | REST API | `GET https://api.cosmos.cumulo.com.es/cosmos/base/tendermint/v1beta1/blocks/latest` | `chain_id: cosmoshub-4`, `height: 33313090`, `time: 2026-10-08T10:22:33Z` |
 | API CORS preflight | `OPTIONS https://api.cosmos.cumulo.com.es/cosmos/base/tendermint/v1beta1/blocks/latest` with `Origin` and `Access-Control-Request-Method: GET` | `HTTP/2 204`; same CORS headers as RPC |
 | gRPC, valid call | `grpcurl grpc.cosmos.cumulo.com.es:443 cosmos.base.tendermint.v1beta1.Service/GetLatestBlock` | `33313090` (current height) |
-| gRPC, invalid call | `GetBlockByHeight {"height":"1"}` | `Code: Unknown` — `height 1 is not available, lowest height is 33162918` |
+| gRPC, invalid call | `GetBlockByHeight {"height":"1"}` | `Code: Unknown`   `height 1 is not available, lowest height is 33162918` |
 | No API key | All requests above | No authentication required |
 
 **gRPC status codes.** gRPC returns proper status codes rather than HTTP errors. The `Unknown` code for a pruned height is produced by the Cosmos SDK itself, not by the proxy, so any Gaia-based provider returns the same code for this case.
@@ -139,7 +139,7 @@ Dashboard capture, last scan 10:06:44:
 | Endpoint | Reliability | CORS | TLS | EU | US | CA | AS | Avg | EMA |
 |---|---|---|---|---|---|---|---|---|---|
 | `rpc.cosmos.cumulo.com.es` | **100 %** | ✅ | ✅ | 58 ms | 534 ms | 598 ms | 1,359 ms | 661 ms | 683 ms |
-| Dashboard average (15 of 18 endpoints healthy) | — | — | — | 117 ms | 484 ms | 520 ms | 739 ms | 460 ms | — |
+| Dashboard average (15 of 18 endpoints healthy) |   |   |   | 117 ms | 484 ms | 520 ms | 739 ms | 460 ms |   |
 
 Probe latency includes network distance to each region; the current node is located in Europe. The planned architecture places the second node in a different location (§11).
 
@@ -149,8 +149,8 @@ Probe latency includes network distance to each region; the current node is loca
 
 | Check | Result |
 |---|---|
-| `/status` earliest block | `33,162,918` — 2026-09-28T12:44:17Z |
-| `/status` latest block | `33,312,934` — 2026-10-08T10:07:43Z |
+| `/status` earliest block | `33,162,918`   2026-09-28T12:44:17Z |
+| `/status` latest block | `33,312,934`   2026-10-08T10:07:43Z |
 | Blocks retained | **150,016** (10× the required 15,000) |
 | `config.toml` | `indexer = "kv"` |
 | `app.toml` | `index-events = []` |
@@ -158,7 +158,7 @@ Probe latency includes network distance to each region; the current node is loca
 
 ---
 
-## 7. Load tests — general traffic
+## 7. Load tests   general traffic
 
 ### 7.1 Method
 
@@ -212,7 +212,7 @@ Full log in Appendix B.
 
 ---
 
-## 8. Load tests — worst-case searches
+## 8. Load tests   worst-case searches
 
 The cost of a `tx_search` grows with the number of index entries that match the query. To measure the worst case, we used a **very active address**: an authz auto-compounding (REStake) bot with thousands of transactions in the retained window.
 Query: `message.sender='cosmos1jv65s3grqf6v6jl3dp4t6c9t9rk99cd88lyufl'`, `per_page=30`, random page 1–3.
@@ -321,10 +321,10 @@ The items below cannot be verified on the current single-node setup, or have not
 
 ---
 
-## Appendix A — Raw load-test reports
+## Appendix A   Raw load-test reports
 
 <details>
-<summary>Run 2 — mixed profile, 100 and 150 req/s</summary>
+<summary>Run 2   mixed profile, 100 and 150 req/s</summary>
 
 ```
 == mixed 100 req/s ==
@@ -349,7 +349,7 @@ Error Set:
 </details>
 
 <details>
-<summary>Run 3 — heavy profile, 20 and 40 req/s</summary>
+<summary>Run 3   heavy profile, 20 and 40 req/s</summary>
 
 ```
 == heavy 20 req/s ==
@@ -374,7 +374,7 @@ Error Set:
 </details>
 
 <details>
-<summary>Run 4 — worst-case searches, unbounded, 5 req/s</summary>
+<summary>Run 4   worst-case searches, unbounded, 5 req/s</summary>
 
 ```
 Requests      [total, rate, throughput]         300, 5.02, 0.00
@@ -390,7 +390,7 @@ Get ".../tx_search?query=%22message.sender%3D%27cosmos1jv65s3grqf6v6jl3dp4t6c9t9
 </details>
 
 <details>
-<summary>§8.1 — single-query latency</summary>
+<summary>§8.1   single-query latency</summary>
 
 ```
 # 1. Very active address, unbounded
@@ -406,7 +406,7 @@ real    0m0.015s
 </details>
 
 <details>
-<summary>Run 5 — worst-case searches, bounded, stepped run</summary>
+<summary>Run 5   worst-case searches, bounded, stepped run</summary>
 
 ```
 == costly bounded 8 req/s ==
@@ -447,7 +447,7 @@ Status Codes  [code:count]                      0:234  200:166
 
 ---
 
-## Appendix B — Height-lag log
+## Appendix B   Height-lag log
 
 `lag` = reference height − our height; `load` = 1-minute load average on 32 threads.
 
@@ -605,14 +605,14 @@ The load rise at 10:30 coincides with the compilation of the load-test tool.
 
 ```
 10:56:16  lag=0  load 6.34 / 5.45 / 3.56   (1 min after Run 4)
-14:00:41  —      load 3.87, RPC node 20 % CPU (baseline before Run 5)
+14:00:41         load 3.87, RPC node 20 % CPU (baseline before Run 5)
 14:12:03  lag=0  load 2.90                 (after Run 5)
 ```
 </details>
 
 ---
 
-## Appendix C — Reproduction scripts
+## Appendix C   Reproduction scripts
 
 **Install and variables**
 
