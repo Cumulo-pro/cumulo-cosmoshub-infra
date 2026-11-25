@@ -17,23 +17,24 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 | Path | Type | Channels | Status |
 |---|---|---|---|
-| `mocha-4 ↔ provider` | Testnet - own channel | 1 | ✅ Live |
+| `mocha-5 ↔ provider` | Testnet - own channel | 1 | ✅ Live |
 | `celestia ↔ cosmoshub-4` | Mainnet - own channel | 1 | ✅ Live |
 | `celestia ↔ xrplevm_1440000-1` | Mainnet - own channel | 1 | ✅ Live |
 | `celestia ↔ injective-1` | Mainnet - own channel | 1 | ✅ Live |
 | `celestia ↔ osmosis-1` | Mainnet - relayer on existing channels | 3 | ✅ Live |
-| `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
+| `cosmoshub-4 ↔ xrplevm_1440000-1` | Mainnet - own channel | 1 | ✅ Live |
 | `cosmoshub-4 ↔ injective-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
 | `cosmoshub-4 ↔ osmosis-1` | Mainnet - relayer on existing channels | 8 | ✅ Live |
 | `cosmoshub-4 ↔ seda-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
-| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - relayer on Peersyst channel | 1 | ✅ Live |
+| `xrplevm_1440000-1 ↔ injective-1` | Mainnet - own channel | 1 | ✅ Live |
+| `xrplevm_1440000-1 ↔ osmosis-1` | Mainnet - own channel | 1 | ✅ Live |
 | `injective-1 ↔ osmosis-1` | Mainnet - relayer on existing channels | 2 | ✅ Live |
 | `seda-1 ↔ osmosis-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
 | `celestia ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
 | `cosmoshub-4 ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
 | `osmosis-1 ↔ dymension_1100-1` | Mainnet - relayer on existing channel | 1 | ✅ Live |
 
-**Total active channels: 22**
+**Total active channels: 23**
 
 > **Hermes version:** v1.13.2
 
@@ -41,13 +42,13 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ## Active Channels
 
-### Testnet - mocha-4 ↔ provider
+### Testnet - mocha-5 ↔ provider
 
-| | mocha-4 | provider |
+| | mocha-5 | provider |
 |---|---|---|
 | **client** | `07-tendermint-636` | `07-tendermint-447` |
 | **connection** | `connection-687` | `connection-308` |
-| **channel** | `channel-467` | `channel-593` |
+| **channel** | `channel-2` | `channel-606` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - celestia ↔ cosmoshub-4
@@ -63,13 +64,13 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 
 ### Mainnet - celestia ↔ xrplevm_1440000-1
 
-> **First IBC channel between Celestia mainnet and XRPL EVM**
+> **Cumulo IBC channel between Celestia mainnet and XRPL EVM**
 
 | | celestia | xrplevm_1440000-1 |
 |---|---|---|
-| **client** | `07-tendermint-165` | `07-tendermint-13` |
-| **connection** | `connection-105` | `connection-6` |
-| **channel** | `channel-280` | `channel-6` |
+| **client** | `07-tendermint-181` | `07-tendermint-19` |
+| **connection** | `connection-119` | `connection-15` |
+| **channel** | `channel-710` | `channel-10` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - celestia ↔ injective-1
@@ -83,13 +84,13 @@ Operational guide for running a Hermes IBC relayer using Cumulo's public infrast
 | **channel** | `channel-281` | `channel-453` |
 | **port** | `transfer` | `transfer` |
 
-### Mainnet - cosmoshub-4 ↔ xrplevm_1440000-1 (Peersyst channel)
+### Mainnet - cosmoshub-4 ↔ xrplevm_1440000-1
 
 | | cosmoshub-4 | xrplevm_1440000-1 |
 |---|---|---|
-| **client** | `07-tendermint-1411` | `07-tendermint-2` |
-| **connection** | `connection-1134` | `connection-2` |
-| **channel** | `channel-1377` | `channel-2` |
+| **client** | `07-tendermint-1522` | `07-tendermint-20` |
+| **connection** | `connection-1315` | `connection-17` |
+| **channel** | `channel-1943` | `channel-11` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - cosmoshub-4 ↔ injective-1
@@ -107,13 +108,20 @@ Also relaying:
 |---|---|
 | `channel-220` | `channel-1` |
 
-### Mainnet - xrplevm_1440000-1 ↔ injective-1 (Peersyst channel)
+### Mainnet - xrplevm_1440000-1 ↔ injective-1
 
 | | xrplevm_1440000-1 | injective-1 |
 |---|---|---|
-| **client** | `07-tendermint-0` | `07-tendermint-314` |
-| **connection** | `connection-0` | `connection-314` |
-| **channel** | `channel-0` | `channel-436` |
+| **client** | `07-tendermint-21` | `07-tendermint-366` |
+| **connection** | `connection-18` | `connection-387` |
+| **channel** | `channel-12` | `channel-507` |
+| **port** | `transfer` | `transfer` |
+
+### Mainnet - xrplevm_1440000-1 ↔ osmosis-1
+
+| | xrplevm_1440000-1 | osmosis-1 |
+|---|---|---|
+| **channel** | `channel-3` | `channel-104325` |
 | **port** | `transfer` | `transfer` |
 
 ### Mainnet - cosmoshub-4 ↔ seda-1
@@ -170,7 +178,7 @@ Also relaying:
 
 | Chain | Address |
 |---|---|
-| mocha-4 | `celestia1mlf0e4cx657a2mkt9t9clcw78zhqut4629v3s7` |
+| mocha-5 | `celestia1mlf0e4cx657a2mkt9t9clcw78zhqut4629v3s7` |
 | provider | `cosmos1qqsrv08cvqpxcctmr7pyy3c5g3ukvurktejy2q` |
 | celestia | `celestia1ahzs5c3g3z9u9wxwxmcmqgu6htagp4md627uas` |
 | cosmoshub-4 | `cosmos1t24lx6zfx7hqrexppk6gh2yavytv39xqfg5u9f` |
@@ -193,9 +201,9 @@ Also relaying:
 
 ### Testnet
 
-| Parameter | Celestia Mocha-4 | Cosmos Hub Provider |
+| Parameter | Celestia Mocha-5 | Cosmos Hub Provider |
 |---|---|---|
-| chain-id | `mocha-4` | `provider` |
+| chain-id | `mocha-5` | `provider` |
 | RPC | `https://mocha.celestia.rpc.cumulo.me` | `https://cosmos.rpc.testnet.cumulo.me` |
 | API | `https://mocha.api.cumulo.me` | `https://cosmos.api.testnet.cumulo.me` |
 | gRPC | `https://mocha.grpc.cumulo.me` | `https://cosmos.grpc.testnet.cumulo.me` |
@@ -255,7 +263,7 @@ for chain in mocha provider celestia-mainnet cosmoshub xrplevm injective seda os
 done
 
 # Import into Hermes
-hermes keys add --chain mocha-4           --mnemonic-file $HOME/.hermes/mocha-mnemonic.txt
+hermes keys add --chain mocha-5           --mnemonic-file $HOME/.hermes/mocha-mnemonic.txt
 hermes keys add --chain provider          --mnemonic-file $HOME/.hermes/provider-mnemonic.txt
 hermes keys add --chain celestia          --mnemonic-file $HOME/.hermes/celestia-mainnet-mnemonic.txt
 hermes keys add --chain cosmoshub-4       --mnemonic-file $HOME/.hermes/cosmoshub-mnemonic.txt
@@ -300,12 +308,16 @@ hermes create channel --a-chain celestia --b-chain xrplevm_1440000-1 \
 hermes create channel --a-chain celestia --b-chain injective-1 \
   --a-port transfer --b-port transfer --new-client-connection --yes
 
-# celestia ↔ seda-1 (pending)
-hermes create channel --a-chain celestia --b-chain seda-1 \
+# cosmoshub-4 ↔ xrplevm_1440000-1
+hermes create channel --a-chain cosmoshub-4 --b-chain xrplevm_1440000-1 \
   --a-port transfer --b-port transfer --new-client-connection --yes
 
-# celestia ↔ osmosis-1 (pending)
-hermes create channel --a-chain celestia --b-chain osmosis-1 \
+# xrplevm_1440000-1 ↔ injective-1
+hermes create channel --a-chain xrplevm_1440000-1 --b-chain injective-1 \
+  --a-port transfer --b-port transfer --new-client-connection --yes
+
+# xrplevm_1440000-1 ↔ osmosis-1
+hermes create channel --a-chain xrplevm_1440000-1 --b-chain osmosis-1 \
   --a-port transfer --b-port transfer --new-client-connection --yes
 ```
 
@@ -362,32 +374,36 @@ https://hermes-metrics.cumulo.me/metrics
 
 ```bash
 # Testnet
-hermes clear packets --chain mocha-4  --port transfer --channel channel-464
-hermes clear packets --chain provider --port transfer --channel channel-586
+hermes clear packets --chain mocha-5  --port transfer --channel channel-2
+hermes clear packets --chain provider --port transfer --channel channel-606
 
 # celestia <> cosmoshub-4
 hermes clear packets --chain celestia    --port transfer --channel channel-278
 hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-1879
 
 # celestia <> xrplevm
-hermes clear packets --chain celestia          --port transfer --channel channel-280
-hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-6
+hermes clear packets --chain celestia          --port transfer --channel channel-710
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-10
 
 # celestia <> injective
 hermes clear packets --chain celestia    --port transfer --channel channel-281
 hermes clear packets --chain injective-1 --port transfer --channel channel-453
 
 # cosmoshub-4 <> xrplevm
-hermes clear packets --chain cosmoshub-4       --port transfer --channel channel-1377
-hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-2
+hermes clear packets --chain cosmoshub-4       --port transfer --channel channel-1943
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-11
 
 # cosmoshub-4 <> injective
 hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-211
 hermes clear packets --chain injective-1 --port transfer --channel channel-0
 
 # xrplevm <> injective
-hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-0
-hermes clear packets --chain injective-1       --port transfer --channel channel-436
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-12
+hermes clear packets --chain injective-1       --port transfer --channel channel-507
+
+# xrplevm <> osmosis
+hermes clear packets --chain xrplevm_1440000-1 --port transfer --channel channel-3
+hermes clear packets --chain osmosis-1         --port transfer --channel channel-104325
 
 # cosmoshub-4 <> seda-1
 hermes clear packets --chain cosmoshub-4 --port transfer --channel channel-1337
@@ -466,7 +482,7 @@ location / {
 
 ### XRPL EVM specific
 
-- `trusting_period = "18hours"` - PoA chain with 1 day unbonding period
+- `trusting_period = "18hours"` - PoA chain with 1 day unbonding period; relayer must run 24/7 or clients expire
 - `gas price = 600000000 axrp/gas` - minimum enforced by the node
 - Binary: `exrpd`
 
@@ -498,4 +514,4 @@ Osmosis has 100,000+ IBC channels. Without `packet_filter`, Hermes spawns thousa
 
 ---
 
-*Cumulo - IBC Initiative - June 2026*
+*Cumulo - IBC Initiative - November 2026*
