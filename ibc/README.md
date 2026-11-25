@@ -1,6 +1,6 @@
 # IBC Relayer Infrastructure by Cumulo
 
-Cumulo operates an IBC relayer across 22 channels between 8 chains on Cosmos Hub mainnet and testnet.
+Cumulo operates an IBC relayer across 23 channels between 8 chains on Cosmos Hub mainnet and testnet.
 
 ## Components
 
@@ -21,7 +21,7 @@ Cumulo operates an IBC relayer across 22 channels between 8 chains on Cosmos Hub
 
 | Path | Channels |
 |---|---|
-| mocha-4 ↔ provider | 1 (testnet) |
+| mocha-5 ↔ provider | 1 (testnet) |
 | celestia ↔ cosmoshub-4 | 1 |
 | celestia ↔ xrplevm_1440000-1 | 1 |
 | celestia ↔ injective-1 | 1 |
@@ -33,11 +33,12 @@ Cumulo operates an IBC relayer across 22 channels between 8 chains on Cosmos Hub
 | cosmoshub-4 ↔ seda-1 | 1 |
 | cosmoshub-4 ↔ dymension_1100-1 | 1 |
 | xrplevm_1440000-1 ↔ injective-1 | 1 |
+| xrplevm_1440000-1 ↔ osmosis-1 | 1 |
 | injective-1 ↔ osmosis-1 | 2 |
 | seda-1 ↔ osmosis-1 | 1 |
 | osmosis-1 ↔ dymension_1100-1 | 1 |
 
-**Total: 22 channels · 8 chains**
+**Total: 23 channels · 8 chains**
 
 ## Relayer Wallets
 
@@ -50,5 +51,5 @@ Cumulo operates an IBC relayer across 22 channels between 8 chains on Cosmos Hub
 | seda-1 | mainnet | `seda10l7d6fe3l68zghf6fyrpj5xqpj748sfg6jszcv` |
 | osmosis-1 | mainnet | `osmo1djcckm2zw4xyz2lt6yg6euhgnrwp29k38n2l86` |
 | dymension_1100-1 | mainnet | `dym1qqev5krh9ge9tctc4gkfs6l54anuunzjngwkcl` |
-| mocha-4 | testnet | `celestia1mlf0e4cx657a2mkt9t9clcw78zhqut4629v3s7` |
+| mocha-5 | testnet | `celestia1mlf0e4cx657a2mkt9t9clcw78zhqut4629v3s7` |
 | provider | testnet | `cosmos1qqsrv08cvqpxcctmr7pyy3c5g3ukvurktejy2q` |
